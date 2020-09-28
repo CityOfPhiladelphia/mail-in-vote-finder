@@ -33,7 +33,7 @@ import expandCollapseContent from './components/ExpandCollapseContent.vue';
 import customGreeting from './components/customGreeting.vue';
 const customComps = {
   'expandCollapseContent': expandCollapseContent,
-  // 'customGreeting': customGreeting,
+  'customGreeting': customGreeting,
 };
 
 pinboard({
