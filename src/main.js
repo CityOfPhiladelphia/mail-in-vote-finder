@@ -71,8 +71,8 @@ pinboard({
   app: {
     logoAlt: 'City of Philadelphia',
     type: 'votingSites',
-    title: 'Application name',
-    subtitle: 'Lorem ipsum dolor set amet',
+    title: 'Mail-in Voting Centers',
+    subtitle: 'Find a vote-by-mail location near you',
   },
   comboSearch: {
     dropdown: [ 'address' ],
@@ -136,12 +136,16 @@ pinboard({
   },
   footer: {
     'HowToUse': false,
-    // 'OtherLinks': {
-    //   locations: {
-    //     text: 'View accessible list of site locations',
-    //     link: 'https://www.phila.gov/programs/access-centers/access-center-sites/#/',
-    //   },
-    // },
+    'OtherLinks': {
+      commissioners: {
+        text: 'City Commissioners',
+        link: 'https://www.philadelphiavotes.com/',
+      },
+      guide: {
+        text: 'General election mail-in ballot guide',
+        link: 'https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/',
+      },
+    },
   },
   // infoCircles: {
   //   'symptomatic': {
