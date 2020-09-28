@@ -71,8 +71,8 @@ pinboard({
   app: {
     logoAlt: 'City of Philadelphia',
     type: 'votingSites',
-    title: 'Mail-in Voting Sites',
-    subtitle: 'mail in voting',
+    title: 'Application name',
+    subtitle: 'Lorem ipsum dolor set amet',
   },
   comboSearch: {
     dropdown: [ 'address' ],

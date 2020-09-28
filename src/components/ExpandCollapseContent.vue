@@ -1,88 +1,135 @@
 <template>
-  <div>
-  <!-- <div class="grid-x grid-padding-x">
-    <div class="cell medium-12"> -->
-
-    <div class="grid-x grid-padding-x">
-      <div class="cell medium-12">
-
-        <font-awesome-icon icon="map-marker-alt" />
-        <span>
-          {{ item.STREET_ADDRESS }}<br>
-          Philadelphia, PA {{ item.ZIP_CODE }}<br>
-        </span><br>
-        <!-- {{ item.STREET_ADDRESS }}<br>
-        Philadelphia, PA {{ item.ZIP_CODE }} <br> -->
-
-        <font-awesome-icon icon="phone" />
-        <span>
-          {{ item.PHONE_NUMBER }}<br>
-        </span><br>
-
+  <div class="grid-x grid-padding-x">
+    <div class="cell medium-12">
+      <div
+        v-if="item.street_address"
+        class="grid-x detail"
+      >
+        <div class="small-2">
+          <font-awesome-icon icon="map-marker-alt" />
+        </div>
+        <div class="small-22">
+          {{ item.street_address }}<br>
+          Philadelphia, PA {{ item.zip }}<br>
+          <!-- {{ item.TestingLocation2 }} -->
+        </div>
       </div>
-      <div class="cell medium-12">
-         Website: <a target="_blank" :href="makeValidUrl(item.WEBSITE_URL)">{{ item.WEBSITE_URL }}</a>
+
+      <!-- <div
+        v-if="item.ProviderURL"
+        class="grid-x detail"
+      >
+        <div class="small-2">
+          <font-awesome-icon icon="globe" />
+        </div>
+        <div class="small-22">
+          <a
+            target="_blank"
+            :href="item.ProviderURL"
+          >{{ $t('website') }}</a>
+        </div>
+      </div> -->
+
+      <div
+        v-if="item.phone_number"
+        class="grid-x detail"
+      >
+        <div class="small-2">
+          <font-awesome-icon icon="phone" />
+        </div>
+        <div class="small-22">
+          {{ item.phone_number }}
+        </div>
       </div>
     </div>
 
-    <h3 class="h4">
-      Type
-    </h3>
-    <div class="grid-x grid-padding-x">
+    <!-- <div class="cell medium-12">
       <div
-        v-if="item.HCA"
-        class="small-24"
+        v-if="item.facility_type"
+        class="grid-x detail"
       >
-        Housing Counseling Agency
-      </div>
-      <div
-        v-if="item.NAC"
-        class="small-24"
-      >
-        Neighborhood Advisory Committee
-      </div>
-      <div
-        v-if="item.NEC"
-        class="small-24"
-      >
-        Neighborhood Energy Center
-      </div>
-    </div>
-    <br>
+        <div class="small-2">
+          <font-awesome-icon icon="building" />
+        </div>
+        <div
+          class="small-22"
+        >
+          <div>
+            {{ $t( 'facilityType[\'' + item.facility_type + '\']') }}
+          </div>
 
-    <h3
-      v-if="item.SPECIALTY"
-      class="h4"
-    >
-      Specialty
-    </h3>
-    <div class="grid-x grid-padding-x">
-      <div class="small-12">
-        <!-- {{ item.SPECIALTY.charAt(0) + item.SPECIALTY.substring(1).toLowerCase() }} -->
+          <div
+            v-if="item.drive_thruwalk_up !== null"
+          >
+            {{ $t( 'process[\'' + item.drive_thruwalk_up + '\']') }}
+          </div>
+        </div>
       </div>
-    </div>
-    <br>
 
-    <h3 class="h4">
-      Services Offered
-    </h3>
-    <div class="grid-x grid-padding-x">
       <div
-        v-if="item.FORECLOSURE"
-        class="small-12"
+        v-if="item.facility_type"
+        class="grid-x detail"
       >
-        Foreclosure
-      </div>
-      <div
-        v-if="item.PRE_PURCHASE"
-        class="small-12"
-      >
-        Pre-Purchase
-      </div>
-    </div>
+        <div class="small-2">
+          <font-awesome-icon icon="user-md" />
+        </div>
+        <div
+          class="small-22"
+        >
+          <div>
+            {{ $t( 'patientAge[\'' + item.Age + '\']') }}
+          </div>
 
+          <div>
+            {{ $t( 'refReq[\'' + item.Referral + '\']') }}
+          </div>
+
+          <div>
+            {{ $t( 'symptomatic[\'' + item.Symptoms + '\']') }}
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="small-24">
+      <vertical-table-light
+        class="print-padding"
+        :slots="mainVerticalTableSlots"
+        :options="mainVerticalTableOptions"
+      >
+        <template
+          v-slot:component1
+          class="table-slot"
+        >
+          <div class="td-textbox">
+            <span
+              v-show="item.testing_restrictions != null"
+              class="td-style"
+            >
+              {{ $t('restrictions[\'' + item.testing_restrictions + '\']') }}
+            </span>
+            <span
+              v-show="item.Notes != null"
+              class="td-style"
+            >
+              {{ $t('notes[\'' + item.Notes + '\']') }}
+            </span>
+          </div>
+        </template>
+
+        <template
+          v-slot:component2
+          class="table-slot"
+        >
+          <vertical-table-light
+            class="print-padding"
+            :slots="component1VerticalTableSlots"
+            :options="component1VerticalTableOptions"
+          />
+        </template>
+      </vertical-table-light>
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -144,7 +191,7 @@ export default {
     },
 
     days() {
-      let allDays = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+      let allDays = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
       let theFields = [];
       // let days = {};
 
@@ -167,25 +214,38 @@ export default {
         let holidayYesterday = holidays.includes(yesterday);
         let siteIsException = exceptions.includes(this.getSiteName(this.item));
 
-        // if (this.item[day] != null){
-        if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
-
-          let hours;
-          if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
-            hours = item[day];
-          } else if (!normallyOpen && holidayYesterday) {
-            hours = item[yesterday];
-          }
-
-          let dayObject = {
-            label: day,
-            labelType: 'i18n',
-            value: hours,
-            // valueType: 'i18n',
-          };
-          theFields.push(dayObject);
+        let fridayWeekendHours = item['friday_weekend_hours'];
+        let isWeekend;
+        if (fridayWeekendHours) {
+          isWeekend = ['Sunday', 'Friday', 'Saturday'].includes(day)
+        } else {
+          isWeekend = ['Sunday', 'Saturday'].includes(day)
         }
+
+        // if (this.item[day] != null){
+        // if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
+
+        let hours;
+        if (isWeekend) {
+          hours = item['weekend_start'] + ' - ' + item['weekend_end']
+        } else {
+          hours = item['weekday_start'] + ' - ' + item['weekday_end']
+        }
+        // if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
+        //   hours = item[day];
+        // } else if (!normallyOpen && holidayYesterday) {
+        //   hours = item[yesterday];
+        // }
+
+        let dayObject = {
+          label: day,
+          labelType: 'i18n',
+          value: hours,
+          // valueType: 'i18n',
+        };
+        theFields.push(dayObject);
       }
+      // }
       return theFields;
     },
     component1VerticalTableSlots() {
@@ -215,19 +275,6 @@ export default {
     parseAddress(address) {
       const formattedAddress = address.replace(/(Phila.+)/g, city => `<div>${city}</div>`).replace(/^\d+\s[A-z]+\s[A-z]+/g, lineOne => `<div>${lineOne}</div>`).replace(/,/, '');
       return formattedAddress;
-    },
-    makeValidUrl(url) {
-      let newUrl = window.decodeURIComponent(url);
-      newUrl = newUrl
-        .trim()
-        .replace(/\s/g, '');
-      if (/^(:\/\/)/.test(newUrl)) {
-        return `http${newUrl}`;
-      }
-      if (!/^(f|ht)tps?:\/\//i.test(newUrl)) {
-        return `http://${newUrl}`;
-      }
-      return newUrl;
     },
   },
 };
