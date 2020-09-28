@@ -38,11 +38,11 @@
         <li>Receive their ballot, vote, and return it.</li>
       </ul>
       <p>
-        Voters can also drop off their completed ballots at these locations:
+        Voters can also drop off their completed ballots at these locations.
       </p>
-      <p>
+      <!-- <p>
         (Add text here about the drop boxes when it is available)
-      </p>
+      </p> -->
       <p><b>Voters must wait until October 6 to request a replacement ballot at the offices. This will prevent duplicating ballots already in the mail.</b></p>
 
     </div> <!-- end of main-area -->

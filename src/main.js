@@ -102,7 +102,7 @@ pinboard({
   // },
   markerType: 'circle-marker',
   circleMarkers:{
-    color: '#FF9D14',
+    color: '#0f4d90',
     weight: 0,
     radius: 8,
     mobileRadius: 12,
