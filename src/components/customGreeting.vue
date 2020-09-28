@@ -42,7 +42,12 @@
       </p>
       <p><b>Note: </b>Voters must wait until October 6 to request a replacement ballot at the offices. This will prevent duplicating ballots already in the mail.</p>
 
-      <p class="no-margin"><b>Related content</b></p>
+      <div
+        class="section-header"
+        :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
+      >
+        <b>Related content</b>
+      </div>
       <a target="_blank" href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx">Check your voter registration status</a><br>
       <a target="_blank" href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx">Check the status of your mail-in ballot</a><br>
       <a target="_blank" href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/">See our mail-in ballot guide for Philadelphia Voters</a>
@@ -184,6 +189,16 @@ export default {
 </script>
 
 <style scoped>
+
+  .section-header {
+    background-color: #0f4d90;
+    font-size: 16px;
+    color: white;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 4px;
+    padding-left: 8px;
+  }
 
   h1 {
     font-size: 20px;
