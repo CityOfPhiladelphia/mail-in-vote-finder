@@ -207,19 +207,19 @@ export default {
       // let siteName = this.getSiteName(this.item);
 
       for (let [ index, day ] of allDays.entries()) {
-        let normallyOpen = item[day] != null;
-        let holidayToday = holidays.includes(day);
-        let yesterday = allDays[index-1];
-        let normallyOpenYesterday = item[yesterday] != null;
-        let holidayYesterday = holidays.includes(yesterday);
-        let siteIsException = exceptions.includes(this.getSiteName(this.item));
+        // let normallyOpen = item[day] != null;
+        // let holidayToday = holidays.includes(day);
+        // let yesterday = allDays[index-1];
+        // let normallyOpenYesterday = item[yesterday] != null;
+        // let holidayYesterday = holidays.includes(yesterday);
+        // let siteIsException = exceptions.includes(this.getSiteName(this.item));
 
         let fridayWeekendHours = item['friday_weekend_hours'];
         let isWeekend;
         if (fridayWeekendHours) {
-          isWeekend = ['Sunday', 'Friday', 'Saturday'].includes(day)
+          isWeekend = [ 'Sunday', 'Friday', 'Saturday' ].includes(day);
         } else {
-          isWeekend = ['Sunday', 'Saturday'].includes(day)
+          isWeekend = [ 'Sunday', 'Saturday' ].includes(day);
         }
 
         // if (this.item[day] != null){
@@ -227,9 +227,9 @@ export default {
 
         let hours;
         if (isWeekend) {
-          hours = item['weekend_start'] + ' - ' + item['weekend_end']
+          hours = item['weekend_start'] + ' - ' + item['weekend_end'];
         } else {
-          hours = item['weekday_start'] + ' - ' + item['weekday_end']
+          hours = item['weekday_start'] + ' - ' + item['weekday_end'];
         }
         // if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
         //   hours = item[day];
