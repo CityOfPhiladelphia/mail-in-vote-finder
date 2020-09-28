@@ -136,12 +136,12 @@ pinboard({
   },
   footer: {
     'HowToUse': false,
-    'OtherLinks': {
-      locations: {
-        text: 'View accessible list of site locations',
-        link: 'https://www.phila.gov/programs/access-centers/access-center-sites/#/',
-      },
-    },
+    // 'OtherLinks': {
+    //   locations: {
+    //     text: 'View accessible list of site locations',
+    //     link: 'https://www.phila.gov/programs/access-centers/access-center-sites/#/',
+    //   },
+    // },
   },
   // infoCircles: {
   //   'symptomatic': {
