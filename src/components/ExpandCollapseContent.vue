@@ -29,6 +29,8 @@
           >{{ $t('website') }}</a>
         </div>
       </div> -->
+    </div>
+    <div class="cell medium-12">
 
       <div
         v-if="item.phone_number"
@@ -156,9 +158,10 @@ export default {
         id: 'mainTable',
         fields: [
           {
-            label: 'eligibility',
-            labelType: 'i18n',
-            valueType: 'component1',
+            label: 'Details',
+            labelType: '',
+            value: 'In-person registration and mail-in voting, Mail-in ballot drop-off.'
+            // valueType: 'component1',
           },
         ],
       };
