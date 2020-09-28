@@ -76,6 +76,7 @@ pinboard({
   },
   comboSearch: {
     dropdown: [ 'address' ],
+    searchDistance: 3,
   },
   locationInfo: {
     siteName: function(item) {

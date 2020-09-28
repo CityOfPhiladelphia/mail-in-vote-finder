@@ -164,7 +164,7 @@ export default {
       };
       if (this.days.length > 0) {
         let newField = {
-          label: 'testingHours',
+          label: 'Site Hours',
           labelType: 'i18n',
           valueType: 'component2',
         };
@@ -196,14 +196,14 @@ export default {
       // let days = {};
 
       let item = this.item;
-      let holidays = [];
-      let exceptions = [];
-      if (this.$config.holidays && this.$config.holidays.days) {
-        holidays = this.$config.holidays.days;
-      }
-      if (this.$config.holidays && this.$config.holidays.exceptions) {
-        exceptions = this.$config.holidays.exceptions;
-      }
+      // let holidays = [];
+      // let exceptions = [];
+      // if (this.$config.holidays && this.$config.holidays.days) {
+      //   holidays = this.$config.holidays.days;
+      // }
+      // if (this.$config.holidays && this.$config.holidays.exceptions) {
+      //   exceptions = this.$config.holidays.exceptions;
+      // }
       // let siteName = this.getSiteName(this.item);
 
       for (let [ index, day ] of allDays.entries()) {
@@ -216,19 +216,20 @@ export default {
 
         let fridayWeekendHours = item['friday_weekend_hours'];
         let isWeekend;
-        if (fridayWeekendHours) {
+        if (fridayWeekendHours === "TRUE") {
           isWeekend = [ 'Sunday', 'Friday', 'Saturday' ].includes(day);
         } else {
           isWeekend = [ 'Sunday', 'Saturday' ].includes(day);
         }
 
+        console.log('day:', day, 'fridayWeekendHours:', fridayWeekendHours, 'isWeekend:', isWeekend)
         // if (this.item[day] != null){
         // if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
 
         let hours;
-        if (isWeekend) {
+        if (isWeekend && item['weekend_start']) {
           hours = item['weekend_start'] + ' - ' + item['weekend_end'];
-        } else {
+        } else if (!isWeekend) {
           hours = item['weekday_start'] + ' - ' + item['weekday_end'];
         }
         // if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
@@ -243,7 +244,9 @@ export default {
           value: hours,
           // valueType: 'i18n',
         };
-        theFields.push(dayObject);
+        if (hours) {
+          theFields.push(dayObject);
+        }
       }
       // }
       return theFields;
