@@ -128,11 +128,11 @@ export default {
     },
   },
   watch: {
-    database() {
-      let subsections = this.getCounts();
-      this.subsections = subsections;
-      this.$store.commit('setSubsections', subsections);
-    },
+    // database() {
+    //   let subsections = this.getCounts();
+    //   this.subsections = subsections;
+    //   this.$store.commit('setSubsections', subsections);
+    // },
   },
   mounted() {
     this.sections = this.$config.sections;

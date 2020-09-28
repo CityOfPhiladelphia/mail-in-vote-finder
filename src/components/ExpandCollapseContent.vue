@@ -269,7 +269,7 @@ export default {
           isWeekend = [ 'Sunday', 'Saturday' ].includes(day);
         }
 
-        console.log('day:', day, 'fridayWeekendHours:', fridayWeekendHours, 'isWeekend:', isWeekend)
+        // console.log('day:', day, 'fridayWeekendHours:', fridayWeekendHours, 'isWeekend:', isWeekend)
         // if (this.item[day] != null){
         // if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
 
