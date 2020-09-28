@@ -103,7 +103,18 @@
           v-slot:component1
           class="table-slot"
         >
-          <div class="td-textbox">
+          <!-- <vertical-table-light
+            class="print-padding"
+            :slots="component2VerticalTableSlots"
+            :options="component2VerticalTableOptions"
+          /> -->
+          <p
+            v-for="field in arrayFields"
+            class="no-margin"
+          >
+            {{ field }}
+          </p>
+          <!-- <div class="td-textbox">
             <span
               v-show="item.testing_restrictions != null"
               class="td-style"
@@ -116,7 +127,7 @@
             >
               {{ $t('notes[\'' + item.Notes + '\']') }}
             </span>
-          </div>
+          </div> -->
         </template>
 
         <template
@@ -160,8 +171,8 @@ export default {
           {
             label: 'Details',
             labelType: '',
-            value: 'In-person registration and mail-in voting, Mail-in ballot drop-off.'
-            // valueType: 'component1',
+            // value: 'In-person registration and mail-in voting, Mail-in ballot drop-off.'
+            valueType: 'component1',
           },
         ],
       };
@@ -191,6 +202,39 @@ export default {
           },
         },
       };
+    },
+
+    arrayFields() {
+      let allFields = [ 'site_type', 'multilingual_support', 'site_accessible' ];
+      let finalArray = [];
+      let item = this.item;
+
+      for (let field of allFields) {
+        let value;
+
+        if (field === 'site_type') {
+          if (item[field] === 'Satellite office') {
+            value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
+
+        if (field === 'multilingual_support') {
+          if (item[field] === 'TRUE') {
+            value = 'Telephonic interpretation services available.';
+          }
+        }
+
+        if (field === 'site_accessible') {
+          if (item[field] === 'TRUE') {
+            value = 'Wheelchair accessible.';
+          }
+        }
+
+        if (value) {
+          finalArray.push(value);
+        }
+      }
+      return finalArray;
     },
 
     days() {
@@ -276,6 +320,28 @@ export default {
       };
     },
 
+    component2VerticalTableSlots() {
+      return {
+        id: 'compTable2',
+        fields: this.arrayFields,
+      };
+    },
+    component2VerticalTableOptions() {
+      return {
+        styles: {
+          th: {
+            'font-size': '14px',
+            'min-width': '45px !important',
+            'max-width': '50px !important',
+            'width': '25% !important',
+          },
+          td: {
+            'font-size': '14px !important',
+          },
+        },
+      };
+    },
+
   },
   methods: {
     parseAddress(address) {
@@ -288,6 +354,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+.no-margin {
+  margin: 0px;
+}
 
 .td-style {
   font-size: 14px !important;
