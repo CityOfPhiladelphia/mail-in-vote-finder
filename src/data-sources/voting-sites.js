@@ -6,7 +6,7 @@ export default {
   url: 'https://phl.carto.com:443/api/v2/sql',
   options: {
     params: {
-      q: 'select * from voting_sites',
+      q: "select * from voting_sites where temporary_closure = 'FALSE'",
     },
   },
 };

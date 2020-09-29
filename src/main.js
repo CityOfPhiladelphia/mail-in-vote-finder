@@ -33,7 +33,7 @@ import expandCollapseContent from './components/ExpandCollapseContent.vue';
 import customGreeting from './components/customGreeting.vue';
 const customComps = {
   'expandCollapseContent': expandCollapseContent,
-  // 'customGreeting': customGreeting,
+  'customGreeting': customGreeting,
 };
 
 pinboard({
@@ -71,11 +71,12 @@ pinboard({
   app: {
     logoAlt: 'City of Philadelphia',
     type: 'votingSites',
-    title: 'Mail-in Voting Sites',
-    subtitle: 'mail in voting',
+    title: 'Mail-in Voting Centers',
+    subtitle: 'Find a vote-by-mail location near you',
   },
   comboSearch: {
     dropdown: [ 'address' ],
+    searchDistance: 3,
   },
   locationInfo: {
     siteName: function(item) {
@@ -101,7 +102,7 @@ pinboard({
   // },
   markerType: 'circle-marker',
   circleMarkers:{
-    color: '#FF9D14',
+    color: '#0f4d90',
     weight: 0,
     radius: 8,
     mobileRadius: 12,
@@ -136,9 +137,13 @@ pinboard({
   footer: {
     'HowToUse': false,
     'OtherLinks': {
-      locations: {
-        text: 'View accessible list of site locations',
-        link: 'https://www.phila.gov/programs/access-centers/access-center-sites/#/',
+      commissioners: {
+        text: 'City Commissioners',
+        link: 'https://www.philadelphiavotes.com/',
+      },
+      guide: {
+        text: 'General election mail-in ballot guide',
+        link: 'https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/',
       },
     },
   },

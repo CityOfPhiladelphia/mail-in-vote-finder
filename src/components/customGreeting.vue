@@ -2,7 +2,7 @@
   <div
     class="grid-y custom-greeting"
   >
-    <div class="exclamation-holder">
+    <!-- <div class="exclamation-holder">
       <font-awesome-icon
         icon="info-circle"
         class="fa-3x fa-icon-class"
@@ -13,7 +13,7 @@
         <div><b>{{ $t('beforeYouGo') }}:</b></div>
         <div>Access Centers are free, but you must check eligibility and register your child in advance. For full program details, visit the <a href="https://www.phila.gov/access-centers">Access Centers webpage</a>. </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="open-list-div">
       <!-- class="button open-list-button hide-for-medium" -->
@@ -28,41 +28,30 @@
       class="main-area"
     >
       <h1>About this finder</h1>
-      <p>This tool can help you find an Access Center in Philadelphia. </p>
-      <p>You can: </p>
+      <p>The Philadelphia City Commissioners have approved {{ count }} satellite election offices
+         located throughout Philadelphia, in addition to the two existing County Board of
+         Election offices. </p>
+      <p>In a single visit to these locations, voters can: </p>
       <ul>
-        <li>Search for an Access Center by address. </li>
-        <li>Click on a map location for specific site information. </li>
+        <li>Register to vote,</li>
+        <li>Request a mail-in ballot, and</li>
+        <li>Receive their ballot, vote, and return it.</li>
       </ul>
       <p>
-        Access Centers help kids and their families with their internet access and childcare needs during digital learning time (weekdays from 8:00 a.m. to 4:30 p.m.). Access Centers are free, but they are NOT drop-in centers. You must check eligibility and register your child in advance. For full program details, visit the <a href="https://www.phila.gov/access-centers/">Access Centers webpage.</a>
+        Voters can also drop off their completed ballots at an election office.
       </p>
-      <h2>Who is eligible </h2>
-      <p>Philadelphia students can register for an Access Center if they are: </p>
-      <ul>
-        <li>Entering kindergarten through sixth grade. </li>
-        <li>Children of caregivers working outside the home who cannot provide supervision or are not able to afford or access childcare. </li>
-      </ul>
-      <p>Access Centers provide childcare support for families without other options. Don’t qualify? Up to 35,000 eligible K-12 households who need help with in-home internet access for digital learning can learn more about their options through <a href="https://www.phila.gov/programs/phlconnected/">PHLConnectEd</a>. </p>
-      <h2>How to register </h2>
-      <p> To express interest in registering your child for an Access Center: </p>
-      <ul>
-        <li>Read the "Who is eligible" section above to confirm your child qualifies. </li>
-        <li>
-          Fill out the <a href="https://www.cognitoforms.com/DHSOST1/AccessCenterRegistrationInterestForm">registration interest form
-            <font-awesome-icon
-              icon="external-link-alt"
-            /></a> or call (215) 709-5366. 
-        </li>
-      </ul>
-      <p>Students are NOT registered until confirmed by an Access Center. If you are eligible, an Access Center team member will reach out to help you with the next step of registration. If you are not eligible, you will receive a response letting you know.</p>
+      <p><b>Note: </b>Voters must wait until October 6 to request a replacement ballot at the offices. This will prevent duplicating ballots already in the mail.</p>
+
       <div
-        class="custom-callout"
+        class="section-header"
+        :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
       >
-        <p class="no-margins">
-          <strong>Questions?</strong> Call (215) 709-5366 for help filling out the Access Center registration interest form, or if you need language interpretation services. Help is available Monday through Friday from 8 a.m. to 6 p.m. 
-        </p>
+        <b>Related content</b>
       </div>
+      <a target="_blank" href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx">Check your voter registration status</a><br>
+      <a target="_blank" href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx">Check the status of your mail-in ballot</a><br>
+      <a target="_blank" href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/">See our mail-in ballot guide for Philadelphia Voters</a>
+
     </div> <!-- end of main-area -->
   </div>
 </template>
@@ -96,12 +85,14 @@ export default {
     return data;
   },
   computed: {
+    count() {
+      return this.database.length;
+    },
     i18nEnabled() {
       if (this.$config.i18n) {
         return true;
       }
       return false;
-
     },
     calloutOptions() {
       return {};
@@ -142,11 +133,11 @@ export default {
     },
   },
   watch: {
-    database() {
-      let subsections = this.getCounts();
-      this.subsections = subsections;
-      this.$store.commit('setSubsections', subsections);
-    },
+    // database() {
+    //   let subsections = this.getCounts();
+    //   this.subsections = subsections;
+    //   this.$store.commit('setSubsections', subsections);
+    // },
   },
   mounted() {
     this.sections = this.$config.sections;
@@ -198,6 +189,16 @@ export default {
 </script>
 
 <style scoped>
+
+  .section-header {
+    background-color: #0f4d90;
+    font-size: 16px;
+    color: white;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 4px;
+    padding-left: 8px;
+  }
 
   h1 {
     font-size: 20px;
