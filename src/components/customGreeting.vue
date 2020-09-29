@@ -27,7 +27,7 @@
     <div
       class="main-area"
     >
-      <h1>About this finder</h1>
+      <h1>{{ $t('introPage.introTitle') }}</h1>
       <p>The Philadelphia City Commissioners have approved {{ count }} satellite election offices
          located throughout Philadelphia, in addition to the two existing County Board of
          Election offices. </p>
