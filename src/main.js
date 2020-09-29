@@ -161,13 +161,13 @@ pinboard({
     // tiles: 'hosted',
     containerClass: 'map-container',
     defaultBasemap: 'pwd',
-    center: [ -75.163471, 39.953338 ],
-    minZoom: 11,
+    center: [ -75.146998, 40.001496 ],
+    minZoom: 8,
     maxZoom: 25,
     shouldInitialize: true,
 
-    zoom: 12,
-    geocodeZoom: 15,
+    zoom: 10,
+    geocodeZoom: 12,
     imagery: {
       enabled: false,
     },
