@@ -213,7 +213,7 @@ export default {
         let value;
 
         if (field === 'site_type') {
-          if (item[field] === 'Satellite office') {
+          if (item[field] === 'Election office') {
             value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
