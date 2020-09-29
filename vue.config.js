@@ -1,6 +1,6 @@
 module.exports = {
   filenameHashing: false,
-  publicPath: "/mail-in-vote/dev/",
+  publicPath: "/voting/dev/",
   //publicPath: "/access-centers/dev/",
   chainWebpack: (config) => {
     config.resolve.symlinks(false);
