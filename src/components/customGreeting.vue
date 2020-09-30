@@ -27,30 +27,26 @@
     <div
       class="main-area"
     >
-      <h1>About this finder</h1>
-      <p>The Philadelphia City Commissioners have approved {{ count }} satellite election offices
-         located throughout Philadelphia, in addition to the two existing County Board of
-         Election offices. </p>
-      <p>In a single visit to these locations, voters can: </p>
+      <h1>{{ $t('introPage.introTitle') }}</h1>
+      <p>{{ $t('introPage.p1_1') }} {{ count }} {{ $t('introPage.p1_2') }}</p>
+      <p>{{ $t('introPage.p2') }}</p>
       <ul>
-        <li>Register to vote,</li>
-        <li>Request a mail-in ballot, and</li>
-        <li>Receive their ballot, vote, and return it.</li>
+        <li>{{ $t('introPage.ul1.li1') }}</li>
+        <li>{{ $t('introPage.ul1.li2') }}</li>
+        <li>{{ $t('introPage.ul1.li3') }}</li>
       </ul>
-      <p>
-        Voters can also drop off their completed ballots at an election office.
-      </p>
-      <p><b>Note: </b>Voters must wait until October 6 to request a replacement ballot at the offices. This will prevent duplicating ballots already in the mail.</p>
+      <p>{{ $t('introPage.p3') }}</p>
+      <p><b>{{ $t('introPage.p4_b') }}</b>{{ $t('introPage.p4') }}</p>
 
       <div
         class="section-header"
         :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
       >
-        <b>Related content</b>
+        <b>{{ $t('introPage.relatedContent') }}</b>
       </div>
-      <a target="_blank" href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx">Check your voter registration status</a><br>
-      <a target="_blank" href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx">Check the status of your mail-in ballot</a><br>
-      <a target="_blank" href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/">See our mail-in ballot guide for Philadelphia Voters</a>
+      <a target="_blank" href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx">{{ $t('introPage.link1') }}</a><br>
+      <a target="_blank" href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx">{{ $t('introPage.link2') }}</a><br>
+      <a target="_blank" href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/">{{ $t('introPage.link3') }}</a>
 
     </div> <!-- end of main-area -->
   </div>
