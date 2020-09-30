@@ -289,7 +289,7 @@ pinboard({
             ul1: {
               li1: 'Register to vote',
               li2: 'Request a mail-in ballot, and',
-              li3: 'Receive their ballot, vote, and return it.'
+              li3: 'Receive their ballot, vote, and return it.',
             },
             p3: 'Voters can also drop off their completed ballots at an election office.',
             p4_b: 'Note: ',
@@ -303,6 +303,15 @@ pinboard({
           cityOfPhiladelphia: 'City of Philadelphia',
           cityCommissioners: 'City Commissioners',
           ballotGuide: 'General election mail-in ballot guide',
+          siteHours: 'Site hours',
+          details: {
+            details: 'Details',
+            inPerson: 'In-person registration and mail-in voting',
+            ballotDropoff: 'Mail-in ballot drop-off',
+            interpretationAvailable: 'Telephonic interpretation services available',
+            wheelchair: 'Wheelchair accessible',
+          },
+
           beforeYouGo: 'Before you go',
           checkSite: 'Eligibility requirements and testing hours vary by site. Be sure to check site details to arrange for testing.',
           hoursVary: 'Hours and availability varies.',
@@ -357,6 +366,15 @@ pinboard({
           cityOfPhiladelphia: 'La Ciudad de Filadelfia',
           cityCommissioners: 'Los Comisionados de la Ciudad de Filadelfia',
           ballotGuide: 'Guía de votación por correo para la elección general',
+          siteHours: 'Horas del centro',
+          details: {
+            details: 'Detalles',
+            inPerson: 'Inscripción para votar y votar por correo',
+            ballotDropoff: 'Entrega de boletas por correo',
+            interpretationAvailable: 'Servicios de intérprete disponibles',
+            wheelchair: 'Local accesible en silla de ruedas',
+          },
+
           beforeYouGo: 'Antes de ir',
           checkSite: 'Revise los detalles específicos del lugar.',
           hoursVary: 'Los horarios y la disponibilidad pueden variar.',

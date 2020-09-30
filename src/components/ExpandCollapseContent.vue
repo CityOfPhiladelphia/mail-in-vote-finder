@@ -45,54 +45,6 @@
       </div>
     </div>
 
-    <!-- <div class="cell medium-12">
-      <div
-        v-if="item.facility_type"
-        class="grid-x detail"
-      >
-        <div class="small-2">
-          <font-awesome-icon icon="building" />
-        </div>
-        <div
-          class="small-22"
-        >
-          <div>
-            {{ $t( 'facilityType[\'' + item.facility_type + '\']') }}
-          </div>
-
-          <div
-            v-if="item.drive_thruwalk_up !== null"
-          >
-            {{ $t( 'process[\'' + item.drive_thruwalk_up + '\']') }}
-          </div>
-        </div>
-      </div>
-
-      <div
-        v-if="item.facility_type"
-        class="grid-x detail"
-      >
-        <div class="small-2">
-          <font-awesome-icon icon="user-md" />
-        </div>
-        <div
-          class="small-22"
-        >
-          <div>
-            {{ $t( 'patientAge[\'' + item.Age + '\']') }}
-          </div>
-
-          <div>
-            {{ $t( 'refReq[\'' + item.Referral + '\']') }}
-          </div>
-
-          <div>
-            {{ $t( 'symptomatic[\'' + item.Symptoms + '\']') }}
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="small-24">
       <vertical-table-light
         class="print-padding"
@@ -103,31 +55,13 @@
           v-slot:component1
           class="table-slot"
         >
-          <!-- <vertical-table-light
-            class="print-padding"
-            :slots="component2VerticalTableSlots"
-            :options="component2VerticalTableOptions"
-          /> -->
           <p
             v-for="field in arrayFields"
             class="no-margin"
+            v-html="$t(field)"
           >
-            {{ field }}
+            <!-- {{ field }} -->
           </p>
-          <!-- <div class="td-textbox">
-            <span
-              v-show="item.testing_restrictions != null"
-              class="td-style"
-            >
-              {{ $t('restrictions[\'' + item.testing_restrictions + '\']') }}
-            </span>
-            <span
-              v-show="item.Notes != null"
-              class="td-style"
-            >
-              {{ $t('notes[\'' + item.Notes + '\']') }}
-            </span>
-          </div> -->
         </template>
 
         <template
@@ -169,16 +103,15 @@ export default {
         id: 'mainTable',
         fields: [
           {
-            label: 'Details',
-            labelType: '',
-            // value: 'In-person registration and mail-in voting, Mail-in ballot drop-off.'
+            label: 'details.details',
+            labelType: 'i18n',
             valueType: 'component1',
           },
         ],
       };
       if (this.days.length > 0) {
         let newField = {
-          label: 'Site Hours',
+          label: 'siteHours',
           labelType: 'i18n',
           valueType: 'component2',
         };
@@ -210,27 +143,38 @@ export default {
       let item = this.item;
 
       for (let field of allFields) {
-        let value;
+        let values = [];
 
         if (field === 'site_type') {
           if (item[field] === 'Election office') {
-            value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+            values.push('details.inPerson');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
+
+        if (field === 'site_type') {
+          if (item[field] === 'Election office') {
+            values.push('details.ballotDropoff');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
 
         if (field === 'multilingual_support') {
           if (item[field] === 'TRUE') {
-            value = 'Telephonic interpretation services available.';
+            values.push('details.interpretationAvailable');
+            // value = 'Telephonic interpretation services available.';
           }
         }
 
         if (field === 'site_accessible') {
           if (item[field] === 'TRUE') {
-            value = 'Wheelchair accessible.';
+            values.push('details.wheelchair');
+            // value = 'Wheelchair accessible.';
           }
         }
 
-        if (value) {
+        console.log('arrayFields, values:', values)
+        for (let value of values) {
           finalArray.push(value);
         }
       }
@@ -319,29 +263,6 @@ export default {
         },
       };
     },
-
-    component2VerticalTableSlots() {
-      return {
-        id: 'compTable2',
-        fields: this.arrayFields,
-      };
-    },
-    component2VerticalTableOptions() {
-      return {
-        styles: {
-          th: {
-            'font-size': '14px',
-            'min-width': '45px !important',
-            'max-width': '50px !important',
-            'width': '25% !important',
-          },
-          td: {
-            'font-size': '14px !important',
-          },
-        },
-      };
-    },
-
   },
   methods: {
     parseAddress(address) {
