@@ -1046,9 +1046,9 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@phila/pinboard@https://github.com/CityOfPhiladelphia/pinboard#ac235258e86ec25f90ec38d7044726ab88eb3fbd":
+"@phila/pinboard@https://github.com/CityOfPhiladelphia/pinboard#54b2e33d611f9c7f8c97ba11d03b743ac2074d4e":
   version "0.5.2"
-  resolved "https://github.com/CityOfPhiladelphia/pinboard#ac235258e86ec25f90ec38d7044726ab88eb3fbd"
+  resolved "https://github.com/CityOfPhiladelphia/pinboard#54b2e33d611f9c7f8c97ba11d03b743ac2074d4e"
   dependencies:
     "@fortawesome/free-brands-svg-icons" "^5.11.2"
     "@phila/vue-comps" "2.1.14"
