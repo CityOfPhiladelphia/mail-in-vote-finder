@@ -31,7 +31,6 @@
       </div> -->
     </div>
     <div class="cell medium-12">
-
       <div
         v-if="item.phone_number"
         class="grid-x detail"
@@ -57,6 +56,7 @@
         >
           <p
             v-for="field in arrayFields"
+            :key="field"
             class="no-margin"
             v-html="$t(field)"
           >
@@ -173,7 +173,7 @@ export default {
           }
         }
 
-        console.log('arrayFields, values:', values)
+        // console.log('arrayFields, values:', values)
         for (let value of values) {
           finalArray.push(value);
         }
