@@ -74,6 +74,9 @@ pinboard({
     title: 'Mail-in Voting Centers',
     subtitle: 'Find a vote-by-mail location near you',
   },
+  gtag: {
+    category: 'rf-voting',
+  },
   comboSearch: {
     dropdown: [ 'address' ],
     searchDistance: 3,
