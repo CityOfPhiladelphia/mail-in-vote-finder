@@ -1046,10 +1046,10 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@phila/pinboard@0.5.6":
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/@phila/pinboard/-/pinboard-0.5.6.tgz#657d6b64a148601312cc84d577e96c0dda1bd2d4"
-  integrity sha512-yp+fA54mVp0be+oeTYtmvgRmOboYqt/GEAbuW9LJRrV6Rjm5GS5LNmVOkl0JKDXfgf6WES//7rtFKg3J1J4Mpw==
+"@phila/pinboard@0.5.7":
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/@phila/pinboard/-/pinboard-0.5.7.tgz#ab5f9b89f3e88cc81a3d740862f9ec464e4ba608"
+  integrity sha512-tXloR7V2vIxsX6bt0ZEa4BvGPaLijND+rbY1djudLVt51trJe0aILjGKJgV83RokWo+rACURROTfB4RxSoz+6A==
   dependencies:
     "@fortawesome/free-brands-svg-icons" "^5.11.2"
     "@phila/vue-comps" "2.1.15"

@@ -1,0 +1,292 @@
+{
+  "rows": [
+    {
+      "cartodb_id": 1,
+      "the_geom": "0101000020E610000043C9E46636CE52C0F789EB40D6044440",
+      "the_geom_webmercator": "0101000020110F0000A6C1E8A46CF15FC15B40CDC742955241",
+      "site_name": "Roxborough High School",
+      "street_address": "6498 Ridge Ave.",
+      "phone_number": null,
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "Northwest",
+      "lat": 40.03778850079464,
+      "lon": -75.2220704302063,
+      "zip": "19128"
+    },
+    {
+      "cartodb_id": 2,
+      "the_geom": "0101000020E6100000AD609245DFC852C030DB4B7C12FF4340",
+      "the_geom_webmercator": "0101000020110F0000B1159F6F5AE85FC128AB7141DE8E5241",
+      "site_name": "Julia de Burgos Elementary",
+      "street_address": "401 W. Lehigh Ave.",
+      "phone_number": null,
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "Upper North",
+      "lat": 39.99275163368145,
+      "lon": -75.13862742705051,
+      "zip": "19133"
+    },
+    {
+      "cartodb_id": 3,
+      "the_geom": "0101000020E61000002D13895497CA52C0A88B85EF3EF84340",
+      "the_geom_webmercator": "0101000020110F0000CBDB69EB45EB5FC1D81707BD4D875241",
+      "site_name": "Creative and Performing Arts School (CAPA)",
+      "street_address": "901 S. Broad St.",
+      "phone_number": null,
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "South",
+      "lat": 39.93942064305094,
+      "lon": -75.16548646341535,
+      "zip": "19147"
+    },
+    {
+      "cartodb_id": 4,
+      "the_geom": "0101000020E6100000EF3C53F1BBCF52C0E8D1DAA1BAFD4340",
+      "the_geom_webmercator": "0101000020110F00009C737E5102F45FC19EB4E419618D5241",
+      "site_name": "Overbrook Elementary School",
+      "street_address": "2032 N. 62nd St.",
+      "phone_number": null,
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "West",
+      "lat": 39.982258064122846,
+      "lon": -75.24584611061776,
+      "zip": "19151"
+    },
+    {
+      "cartodb_id": 5,
+      "the_geom": "0101000020E6100000F77BBF4D7CCA52C007655F79EBF94340",
+      "the_geom_webmercator": "0101000020110F00007222280318EB5FC15806E47928895241",
+      "site_name": "City Hall (Room 142)",
+      "street_address": "1400 John F Kennedy Blvd.",
+      "phone_number": "(215) 686-3469",
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "Center City",
+      "lat": 39.952498599605,
+      "lon": -75.16383689593918,
+      "zip": "19107"
+    },
+    {
+      "cartodb_id": 7,
+      "the_geom": "0101000020E6100000F71B958894C152C014DE5B079F0D4440",
+      "the_geom_webmercator": "0101000020110F0000C3CFE097F7DB5FC15F07BC98029F5241",
+      "site_name": "George Washington High School",
+      "street_address": "10175 Bustleton Ave.",
+      "phone_number": null,
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "Far Northeast",
+      "lat": 40.10641567216604,
+      "lon": -75.02469076692056,
+      "zip": "19116"
+    },
+    {
+      "cartodb_id": 8,
+      "the_geom": "0101000020E6100000CE9F24CDECCE52C07DCB4810FAF54340",
+      "the_geom_webmercator": "0101000020110F00003660CA77A2F25FC1E42EAD63CA845241",
+      "site_name": "Tilden Middle School",
+      "street_address": "6601 Elmwood Ave.",
+      "phone_number": null,
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "Southwest",
+      "lat": 39.92169383577764,
+      "lon": -75.2332032067927,
+      "zip": "19142"
+    },
+    {
+      "cartodb_id": 9,
+      "the_geom": "0101000020E6100000C40274FD25CA52C06FD4B23769FD4340",
+      "the_geom_webmercator": "0101000020110F0000E062606685EA5FC1C664F9DC068D5241",
+      "site_name": "The Liacouras Center",
+      "street_address": "1776 N. Broad St.",
+      "phone_number": null,
+      "site_type": "Election office",
+      "site_access": null,
+      "site_approved": "TRUE",
+      "temporary_closure": "FALSE",
+      "open_24_hours": "FALSE",
+      "site_accessible": "TRUE",
+      "weekday_start": "11:30 a.m.",
+      "weekday_end": "6:30 p.m.",
+      "friday_weekend_hours": "TRUE",
+      "weekend_start": "9:30 a.m.",
+      "weekend_end": "4:30 p.m.",
+      "multilingual_support": "TRUE",
+      "region": "North",
+      "lat": 39.979773485488174,
+      "lon": -75.15856872872524,
+      "zip": "19121"
+    }
+  ],
+  "time": 0.001,
+  "fields": {
+    "cartodb_id": {
+      "type": "number",
+      "pgtype": "int8"
+    },
+    "the_geom": {
+      "type": "geometry",
+      "wkbtype": "Unknown",
+      "dims": 2,
+      "srid": 4326
+    },
+    "the_geom_webmercator": {
+      "type": "geometry",
+      "wkbtype": "Unknown",
+      "dims": 2,
+      "srid": 3857
+    },
+    "site_name": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "street_address": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "phone_number": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "site_type": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "site_access": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "site_approved": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "temporary_closure": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "open_24_hours": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "site_accessible": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "weekday_start": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "weekday_end": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "friday_weekend_hours": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "weekend_start": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "weekend_end": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "multilingual_support": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "region": {
+      "type": "string",
+      "pgtype": "text"
+    },
+    "lat": {
+      "type": "number",
+      "pgtype": "numeric"
+    },
+    "lon": {
+      "type": "number",
+      "pgtype": "numeric"
+    },
+    "zip": {
+      "type": "string",
+      "pgtype": "text"
+    }
+  },
+  "total_rows": 8
+}
