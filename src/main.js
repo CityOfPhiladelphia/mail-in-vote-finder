@@ -326,13 +326,13 @@ pinboard({
             open24Hours: 'Open 24 hours',
           },
           'Election office': 'Election Office',
-          'Official ballot return': 'Official Ballot Returns',
+          'Official ballot return': 'Official Ballot Return',
           sections: {
             'Election office': {
               header: 'Election Office',
             },
             'Official ballot return': {
-              header: 'Official Ballot Returns',
+              header: 'Official Ballot Return',
             },
           },
           beforeYouGo: 'Before you go',
