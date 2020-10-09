@@ -1,46 +1,6 @@
 <template>
-  <div class="grid-x grid-padding-x">
-    <div class="cell medium-12">
-      <div
-        v-if="item.street_address"
-        class="grid-x detail"
-      >
-        <div class="small-2">
-          <font-awesome-icon icon="map-marker-alt" />
-        </div>
-        <div class="small-22">
-          {{ item.street_address }}<br>
-          Philadelphia, PA {{ item.zip }}<br>
-          <!-- {{ item.TestingLocation2 }} -->
-        </div>
-      </div>
-    </div>
-
-    <div class="cell medium-12">
-      <div
-        v-if="item.phone_number"
-        class="grid-x detail"
-      >
-        <div class="small-2">
-          <font-awesome-icon icon="phone" />
-        </div>
-        <div class="small-22">
-          {{ item.phone_number }}
-        </div>
-      </div>
-    </div>
-
-    <election-office-card
-      v-if="section === 'Election office'"
-      :item="item"
-    />
-
-    <mail-in-ballot-drop-off-card
-      v-if="section === 'Mail-in ballot drop-off'"
-      :item="item"
-    />
-
-    <!-- <div class="small-24">
+  <section class="services grid-x grid-padding-x">
+    <div class="cell">
       <vertical-table-light
         class="print-padding"
         :slots="mainVerticalTableSlots"
@@ -56,6 +16,7 @@
             class="no-margin"
             v-html="$t(field)"
           >
+            <!-- {{ field }} -->
           </p>
         </template>
 
@@ -70,22 +31,18 @@
           />
         </template>
       </vertical-table-light>
-    </div> -->
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
 
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
-import ElectionOfficeCard from './ElectionOfficeCard.vue';
-import MailInBallotDropOffCard from './MailInBallotDropOffCard.vue';
 
 export default {
-  name: 'ExpandCollapseContent',
+  name: 'ElectionOfficeCard',
   components: {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
-    ElectionOfficeCard,
-    MailInBallotDropOffCard,
   },
   mixins: [ SharedFunctions ],
   props: {
@@ -97,9 +54,6 @@ export default {
     },
   },
   computed: {
-    section() {
-      return this.$props.item.site_type;
-    },
     mainVerticalTableSlots() {
       let slots = {
         id: 'mainTable',
@@ -277,6 +231,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+.services {
+  width: 100%;
+}
 
 .no-margin {
   margin: 0px;

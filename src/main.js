@@ -88,24 +88,33 @@ pinboard({
     },
   },
   customComps,
+  refine: {
+    type: 'categoryField_value',
+    value: function(item) {
+      return item.site_type;
+    },
+    showLabels: true,
+  },
+  sections: {
+    'Election office': {
+      title: 'Election Offices',
+      titleSingular: 'Election Office',
+      color: '#0F4D90',
+    },
+    dropOff: {
+      title: 'Mail-in Ballot Drop-Offs',
+      titleSingular: 'Mail-in Ballot Drop-Off',
+      color: '#721817',
+    },
+
+  },
   baseConfig: BASE_CONFIG_URL,
-  // holidays: {
-  //   days: ['Monday'],
-  // },
-  // refine: {
-  //   type: 'multipleFields',
-  //   multipleFields: {
-  //     'Housing Counseling Agency': function(item){
-  //       console.log('running HCA function, item:', item);
-  //       return item.attributes.HCA === 'Yes';
-  //     },
-  //     'Neighborhood Advisory Committee': function(item) { return item.attributes.NAC === 'Yes'; },
-  //     'Neighborhood Energy Center': function(item) { return item.attributes.NEC === 'Yes'; },
-  //   },
-  // },
   markerType: 'circle-marker',
   circleMarkers:{
-    color: '#0f4d90',
+    circleColors: {
+      'Election office': '#0f4d90',
+      'Mail-In Ballot Drop-Off': '#721817',
+    },
     weight: 0,
     radius: 8,
     mobileRadius: 12,
