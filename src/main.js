@@ -25,7 +25,7 @@ library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLin
 import pinboard from '@phila/pinboard/src/main.js';
 
 // data-sources
-import votingSites from './data-sources/voting-sites-dev';
+import votingSites from './data-sources/voting-sites';
 // import compiled from './data-sources/compiled';
 var BASE_CONFIG_URL = 'https://cdn.jsdelivr.net/gh/cityofphiladelphia/mapboard-default-base-config@6126861722cee9384694742363d1661e771493b9/config.js';
 
