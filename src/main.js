@@ -25,7 +25,7 @@ library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLin
 import pinboard from '@phila/pinboard/src/main.js';
 
 // data-sources
-import votingSites from './data-sources/voting-sites';
+import votingSites from './data-sources/voting-sites-dev';
 // import compiled from './data-sources/compiled';
 var BASE_CONFIG_URL = 'https://cdn.jsdelivr.net/gh/cityofphiladelphia/mapboard-default-base-config@6126861722cee9384694742363d1661e771493b9/config.js';
 
@@ -101,9 +101,9 @@ pinboard({
       titleSingular: 'Election Office',
       color: '#0F4D90',
     },
-    dropOff: {
-      title: 'Mail-in Ballot Drop-Offs',
-      titleSingular: 'Mail-in Ballot Drop-Off',
+    'Official ballot return': {
+      title: 'Official Ballot Returns',
+      titleSingular: 'Official Ballot Return',
       color: '#721817',
     },
 
@@ -113,7 +113,7 @@ pinboard({
   circleMarkers:{
     circleColors: {
       'Election office': '#0f4d90',
-      'Mail-In Ballot Drop-Off': '#721817',
+      'Official ballot return': '#721817',
     },
     weight: 0,
     radius: 8,
@@ -320,10 +320,21 @@ pinboard({
             details: 'Details',
             inPerson: 'In-person registration and mail-in voting',
             ballotDropoff: 'Mail-in ballot drop-off',
+            ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing <a href="mailto:vote@phila.gov>vote@phila.gov</a>.',
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
+            open24Hours: 'Open 24 hours',
           },
-
+          'Election office': 'Election Office',
+          'Official ballot return': 'Official Ballot Returns',
+          sections: {
+            'Election office': {
+              header: 'Election Office',
+            },
+            'Official ballot return': {
+              header: 'Official Ballot Returns',
+            },
+          },
           beforeYouGo: 'Before you go',
           checkSite: 'Eligibility requirements and testing hours vary by site. Be sure to check site details to arrange for testing.',
           hoursVary: 'Hours and availability varies.',
@@ -377,10 +388,21 @@ pinboard({
             details: 'Detalles',
             inPerson: 'Inscripción para votar y votar por correo',
             ballotDropoff: 'Entrega de boletas por correo',
+            ballotDropoffLong: 'En caso de que el buzón esté lleno, no funcione o esté dañado de alguna manera, se debe notificar inmediatamente a la Junta Electoral, llamando al 215-686-3469 o enviando un correo electrónico a <a href="mailto:vote@phila.gov>vote@phila.gov</a>.',
             interpretationAvailable: 'Servicios de intérprete disponibles',
             wheelchair: 'Local accesible en silla de ruedas',
+            open24Hours: 'Abierto las 24 horas',
           },
-
+          'Election office': 'Oficina Electoral',
+          'Official ballot return': 'Sitio oficial para devolver boletas',
+          sections: {
+            'Election office': {
+              header: 'Oficina Electoral',
+            },
+            'Official ballot return': {
+              header: 'Sitio oficial para devolver boletas',
+            },
+          },
           beforeYouGo: 'Antes de ir',
           checkSite: 'Revise los detalles específicos del lugar.',
           hoursVary: 'Los horarios y la disponibilidad pueden variar.',

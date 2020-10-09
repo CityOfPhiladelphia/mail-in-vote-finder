@@ -16,7 +16,10 @@
       </div>
     </div>
 
-    <div class="cell medium-12">
+    <div
+      v-if="section !== 'Official ballot return'"
+      class="cell medium-12"
+    >
       <div
         v-if="item.phone_number"
         class="grid-x detail"
@@ -35,42 +38,10 @@
       :item="item"
     />
 
-    <mail-in-ballot-drop-off-card
-      v-if="section === 'Mail-in ballot drop-off'"
+    <official-ballot-return-card
+      v-if="section === 'Official ballot return'"
       :item="item"
     />
-
-    <!-- <div class="small-24">
-      <vertical-table-light
-        class="print-padding"
-        :slots="mainVerticalTableSlots"
-        :options="mainVerticalTableOptions"
-      >
-        <template
-          v-slot:component1
-          class="table-slot"
-        >
-          <p
-            v-for="field in arrayFields"
-            :key="field"
-            class="no-margin"
-            v-html="$t(field)"
-          >
-          </p>
-        </template>
-
-        <template
-          v-slot:component2
-          class="table-slot"
-        >
-          <vertical-table-light
-            class="print-padding"
-            :slots="component1VerticalTableSlots"
-            :options="component1VerticalTableOptions"
-          />
-        </template>
-      </vertical-table-light>
-    </div> -->
   </div>
 </template>
 
@@ -78,14 +49,14 @@
 
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
 import ElectionOfficeCard from './ElectionOfficeCard.vue';
-import MailInBallotDropOffCard from './MailInBallotDropOffCard.vue';
+import OfficialBallotReturnCard from './OfficialBallotReturnCard.vue';
 
 export default {
   name: 'ExpandCollapseContent',
   components: {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
     ElectionOfficeCard,
-    MailInBallotDropOffCard,
+    OfficialBallotReturnCard,
   },
   mixins: [ SharedFunctions ],
   props: {
