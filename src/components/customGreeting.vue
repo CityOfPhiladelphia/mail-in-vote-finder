@@ -28,7 +28,7 @@
       class="main-area"
     >
       <h1>{{ $t('introPage.introTitle') }}</h1>
-      <p>{{ $t('introPage.p1_1') }} {{ count }} {{ $t('introPage.p1_2') }}</p>
+      <p>{{ $t('introPage.p1_1') }} {{ electionOfficeCount }} {{ $t('introPage.p1_2') }}</p>
       <p>{{ $t('introPage.p2') }}</p>
       <ul>
         <li>{{ $t('introPage.ul1.li1') }}</li>
@@ -44,10 +44,18 @@
       >
         <b>{{ $t('introPage.relatedContent') }}</b>
       </div>
-      <a target="_blank" href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx">{{ $t('introPage.link1') }}</a><br>
-      <a target="_blank" href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx">{{ $t('introPage.link2') }}</a><br>
-      <a target="_blank" href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/">{{ $t('introPage.link3') }}</a>
-
+      <a
+        target="_blank"
+        href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx"
+      >{{ $t('introPage.link1') }}</a><br>
+      <a
+        target="_blank"
+        href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
+      >{{ $t('introPage.link2') }}</a><br>
+      <a
+        target="_blank"
+        href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/"
+      >{{ $t('introPage.link3') }}</a>
     </div> <!-- end of main-area -->
   </div>
 </template>
@@ -81,8 +89,14 @@ export default {
     return data;
   },
   computed: {
-    count() {
-      return this.database.length;
+    electionOfficeCount() {
+      let electionOffices = [];
+      for (let site of this.database) {
+        if (site.site_type === 'Election office') {
+          electionOffices.push(site);
+        }
+      }
+      return electionOffices.length;
     },
     i18nEnabled() {
       if (this.$config.i18n) {
