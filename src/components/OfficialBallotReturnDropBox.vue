@@ -1,68 +1,48 @@
 <template>
-  <div class="grid-x grid-padding-x">
-    <div class="cell medium-12">
-      <div
-        v-if="item.street_address"
-        class="grid-x detail"
+  <section class="services grid-x grid-padding-x">
+    <div class="cell">
+      <vertical-table-light
+        class="print-padding"
+        :slots="mainVerticalTableSlots"
+        :options="mainVerticalTableOptions"
       >
-        <div class="small-2">
-          <font-awesome-icon icon="map-marker-alt" />
-        </div>
-        <div class="small-22">
-          {{ item.street_address }}<br>
-          Philadelphia, PA {{ item.zip }}<br>
-          <!-- {{ item.TestingLocation2 }} -->
-        </div>
-      </div>
+        <template
+          v-slot:component1
+          class="table-slot"
+        >
+          <p
+            v-for="field in arrayFields"
+            :key="field"
+            class="no-margin"
+            v-html="$t(field)"
+          >
+            <!-- {{ field }} -->
+          </p>
+        </template>
+
+        <template
+          v-slot:component2
+          class="table-slot"
+        >
+          <vertical-table-light
+            class="print-padding"
+            :slots="component1VerticalTableSlots"
+            :options="component1VerticalTableOptions"
+          />
+        </template>
+      </vertical-table-light>
     </div>
-
-    <div
-      v-if="section !== 'Official mail-in ballot return'"
-      class="cell medium-12"
-    >
-      <div
-        v-if="item.phone_number"
-        class="grid-x detail"
-      >
-        <div class="small-2">
-          <font-awesome-icon icon="phone" />
-        </div>
-        <div class="small-22">
-          {{ item.phone_number }}
-        </div>
-      </div>
-    </div>
-
-    <election-office-card
-      v-if="section === 'Election office'"
-      :item="item"
-    />
-
-    <official-ballot-return-card
-      v-if="section === 'Official mail-in ballot return'"
-      :item="item"
-    />
-    <official-ballot-return-drop-box
-      v-if="section === 'Official mail-in ballot drop box'"
-      :item="item"
-    />
-  </div>
+  </section>
 </template>
 
 <script>
 
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
-import ElectionOfficeCard from './ElectionOfficeCard.vue';
-import OfficialBallotReturnCard from './OfficialBallotReturnCard.vue';
-import OfficialBallotReturnDropBox from './OfficialBallotReturnDropBox.vue';
 
 export default {
-  name: 'ExpandCollapseContent',
+  name: 'MailInBallotDropOffBoxCard',
   components: {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
-    ElectionOfficeCard,
-    OfficialBallotReturnCard,
-    OfficialBallotReturnDropBox,
   },
   mixins: [ SharedFunctions ],
   props: {
@@ -74,9 +54,6 @@ export default {
     },
   },
   computed: {
-    section() {
-      return this.$props.item.site_type;
-    },
     mainVerticalTableSlots() {
       let slots = {
         id: 'mainTable',
@@ -88,7 +65,16 @@ export default {
           },
         ],
       };
-      if (this.days.length > 0) {
+      // if (this.days.length > 0) {
+      if (this.$props.item.open_24_hours === "TRUE") {
+        let newField = {
+          label: 'siteHours',
+          labelType: 'i18n',
+          value: 'details.open24Hours',
+          valueType: 'i18n',
+        };
+        slots.fields.push(newField);
+      } else if (this.days.length > 0) {
         let newField = {
           label: 'siteHours',
           labelType: 'i18n',
@@ -134,6 +120,19 @@ export default {
         if (field === 'site_type') {
           if (item[field] === 'Election office') {
             values.push('details.ballotDropoff');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
+
+        if (field === 'site_type') {
+          if (item[field] === 'Official mail-in ballot return') {
+            values.push('details.ballotDropoffLong');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
+        if (field === 'site_type') {
+          if (item[field] === 'Official mail-in ballot drop box') {
+            values.push('details.ballotDropoffLong'); //TODO: check this
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }

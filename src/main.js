@@ -25,7 +25,7 @@ library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLin
 import pinboard from '@phila/pinboard/src/main.js';
 
 // data-sources
-import votingSites from './data-sources/voting-sites';
+import votingSites from './data-sources/voting-sites-dev';
 // import compiled from './data-sources/compiled';
 var BASE_CONFIG_URL = 'https://cdn.jsdelivr.net/gh/cityofphiladelphia/mapboard-default-base-config@6126861722cee9384694742363d1661e771493b9/config.js';
 
@@ -91,20 +91,26 @@ pinboard({
   refine: {
     type: 'categoryField_value',
     value: function(item) {
+      console.log(item.site_type);
       return item.site_type;
     },
     showLabels: true,
   },
   sections: {
     'Election office': {
-      title: 'Election Offices',
-      titleSingular: 'Election Office',
+      title: 'Election offices',
+      titleSingular: 'Election office',
       color: '#0F4D90',
     },
-    'Official ballot return': {
-      title: 'Official Ballot Returns',
-      titleSingular: 'Official Ballot Return',
+    'Official mail-in ballot return': {
+      title: 'Official mail-in ballot returns',
+      titleSingular: 'Official mail-in ballot return',
       color: '#721817',
+    },
+    'Official mail-in ballot drop box': {
+      title: 'Official mail-in ballot drop boxes',
+      titleSingular: 'Official mail-in ballot drop box',
+      color: '#4F6D0A',
     },
 
   },
@@ -113,7 +119,8 @@ pinboard({
   circleMarkers:{
     circleColors: {
       'Election office': '#0f4d90',
-      'Official ballot return': '#721817',
+      'Official mail-in ballot return': '#721817',
+      'Official mail-in ballot drop box': '#4F6D0A',
     },
     weight: 0,
     radius: 8,
@@ -325,14 +332,18 @@ pinboard({
             wheelchair: 'Wheelchair accessible',
             open24Hours: 'Open 24 hours',
           },
-          'Election office': 'Election Office',
-          'Official ballot return': 'Official Ballot Return',
+          'Election office': 'Election office',
+          'Official mail-in ballot return': 'Official mail-in ballot return',
+          'Official mail-in ballot drop box': 'Official mail-in ballot drop box',
           sections: {
             'Election office': {
-              header: 'Election Office',
+              header: 'Election office',
             },
-            'Official ballot return': {
-              header: 'Official Ballot Return',
+            'Official mail-in ballot return': {
+              header: 'Official mail-in ballot return',
+            },
+            'Official mail-in ballot drop box': {
+              header: 'Official mail-in ballot drop box',
             },
           },
           beforeYouGo: 'Before you go',
@@ -394,12 +405,12 @@ pinboard({
             open24Hours: 'Abierto las 24 horas',
           },
           'Election office': 'Oficina Electoral',
-          'Official ballot return': 'Sitio oficial para devolver boletas',
+          'Official mail-in ballot return': 'Sitio oficial para devolver boletas',
           sections: {
             'Election office': {
               header: 'Oficina Electoral',
             },
-            'Official ballot return': {
+            'Official mail-in ballot return': {
               header: 'Sitio oficial para devolver boletas',
             },
           },

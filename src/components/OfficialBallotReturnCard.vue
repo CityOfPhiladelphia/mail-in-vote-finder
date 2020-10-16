@@ -125,7 +125,7 @@ export default {
         }
 
         if (field === 'site_type') {
-          if (item[field] === 'Official ballot return') {
+          if (item[field] === 'Official mail-in ballot return') {
             values.push('details.ballotDropoffLong');
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
