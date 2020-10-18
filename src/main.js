@@ -326,7 +326,10 @@ pinboard({
           details: {
             details: 'Details',
             inPerson: 'In-person registration and mail-in voting',
-            ballotDropoff: 'Mail-in ballot drop-off',
+            voterReg: 'Voter registration.',
+            ballotApp: 'Mail-in ballot application.',
+            ballotRep: 'Mail-in ballot replacement.',
+            ballotDropoff: 'Mail-in ballot drop-off.',
             ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote@phila.gov.',
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
@@ -338,12 +341,38 @@ pinboard({
           sections: {
             'Election office': {
               header: 'Election office',
+              hideExtraContent: false,
+              p1: 'The Philadelphia City Commissioners voted to open ',
+              p2: ' satellite election offices located throughout Philadelphia. Check back often.',
+              p3: 'Election offices provide telephonic interpretation services and are wheelchair accessible. Masks are required to enter. ',
+              h2: 'Voter services and deadlines ',
+              dates: {
+                d1:{
+                  text: 'Register to vote (ID required)',
+                  date: 'October 19',
+                },
+                d2:{
+                  text: 'Apply for a mail-in ballot',
+                  date: 'October 27 at 5 p.m.',
+                },
+                d3:{
+                  text: 'Request a replacement ballot',
+                  date: 'November 3',
+                },
+                d4:{
+                  text: 'Drop off your completed ballot',
+                  date: 'November 3 at 8 p.m.',
+                },
+              },
             },
             'Official mail-in ballot return': {
               header: 'Official mail-in ballot return',
+              hideExtraContent: true,
             },
             'Official mail-in ballot drop box': {
               header: 'Official mail-in ballot drop box',
+              p1: 'If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email vote@phila.gov.',
+              hideExtraContent: true,
             },
           },
           beforeYouGo: 'Before you go',
