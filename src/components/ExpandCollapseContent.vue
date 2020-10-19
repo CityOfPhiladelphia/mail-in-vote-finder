@@ -17,7 +17,7 @@
     </div>
 
     <div
-      v-if="section !== 'Official ballot return'"
+      v-if="section !== 'Official mail-in ballot return'"
       class="cell medium-12"
     >
       <div
@@ -39,7 +39,11 @@
     />
 
     <official-ballot-return-card
-      v-if="section === 'Official ballot return'"
+      v-if="section === 'Official mail-in ballot return'"
+      :item="item"
+    />
+    <official-ballot-return-drop-box
+      v-if="section === 'Official mail-in ballot drop box'"
       :item="item"
     />
   </div>
@@ -50,6 +54,7 @@
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
 import ElectionOfficeCard from './ElectionOfficeCard.vue';
 import OfficialBallotReturnCard from './OfficialBallotReturnCard.vue';
+import OfficialBallotReturnDropBox from './OfficialBallotReturnDropBox.vue';
 
 export default {
   name: 'ExpandCollapseContent',
@@ -57,6 +62,7 @@ export default {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
     ElectionOfficeCard,
     OfficialBallotReturnCard,
+    OfficialBallotReturnDropBox,
   },
   mixins: [ SharedFunctions ],
   props: {

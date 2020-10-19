@@ -23,9 +23,11 @@ library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLin
 
 // import pinboard
 import pinboard from '@phila/pinboard/src/main.js';
+import legendControls from './general/legendControls';
+
 
 // data-sources
-import votingSites from './data-sources/voting-sites';
+import votingSites from './data-sources/voting-sites-dev';
 // import compiled from './data-sources/compiled';
 var BASE_CONFIG_URL = 'https://cdn.jsdelivr.net/gh/cityofphiladelphia/mapboard-default-base-config@6126861722cee9384694742363d1661e771493b9/config.js';
 
@@ -91,29 +93,37 @@ pinboard({
   refine: {
     type: 'categoryField_value',
     value: function(item) {
+      console.log(item.site_type);
       return item.site_type;
     },
     showLabels: true,
   },
   sections: {
     'Election office': {
-      title: 'Election Offices',
-      titleSingular: 'Election Office',
+      title: 'Election offices',
+      titleSingular: 'Election office',
       color: '#0F4D90',
     },
-    'Official ballot return': {
-      title: 'Official Ballot Returns',
-      titleSingular: 'Official Ballot Return',
+    'Official mail-in ballot return': {
+      title: 'Official mail-in ballot returns',
+      titleSingular: 'Official mail-in ballot return',
       color: '#721817',
+    },
+    'Official mail-in ballot drop box': {
+      title: 'Official mail-in ballot drop boxes',
+      titleSingular: 'Official mail-in ballot drop box',
+      color: '#4F6D0A',
     },
 
   },
+  legendControls,
   baseConfig: BASE_CONFIG_URL,
   markerType: 'circle-marker',
   circleMarkers:{
     circleColors: {
       'Election office': '#0f4d90',
-      'Official ballot return': '#721817',
+      'Official mail-in ballot return': '#721817',
+      'Official mail-in ballot drop box': '#4F6D0A',
     },
     weight: 0,
     radius: 8,
@@ -291,7 +301,7 @@ pinboard({
             title: 'Mail-in Voting Centers',
             subtitle: 'Find a vote-by-mail location near you.',
             // bannerAlert: 'Many sites are closed today. Check specific site details for more information.',
-            noResults: 'No center was found within your search. Please try again.',
+            noResults: 'No site was found within your search. Please try again.',
           },
           introPage: {
             introTitle: 'About this finder',
@@ -319,20 +329,54 @@ pinboard({
           details: {
             details: 'Details',
             inPerson: 'In-person registration and mail-in voting',
-            ballotDropoff: 'Mail-in ballot drop-off',
-            ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing <a href="mailto:vote@phila.gov>vote@phila.gov</a>.',
+            voterReg: 'Voter registration.',
+            ballotApp: 'Mail-in ballot application.',
+            ballotRep: 'Mail-in ballot replacement.',
+            ballotDropoff: 'Mail-in ballot drop-off.',
+            ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote@phila.gov.',
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
             open24Hours: 'Open 24 hours',
           },
-          'Election office': 'Election Office',
-          'Official ballot return': 'Official Ballot Returns',
+          'Election office': 'Election office',
+          'Official mail-in ballot return': 'Official mail-in ballot return',
+          'Official mail-in ballot drop box': 'Official mail-in ballot drop box',
           sections: {
             'Election office': {
-              header: 'Election Office',
+              header: 'Election office',
+              englishName: 'Election office',
+              p1: 'The Philadelphia City Commissioners voted to open ',
+              p2: ' satellite election offices located throughout Philadelphia. Check back often.',
+              p3: 'Election offices provide telephonic interpretation services and are wheelchair accessible. Masks are required to enter. ',
+              h2: 'Voter services and deadlines ',
+              dates: {
+                d1:{
+                  text: 'Register to vote (ID required)',
+                  date: 'October 19',
+                },
+                d2:{
+                  text: 'Apply for a mail-in ballot',
+                  date: 'October 27 at 5 p.m.',
+                },
+                d3:{
+                  text: 'Request a replacement ballot',
+                  date: 'November 3',
+                },
+                d4:{
+                  text: 'Drop off your completed ballot',
+                  date: 'November 3 at 8 p.m.',
+                },
+              },
             },
-            'Official ballot return': {
-              header: 'Official Ballot Returns',
+            'Official mail-in ballot return': {
+              header: 'Official mail-in ballot return',
+              englishName: 'Official mail-in ballot return',
+
+            },
+            'Official mail-in ballot drop box': {
+              header: 'Official mail-in ballot drop box',
+              englishName: 'Official mail-in ballot drop box',
+              p1: 'If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
             },
           },
           beforeYouGo: 'Before you go',
@@ -387,20 +431,54 @@ pinboard({
           details: {
             details: 'Detalles',
             inPerson: 'Inscripción para votar y votar por correo',
+            voterReg: 'Registro de votantes',
+            ballotApp: 'Solicitud de boleta electoral por correo',
+            ballotRep: 'Solicitud de reemplazo de boleta electoral por correo',
             ballotDropoff: 'Entrega de boletas por correo',
-            ballotDropoffLong: 'En caso de que el buzón esté lleno, no funcione o esté dañado de alguna manera, se debe notificar inmediatamente a la Junta Electoral, llamando al 215-686-3469 o enviando un correo electrónico a <a href="mailto:vote@phila.gov>vote@phila.gov</a>.',
+            ballotDropoffLong: 'En caso de que el buzón esté lleno, no funcione o esté dañado de alguna manera, se debe notificar inmediatamente a la Junta Electoral, llamando al 215-686-3469 o enviando un correo electrónico a vote@phila.gov.',
             interpretationAvailable: 'Servicios de intérprete disponibles',
             wheelchair: 'Local accesible en silla de ruedas',
             open24Hours: 'Abierto las 24 horas',
           },
           'Election office': 'Oficina Electoral',
-          'Official ballot return': 'Sitio oficial para devolver boletas',
+          'Official mail-in ballot return': 'Sitio oficial para devolver boletas',
+          'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
           sections: {
             'Election office': {
+              englishName: 'Election office',
               header: 'Oficina Electoral',
+              p1: 'Los comisionados de la ciudad de Filadelfia votaron para abrir ',
+              p2: ' oficinas electorales satélite dispersas en toda Filadelfia. Consulte regularmente.',
+              p3: 'Las oficinas electorales brindan servicios de interpretación telefónica y tienen acceso para sillas de ruedas. Para ingresar, se debe utilizar mascarilla.  ',
+              h2: 'Servicios al votante y plazos ',
+              dates: {
+                d1:{
+                  text: ' spanish Register to vote (ID required)',
+                  date: 'October 19',
+                },
+                d2:{
+                  text: 'spanish Apply for a mail-in ballot',
+                  date: 'October 27 at 5 p.m.',
+                },
+                d3:{
+                  text: 'spanish Request a replacement ballot',
+                  date: 'November 3',
+                },
+                d4:{
+                  text: 'spanish Drop off your completed ballot',
+                  date: 'November 3 at 8 p.m.',
+                },
+              },
             },
-            'Official ballot return': {
+            'Official mail-in ballot return': {
               header: 'Sitio oficial para devolver boletas',
+              englishName: 'Official mail-in ballot return',
+
+            },
+            'Official mail-in ballot drop box': {
+              header: 'Buzón oficial de la votación por correo',
+              englishName: 'Official mail-in ballot drop box',
+              p1: 'Si un buzón está lleno, no funciona, o está dañado de alguna manera, llame al (215) 686-3469 o envíe un correo electrónico a <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
             },
           },
           beforeYouGo: 'Antes de ir',
@@ -421,14 +499,13 @@ pinboard({
           Unknown: 'Desconocido',
           website: 'Sitio web',
         },
-
         'ch': {
           language: '中文',
           app: {
             title: '邮寄投票中心',
             subtitle: '查找您附近的邮寄投票地点',
             // bannerAlert: '今天很多地点均关闭。有关更多信息，请查看具体地点详细信息。',
-            noResults: '在您的搜索范围内未找到检测地点。请致电您的医疗保健提供者或访问公共卫生部 (Department of Public Health) 的 COVID-19 网站，了解关于 <a href="https://www.phila.gov/programs/coronavirus-disease-2019-covid-19/guidance/faq/#getting-tested" target="_blank">在费城进行检测</a>的信息.',
+            noResults: 'No site was found within your search. Please try again.',
           },
           introPage: {
             introTitle: '关于此搜索工具',
@@ -456,11 +533,55 @@ pinboard({
           details: {
             details: '详情',
             inPerson: '亲自登记和邮寄投票',
+            voterReg: ' 选民登记',
+            ballotApp: '邮寄选票申请',
+            ballotRep: '邮寄选票替代 ',
             ballotDropoff: '邮寄选票提交',
             interpretationAvailable: '提供电话口译服务',
             wheelchair: '轮椅无障碍服务',
+            open24Hours: '24 小时开放',
           },
+          'Election office': '选举办公室',
+          'Official mail-in ballot return': '正式选票寄还地点',
+          'Official mail-in ballot drop box': '官方邮寄选票投票箱',
+          sections: {
+            'Election office': {
+              header: '选举办公室',
+              englishName: 'Election office',
+              p1: '费城市市政官员投票决定在费城各地开设 ',
+              p2: ' 个附属选举办公室。经常回来查阅。 ',
+              p3: '选举办公室提供电话传译服务，并且为无障碍通行。进入必须戴口罩。 ',
+              h2: '选民服务及截止日期',
+              dates: {
+                d1:{
+                  text: '登记投票（需要身份证件',
+                  date: '10 月 19 日',
+                },
+                d2:{
+                  text: '申请邮寄选票',
+                  date: '10 月 27 日，下午 5:00',
+                },
+                d3:{
+                  text: '申请替代选票',
+                  date: '11 月 3 日',
+                },
+                d4:{
+                  text: '提交填妥的选票',
+                  date: '11 月 3 日，晚上 8:00',
+                },
+              },
+            },
+            'Official mail-in ballot return': {
+              header: '正式选票寄还地点',
+              englishName: 'Official mail-in ballot return',
 
+            },
+            'Official mail-in ballot drop box': {
+              header: '官方邮寄选票投票箱',
+              englishName: 'Official mail-in ballot drop box',
+              p1: '如果投票箱满了、故障或以任何形式损坏，请致电 (215) 686-3469 或发送电子邮件至 <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+            },
+          },
           beforeYouGo: '在您出发前请先了解以下信息',
           checkSite: '查看具体地点详情。',
           hoursVary: '时间和可用性各不相同。',
@@ -485,7 +606,7 @@ pinboard({
             title: 'Trung Tâm Bỏ Phiếu Qua Đường Bưu Điện',
             subtitle: 'Tìm một địa điểm bỏ phiếu qua đường bưu điện gần quý vị',
             // bannerAlert: 'Hôm nay, nhiều địa điểm đóng cửa. Hãy kiểm tra các chi tiết về địa điểm cụ thể để biết thêm thông tin.',
-            noResults: 'Không tìm thấy cơ sở xét nghiệm trong phạm vi tìm kiếm của quý vị. Vui lòng gọi điện cho nhà cung cấp dịch vụ chăm sóc sức khỏe của quý vị hoặc truy cập trang web về COVID-19 của Sở Y Tế Công Cộng để biết thông tin về a href="https://www.phila.gov/programs/coronavirus-disease-2019-covid-19/guidance/faq/#getting-tested" target="_blank">cách nhận xét nghiệm tại Philadelphia</a>.',
+            noResults: 'No site was found within your search. Please try again.',
           },
           introPage: {
             introTitle: 'Giới thiệu công cụ tìm kiếm này',
@@ -513,11 +634,55 @@ pinboard({
           details: {
             details: 'Chi tiết',
             inPerson: 'Đăng ký trực tiếp và bỏ phiếu qua đường bưu điện',
+            voterReg: 'Đăng ký cử tri',
+            ballotApp: 'Đăng ký lá phiếu bầu qua đường bưu điện',
+            ballotRep: 'Thay thế lá phiếu bầu qua đường bưu điện ',
             ballotDropoff: 'Điểm bỏ lá phiếu bầu qua đường bưu điện',
             interpretationAvailable: 'Có các dịch vụ thông dịch qua điện thoại.',
             wheelchair: 'Hỗ trợ tiếp cận cho xe lăn',
+            open24Hours: 'Mở 24 giờ ',
           },
+          'Election office': 'Văn phòng bầu cử',
+          'Official mail-in ballot return': 'Thùng bỏ phiếu qua đường bưu điện chính thức',
+          'Official mail-in ballot drop box': 'Official mail-in ballot drop box',
+          sections: {
+            'Election office': {
+              header: 'Văn phòng bầu cử ',
+              englishName: 'Election office',
+              p1: 'Ủy Viên Thành Phố Philadelphia biểu quyết mở ',
+              p2: '  văn phòng bầu cử vệ tinh trên toàn Philadelphia. Hãy trở lại xem thường xuyên.  ',
+              p3: 'Các văn phòng bầu cử cung cấp dịch vụ phiên dịch qua điện thoại và hỗ trợ tiếp cận cho xe lăn. Yêu cầu đeo khẩu trang khi vào. ',
+              h2: 'Các dịch vụ cử tri và thời hạn  ',
+              dates: {
+                d1:{
+                  text: 'Đăng ký bỏ phiếu (Yêu cầu ID)',
+                  date: 'Ngày 19 tháng 10',
+                },
+                d2:{
+                  text: 'Đăng ký lá phiếu bầu qua thư',
+                  date: 'Ngày 27 tháng 10 lúc 5 giờ chiều',
+                },
+                d3:{
+                  text: 'Yêu cầu lá phiếu thay thế',
+                  date: 'Ngày 3 tháng 11',
+                },
+                d4:{
+                  text: 'Bỏ lá phiếu hoàn chỉnh của quý vị vào thùng bỏ phiếu',
+                  date: 'Ngày 3 tháng 11 lúc 8 giờ tối. ',
+                },
+              },
+            },
+            'Official mail-in ballot return': {
+              header: 'Địa điểm gửi lá phiếu chính thức',
+              englishName: 'Official mail-in ballot return',
 
+            },
+            'Official mail-in ballot drop box': {
+              header: 'Thùng bỏ phiếu qua đường bưu điện chính thức',
+              englishName: 'Official mail-in ballot drop box',
+              p1: 'Nếu thùng bỏ phiếu đầy, không hoạt động, hoặc bị hư hỏng ở bất kỳ hình thức nào, hãy gọi số (215) 686-3469 hoặc gửi email đến <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+            },
+          },
           beforeYouGo: 'Trước khi quý vị đến',
           checkSite: 'Hãy kiểm tra thông tin chi tiết của cơ sở cụ thể.',
           hoursVary: 'Giờ làm việc và tính sẵn có khác nhau.',
@@ -542,7 +707,7 @@ pinboard({
             title: 'Центры голосования по почте',
             subtitle: 'Найдите место для голосования по почте рядом с вами',
             // bannerAlert: 'Многие места сегодня закрыты. Для получения более подробной информации о месте отдыха просмотрите дополнительные сведения.',
-            noResults: 'В ходе поиска не найдено ни одного пункта для тестирования. Позвоните своему врачу или посетите веб-сайт Департамента здравоохранения, посвященный COVID-19, и узнайте, как <a href="https://www.phila.gov/programs/coronavirus-disease-2019-covid-19/guidance/faq/#getting-tested" target="_blank">пройти тестирование в Филадельфии</a>.',
+            noResults: 'No site was found within your search. Please try again.',
           },
           introPage: {
             introTitle: 'Об этом средстве поиска',
@@ -570,11 +735,55 @@ pinboard({
           details: {
             details: 'Сведения',
             inPerson: 'Личная регистрация и голосование по почте',
+            voterReg: 'Регистрация в качестве избирателя',
+            ballotApp: ' Подача заявки на предоставление бюллетеня для голосования по почте',
+            ballotRep: 'Выдача повторного бюллетеня для голосования по почте ',
             ballotDropoff: 'Пункты приема бюллетеней для голосования по почте',
             interpretationAvailable: 'Предоставляются услуги переводчика по телефону',
             wheelchair: 'Приспособлено для людей на инвалидных колясках',
+            open24Hours: 'Работают круглосуточно ',
           },
+          'Election office': 'Офис избирательного бюро ',
+          'Official mail-in ballot return': 'Официальный пункт возврата бюллетеней',
+          'Official mail-in ballot drop box': 'Официальный ящик для приема бюллетеней для голосования по почте',
+          sections: {
+            'Election office': {
+              header: 'Офис избирательного бюро',
+              englishName: 'Election office',
+              p1: 'Уполномоченные по выборам в Филадельфии проголосовали за то, чтобы открыть ',
+              p2: ' дополнительных офисов избирательного бюро по всему городу. Проверяйте обновления почаще.  ',
+              p3: 'В офисах избирательного бюро предоставляются услуги переводчика по телефону, также предусмотрена возможность их посещения лицами на инвалидных колясках. При входе следует обязательно надеть маску. ',
+              h2: 'Услуги для избирателей и конечные сроки',
+              dates: {
+                d1:{
+                  text: 'Регистрация для участия в голосовании (требуется удостоверение личности)',
+                  date: '19 октября',
+                },
+                d2:{
+                  text: 'Подача заявки на предоставление бюллетеня для голосования по почте',
+                  date: '27 октября до 17:00',
+                },
+                d3:{
+                  text: 'Обращение за повторным бюллетенем',
+                  date: '3 ноября',
+                },
+                d4:{
+                  text: 'Прием заполненного бюллетеня',
+                  date: '3 ноября до 20:00 ',
+                },
+              },
+            },
+            'Official mail-in ballot return': {
+              header: 'Официальный пункт возврата бюллетеней',
+              englishName: 'Official mail-in ballot return',
 
+            },
+            'Official mail-in ballot drop box': {
+              header: 'Официальный ящик для приема бюллетеней для голосования по почте',
+              englishName: 'Official mail-in ballot drop box',
+              p1: 'If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+            },
+          },
           beforeYouGo: 'Прежде чем вы пойдете',
           checkSite: 'Проверьте дополнительные сведения о пункте тестирования.',
           hoursVary: 'Часы работы и возможность оказания услуги могут меняться.',
@@ -599,7 +808,7 @@ pinboard({
             title: 'Centres de vote par correspondance',
             subtitle: 'Trouver un bureau de vote par correspondance près de chez vous',
             // bannerAlert: 'De nombreux sites sont fermés aujourd’hui. Consultez les détails spécifiques au site pour obtenir de plus amples informations.',
-            noResults: 'Aucun site de dépistage n’a été trouvé pour votre recherche. Veuillez appeler votre prestataire de soins de santé ou consulter le site Web du département de la Santé publique sur le COVID-19 pour obtenir des informations sur les tests de dépistage à Philadelphie.',
+            noResults: 'No site was found within your search. Please try again.',
           },
           introPage:{
             introTitle: 'À propos de cet outil de recherche',
@@ -627,11 +836,55 @@ pinboard({
           details: {
             details: 'Détails',
             inPerson: 'Inscription en personne et vote par correspondance',
+            voterReg: ' Inscription sur les listes électorales',
+            ballotApp: 'Demande de bulletin de vote par correspondance',
+            ballotRep: 'Remplacement de bulletin de vote par correspondance ',
             ballotDropoff: 'Dépôt des bulletins de vote par correspondance',
             interpretationAvailable: 'Services d’interprétation par téléphone disponibles',
             wheelchair: 'Accessible aux fauteuils roulants',
+            open24Hours: 'Ouvert 24h/24 ',
           },
+          'Election office': 'Bureau de vote ',
+          'Official mail-in ballot return': 'Lieu officiel de dépôt de bulletins',
+          'Official mail-in ballot drop box': 'Boîte de dépôt officielle des bulletins de vote par correspondance ',
+          sections: {
+            'Election office': {
+              header: 'Bureau de vote ',
+              englishName: 'Election office',
+              p1: 'Les commissaires de la ville de Philadelphie ont approuvé l’ouverture de ',
+              p2: ' bureaux de vote satellites répartis à travers toute la ville. Vérifiez la liste régulièrement.  ',
+              p3: 'Les bureaux de vote proposent des services d’interprétation par téléphone et sont accessibles aux fauteuils roulants. Il faut porter un masque pour entrer. ',
+              h2: 'Services aux électeurs et dates limites',
+              dates: {
+                d1:{
+                  text: 'S’inscrire sur les listes électorales (pièce d’identité exigée)',
+                  date: '19 octobre',
+                },
+                d2:{
+                  text: 'Faire une demande de bulletin de vote par correspondance',
+                  date: '27 octobre, 17 heures',
+                },
+                d3:{
+                  text: 'Faire une demande de bulletin de remplacement',
+                  date: '3 novembre',
+                },
+                d4:{
+                  text: 'Déposer votre bulletin dûment rempli',
+                  date: '3 novembre, 20 heures ',
+                },
+              },
+            },
+            'Official mail-in ballot return': {
+              header: 'Lieu officiel de dépôt de bulletins',
+              englishName: 'Official mail-in ballot return',
 
+            },
+            'Official mail-in ballot drop box': {
+              header: 'Boîte de dépôt officielle des bulletins de vote par correspondance ',
+              englishName: 'Official mail-in ballot drop box',
+              p1: 'Si une boîte de dépôt est pleine, si elle ne fonctionne pas ou si elle est endommagée, appelez le (215) 686-3469 ou envoyez un email à <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+            },
+          },
           beforeYouGo: 'Avant de vous déplacer',
           checkSite: 'Consultez les détails concernant un site particulier.',
           hoursVary: 'Les horaires et la disponibilité varient.',
@@ -650,7 +903,6 @@ pinboard({
           Unknown: 'Inconnu',
           website: 'Site Web',
         },
-
       },
     },
   },

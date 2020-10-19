@@ -103,18 +103,28 @@ export default {
 
         if (field === 'site_type') {
           if (item[field] === 'Election office') {
-            values.push('details.inPerson');
+            values.push('details.voterReg');
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
-
+        if (field === 'site_type') {
+          if (item[field] === 'Election office') {
+            values.push('details.ballotApp');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
+        if (field === 'site_type') {
+          if (item[field] === 'Election office') {
+            values.push('details.ballotRep');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
         if (field === 'site_type') {
           if (item[field] === 'Election office') {
             values.push('details.ballotDropoff');
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
-
         if (field === 'multilingual_support') {
           if (item[field] === 'TRUE') {
             values.push('details.interpretationAvailable');

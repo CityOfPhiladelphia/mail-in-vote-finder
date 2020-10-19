@@ -40,7 +40,7 @@
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
 
 export default {
-  name: 'MailInBallotDropOffCard',
+  name: 'MailInBallotDropOffBoxCard',
   components: {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
   },
@@ -127,6 +127,12 @@ export default {
         if (field === 'site_type') {
           if (item[field] === 'Official mail-in ballot return') {
             values.push('details.ballotDropoff');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
+        if (field === 'site_type') {
+          if (item[field] === 'Official mail-in ballot drop box') {
+            values.push('details.ballotDropoff'); //TODO: check this
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }

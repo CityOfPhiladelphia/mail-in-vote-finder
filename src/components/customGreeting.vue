@@ -24,31 +24,39 @@
       />
     </div>
 
+
+    <!-- sections that rely on data -->
+    <greeting-section
+      v-for="(section, key) in sections"
+      :key="key"
+      :header="key"
+      :section="$config.sections[key]"
+      :color="$config.sections[key].color"
+    />
+
     <div
       class="main-area"
     >
-      <h1>{{ $t('introPage.introTitle') }}</h1>
-      <p>{{ $t('introPage.p1_1') }} {{ count }} {{ $t('introPage.p1_2') }}</p>
-      <p>{{ $t('introPage.p2') }}</p>
-      <ul>
-        <li>{{ $t('introPage.ul1.li1') }}</li>
-        <li>{{ $t('introPage.ul1.li2') }}</li>
-        <li>{{ $t('introPage.ul1.li3') }}</li>
-      </ul>
-      <p>{{ $t('introPage.p3') }}</p>
-      <p><b>{{ $t('introPage.p4_b') }}</b>{{ $t('introPage.p4') }}</p>
-
       <div
         class="section-header"
         :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
       >
         <b>{{ $t('introPage.relatedContent') }}</b>
       </div>
-      <a target="_blank" href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx">{{ $t('introPage.link1') }}</a><br>
-      <a target="_blank" href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx">{{ $t('introPage.link2') }}</a><br>
-      <a target="_blank" href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/">{{ $t('introPage.link3') }}</a>
-
-    </div> <!-- end of main-area -->
+      <a
+        target="_blank"
+        href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx"
+      >{{ $t('introPage.link1') }}</a><br>
+      <a
+        target="_blank"
+        href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
+      >{{ $t('introPage.link2') }}</a><br>
+      <a
+        target="_blank"
+        href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/"
+      >{{ $t('introPage.link3') }}</a>
+    </div> 
+    <!-- end of main-area -->
   </div>
 </template>
 
@@ -57,12 +65,15 @@
 import TopicComponent from '@phila/vue-comps/src/components/TopicComponent.vue';
 import PhilaButton from '@phila/pinboard/src/components/PhilaButton.vue';
 import callout from '@phila/vue-comps/src/components/Callout.vue';
+import greetingSection from './greetingSection.vue';
+
 
 export default {
   name: 'CustomGreeting',
   components: {
     PhilaButton,
     callout,
+    greetingSection,
   },
   mixins: [ TopicComponent ],
   props: {
@@ -81,8 +92,14 @@ export default {
     return data;
   },
   computed: {
-    count() {
-      return this.database.length;
+    electionOfficeCount() {
+      let electionOffices = [];
+      for (let site of this.database) {
+        if (site.site_type === 'Election office') {
+          electionOffices.push(site);
+        }
+      }
+      return electionOffices.length;
     },
     i18nEnabled() {
       if (this.$config.i18n) {
