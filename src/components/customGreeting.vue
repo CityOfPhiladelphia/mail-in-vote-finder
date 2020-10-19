@@ -24,20 +24,20 @@
       />
     </div>
 
+
+    <!-- sections that rely on data -->
+    <greeting-section
+      v-for="(section, key) in sections"
+      :key="key"
+      :header="key"
+      :section="$config.sections[key]"
+      :color="$config.sections[key].color"
+      :election-office-count="electionOfficeCount"
+    />
+
     <div
       class="main-area"
     >
-      <h1>{{ $t('introPage.introTitle') }}</h1>
-      <p>{{ $t('introPage.p1_1') }} {{ electionOfficeCount }} {{ $t('introPage.p1_2') }}</p>
-      <p>{{ $t('introPage.p2') }}</p>
-      <ul>
-        <li>{{ $t('introPage.ul1.li1') }}</li>
-        <li>{{ $t('introPage.ul1.li2') }}</li>
-        <li>{{ $t('introPage.ul1.li3') }}</li>
-      </ul>
-      <p>{{ $t('introPage.p3') }}</p>
-      <p><b>{{ $t('introPage.p4_b') }}</b>{{ $t('introPage.p4') }}</p>
-
       <div
         class="section-header"
         :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
@@ -56,7 +56,8 @@
         target="_blank"
         href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/"
       >{{ $t('introPage.link3') }}</a>
-    </div> <!-- end of main-area -->
+    </div> 
+    <!-- end of main-area -->
   </div>
 </template>
 
@@ -65,12 +66,15 @@
 import TopicComponent from '@phila/vue-comps/src/components/TopicComponent.vue';
 import PhilaButton from '@phila/pinboard/src/components/PhilaButton.vue';
 import callout from '@phila/vue-comps/src/components/Callout.vue';
+import greetingSection from './greetingSection.vue';
+
 
 export default {
   name: 'CustomGreeting',
   components: {
     PhilaButton,
     callout,
+    greetingSection,
   },
   mixins: [ TopicComponent ],
   props: {
