@@ -646,7 +646,7 @@ pinboard({
           },
           'Election office': 'Văn phòng bầu cử',
           'Official mail-in ballot return': 'Thùng bỏ phiếu qua đường bưu điện chính thức',
-          'Official mail-in ballot drop box': 'Official mail-in ballot drop box',
+          'Official mail-in ballot drop box': 'Thùng bỏ phiếu qua đường bưu điện chính thức ',
           sections: {
             'Election office': {
               header: 'Văn phòng bầu cử ',
