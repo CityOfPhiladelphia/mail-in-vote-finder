@@ -126,13 +126,13 @@ export default {
 
         if (field === 'site_type') {
           if (item[field] === 'Official mail-in ballot return') {
-            values.push('details.ballotDropoffLong');
+            values.push('details.ballotDropoff');
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
         if (field === 'site_type') {
           if (item[field] === 'Official mail-in ballot drop box') {
-            values.push('details.ballotDropoffLong'); //TODO: check this
+            values.push('details.ballotDropoff'); //TODO: check this
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }

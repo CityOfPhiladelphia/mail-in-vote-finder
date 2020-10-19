@@ -6,7 +6,7 @@
     >
       <b>{{ $t('sections.' + header + '.header') }}</b>
     </div>
-    <div v-if="$t('sections.' + header + '.header') === 'Election office'">
+    <div v-if="$t('sections.' + header + '.englishName') === 'Election office'">
       <div>
         <span>{{ $t('sections.' + header + '.p1') }}</span> # 
         <span>{{ $t('sections.' + header + '.p2') }}</span>
@@ -45,8 +45,8 @@
         </tbody>
       </table>
     </div>
-    <div v-if="$t('sections.' + header + '.header') === 'Official mail-in ballot return'" />
-    <div v-if="$t('sections.' + header + '.header') === 'Official mail-in ballot drop box'">
+    <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot return'" />
+    <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot drop box'">
       <div>
         <div>{{ $t('sections.' + header + '.p1') }}</div> 
       </div>
@@ -229,6 +229,18 @@ export default {
 
 <style>
 
+  .dates tbody tr:nth-child(even) {
+    background:white;
+  }
+
+  .dates tbody tr:nth-child(odd) {
+    background:white;
+  }
+
+  .dates td{
+    border-bottom: 1px solid black;
+    padding-left: 0;
+  }
   .section-header {
     background-color: #0f4d90;
     font-size: 16px;
