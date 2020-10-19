@@ -8,11 +8,11 @@
     </div>
     <div v-if="$t('sections.' + header + '.englishName') === 'Election office'">
       <div>
-        <span>{{ $t('sections.' + header + '.p1') }}</span> # 
+        <span>{{ $t('sections.' + header + '.p1') }}</span> <span> {{ electionOfficeCount }}</span>
         <span>{{ $t('sections.' + header + '.p2') }}</span>
       </div>
-      <div>
-        <i> {{ $t('sections.' + header + '.p3') }}</i>
+      <div class="emphasis-text">
+        {{ $t('sections.' + header + '.p3') }}
       </div>
       <h3>{{ $t('sections.' + header + '.h2') }}</h3>
 
@@ -48,7 +48,7 @@
     <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot return'" />
     <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot drop box'">
       <div>
-        <div>{{ $t('sections.' + header + '.p1') }}</div> 
+        <div v-html="$t('sections.' + header + '.p1')" />
       </div>
     </div>
   </div>
@@ -74,6 +74,10 @@ export default {
       type: String,
       default: '#0F4D90',
     },
+    'electionOfficeCount': {
+      type: Number,
+      default: 10,
+    },
     'section': {
       type: Object,
       default: function(){
@@ -81,17 +85,7 @@ export default {
       },
     },
   },
-  data() {
-    let data = {
-      dates: {},
-    };
-    return data;
-  },
   computed: {
-    sectionData() {
-      console.log('sectionData', this.$store.state.section );
-      return this.$store.state.section || [];
-    },
     subsectionsData() {
       return this.$store.state.subsections || [];
     },
@@ -240,6 +234,10 @@ export default {
   .dates td{
     border-bottom: 1px solid black;
     padding-left: 0;
+  }
+  .emphasis-text{
+    font-style: italic;
+    padding: 1rem 0;
   }
   .section-header {
     background-color: #0f4d90;

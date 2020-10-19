@@ -32,6 +32,7 @@
       :header="key"
       :section="$config.sections[key]"
       :color="$config.sections[key].color"
+      :election-office-count="electionOfficeCount"
     />
 
     <div
