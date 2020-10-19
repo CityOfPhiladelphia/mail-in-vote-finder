@@ -376,7 +376,9 @@ pinboard({
             'Official mail-in ballot drop box': {
               header: 'Official mail-in ballot drop box',
               englishName: 'Official mail-in ballot drop box',
-              p1: 'If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+              p1: '\
+              If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
+              ',
             },
           },
           beforeYouGo: 'Before you go',
