@@ -230,7 +230,7 @@ export default {
     padding-left: 0;
   }
   .emphasis-text{
-    font-style: italic;
+    /* font-style: italic; */
     padding: 1rem 0;
   }
   .section-header {
