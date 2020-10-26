@@ -11,6 +11,7 @@
 //   console.log = console.info = console.debug = console.error = function () {};
 // }
 
+
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
