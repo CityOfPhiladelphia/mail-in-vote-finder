@@ -104,11 +104,11 @@ pinboard({
       titleSingular: 'Election office',
       color: '#0F4D90',
     },
-    'Official mail-in ballot return': {
-      title: 'Official mail-in ballot returns',
-      titleSingular: 'Official mail-in ballot return',
-      color: '#721817',
-    },
+    // 'Official mail-in ballot return': {
+    //   title: 'Official mail-in ballot returns',
+    //   titleSingular: 'Official mail-in ballot return',
+    //   color: '#721817',
+    // },
     'Official mail-in ballot drop box': {
       title: 'Official mail-in ballot drop boxes',
       titleSingular: 'Official mail-in ballot drop box',
@@ -455,20 +455,20 @@ pinboard({
               h2: 'Servicios al votante y plazos ',
               dates: {
                 d1:{
-                  text: ' spanish Register to vote (ID required)',
-                  date: 'October 19',
+                  text: 'Registrarse para votar (se requiere identificación)',
+                  date: '19 de octubre',
                 },
                 d2:{
-                  text: 'spanish Apply for a mail-in ballot',
-                  date: 'October 27 at 5 p.m.',
+                  text: 'Solicitar una boleta electoral por correo',
+                  date: '27 de octubre a las 5 p.m.',
                 },
                 d3:{
-                  text: 'spanish Request a replacement ballot',
-                  date: 'November 3',
+                  text: 'Solicitar una boleta electoral de reemplazo',
+                  date: '3 de noviembre',
                 },
                 d4:{
-                  text: 'spanish Drop off your completed ballot',
-                  date: 'November 3 at 8 p.m.',
+                  text: 'Entregar su boleta electoral completa',
+                  date: '3 de noviembre a las 8 p.m. ',
                 },
               },
             },
