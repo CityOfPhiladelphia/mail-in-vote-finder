@@ -14,7 +14,9 @@
       <div class="emphasis-text">
         {{ $t('sections.' + header + '.p3') }}
       </div>
-      <h3>{{ $t('sections.' + header + '.h2') }}</h3>
+      <div class="non-bold-header">
+        {{ $t('sections.' + header + '.h2') }}
+      </div>
 
       <table class="dates">
         <tbody>
@@ -216,6 +218,10 @@ export default {
 </script>
 
 <style>
+
+  .non-bold-header {
+    font-size: 18px;
+  }
 
   .dates tbody tr:nth-child(even) {
     background:white;

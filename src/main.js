@@ -339,12 +339,12 @@ pinboard({
             wheelchair: 'Wheelchair accessible',
             open24Hours: 'Open 24 hours',
           },
-          'Election office': 'Election office',
+          'Election office': 'Election offices',
           'Official mail-in ballot return': 'Official mail-in ballot return',
-          'Official mail-in ballot drop box': 'Official mail-in ballot drop box',
+          'Official mail-in ballot drop box': 'Official mail-in ballot drop boxes',
           sections: {
             'Election office': {
-              header: 'Election office',
+              header: 'Election offices',
               englishName: 'Election office',
               p1: 'The Philadelphia City Commissioners voted to open ',
               p2: ' satellite election offices located throughout Philadelphia. Check back often.',
@@ -375,7 +375,7 @@ pinboard({
 
             },
             'Official mail-in ballot drop box': {
-              header: 'Official mail-in ballot drop box',
+              header: 'Official mail-in ballot drop boxes',
               englishName: 'Official mail-in ballot drop box',
               p1: '\
               If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \

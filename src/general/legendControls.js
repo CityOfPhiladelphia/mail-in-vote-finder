@@ -21,7 +21,7 @@ export default {
     },
     data: {
       // TODO give these an id instead of using the label as a key
-      'Election office': {
+      'Election offices': {
         'border-color': 'black',
         'border-style': 'solid',
         'border-weight': '0px',
@@ -30,7 +30,7 @@ export default {
         'font-size': '10px',
         'background-color': '#0F4D90',
       },
-      'Official mail-in ballot drop box': {
+      'Official mail-in ballot drop boxes': {
         'border-color': 'black',
         'border-style': 'solid',
         'border-weight': '0px',
