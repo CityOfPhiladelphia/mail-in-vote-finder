@@ -20,12 +20,6 @@
         <tbody>
           <tr>
             <td>
-              {{ $t('sections.' + header + '.dates.d2.text') }}
-            </td>
-            <td> {{ $t('sections.' + header + '.dates.d2.date') }}</td>
-          </tr>
-          <tr>
-            <td>
               {{ $t('sections.' + header + '.dates.d3.text') }}
             </td>
             <td> {{ $t('sections.' + header + '.dates.d3.date') }}</td>
