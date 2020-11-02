@@ -88,9 +88,17 @@ export default {
 
     calloutText() {
       // console.log('greetingSection.vue calloutText computed, this.$i18n:', this.$i18n, 'this.$i18n.messages[this.$i18n.locale]:', this.$i18n.messages[this.$i18n.locale]);
-      let text = this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout1;
+      let text = '';
+      if (this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout1) {
+        text += this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout1;
+      } else {
+        text += this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout1;
+      }
+
       if (this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout2) {
         text += '<br>' + this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout2;
+      } else if (this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout1) {
+        text += '<br>' + this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout2;
       }
       return text;
     },
