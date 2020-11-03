@@ -14,18 +14,20 @@
       <div class="emphasis-text">
         {{ $t('sections.' + header + '.p3') }}
       </div>
+
       <div class="non-bold-header">
         {{ $t('sections.' + header + '.h2') }}
       </div>
 
+      <div
+        class="callout"
+        v-html="calloutText"
+      />
+
+      <h3>{{ $t('sections.' + header + '.h2') }}</h3>
+
       <table class="dates">
         <tbody>
-          <tr>
-            <td>
-              {{ $t('sections.' + header + '.dates.d2.text') }}
-            </td>
-            <td> {{ $t('sections.' + header + '.dates.d2.date') }}</td>
-          </tr>
           <tr>
             <td>
               {{ $t('sections.' + header + '.dates.d3.text') }}
@@ -43,9 +45,13 @@
     </div>
     <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot return'" />
     <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot drop box'">
-      <div>
+      <div class="spacer">
         <div v-html="$t('sections.' + header + '.p1')" />
       </div>
+      <div
+        class="callout"
+        v-html="calloutText"
+      />
     </div>
   </div>
 </template>
@@ -58,6 +64,7 @@ export default {
   name: 'GreetingSection',
   components: {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTableLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
+    Callout: () => import(/* webpackChunkName: "pvc_Callout" */'@phila/vue-comps/src/components/Callout.vue'),
     // HorizontalTableLight: () => import(/* webpackChunkName: "pvc_HorizontalTableLight" */'@phila/vue-comps/src/components/HorizontalTableLight.vue'),
   },
   mixins: [ TopicComponent ],
@@ -82,6 +89,23 @@ export default {
     },
   },
   computed: {
+
+    calloutText() {
+      // console.log('greetingSection.vue calloutText computed, this.$i18n:', this.$i18n, 'this.$i18n.messages[this.$i18n.locale]:', this.$i18n.messages[this.$i18n.locale]);
+      let text = '';
+      if (this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout1) {
+        text += this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout1;
+      } else {
+        text += this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout1;
+      }
+
+      if (this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout2) {
+        text += '<br>' + this.$i18n.messages[this.$i18n.locale].sections[this.$props.section.titleSingular].callout2;
+      } else if (this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout1) {
+        text += '<br>' + this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout2;
+      }
+      return text;
+    },
     subsectionsData() {
       return this.$store.state.subsections || [];
     },
@@ -221,6 +245,24 @@ export default {
 
   .non-bold-header {
     font-size: 18px;
+  }
+
+  .spacer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .callout {
+    background-color: #f0f0f0;
+    border: 6px;
+    border-color: #f99300;
+    border-left-style: solid;
+    padding-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    /* margin-top: 10px; */
+    font-weight: bold;
   }
 
   .dates tbody tr:nth-child(even) {

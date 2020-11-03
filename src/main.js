@@ -94,7 +94,7 @@ pinboard({
   refine: {
     type: 'categoryField_value',
     value: function(item) {
-      console.log(item.site_type);
+      // console.log(item.site_type);
       return item.site_type;
     },
     showLabels: true,
@@ -305,6 +305,7 @@ pinboard({
             noResults: 'No site was found within your search. Please try again.',
           },
           introPage: {
+            exclamation: 'This map includes locations that accept mail-in and absentee ballots only. To vote in person, find your polling place at ',
             introTitle: 'About this finder',
             p1_1: 'The Philadelphia City Commissioners have approved ',
             p1_2: ' satellite election offices located throughout Philadelphia, in addition to the two existing County Board of Election offices.',
@@ -338,6 +339,8 @@ pinboard({
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
             open24Hours: 'Open 24 hours',
+            staff: 'Staff will remain at the office to receive dropped off ballots until 8 p.m. Boxes will be locked at precisely 8 p.m.',
+            electionDayHours: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
           },
           'Election office': 'Election offices',
           'Official mail-in ballot return': 'Official mail-in ballot return',
@@ -349,6 +352,8 @@ pinboard({
               p1: 'The Philadelphia City Commissioners voted to open ',
               p2: ' satellite election offices located throughout Philadelphia. Check back often.',
               p3: 'Election offices provide telephonic interpretation services and are wheelchair accessible. Masks are required to enter. ',
+              callout1: 'On Election Day, election offices will have regular hours from 11:30 a.m. to 6:30 p.m.',
+              callout2: 'Staff will remain at the office to receive dropped off ballots until 8 p.m. Boxes will be locked at precisely 8 p.m.',
               h2: 'Voter services and deadlines ',
               dates: {
                 d1:{
@@ -380,6 +385,7 @@ pinboard({
               p1: '\
               If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
               ',
+              callout1: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
             },
           },
           beforeYouGo: 'Before you go',
@@ -409,6 +415,7 @@ pinboard({
             noResults: 'No se encontró un lugar donde se realicen pruebas que coincida con su búsqueda.',
           },
           introPage: {
+            exclamation: 'Este mapa solamente incluye locaciones que aceptan boletas por correo y en ausencia. Para votar en persona, busque su lugar de votación en ',
             introTitle: 'Acerca de este buscador',
             p1_1: 'Los Comisionados de la Ciudad de Filadelfia han aprobado ',
             p1_2: ' oficinas electorales satélite ubicadas en Filadelfia, además de las dos oficinas existentes de la Junta Electoral del Condado.',
@@ -442,6 +449,8 @@ pinboard({
             interpretationAvailable: 'Servicios de intérprete disponibles',
             wheelchair: 'Local accesible en silla de ruedas',
             open24Hours: 'Abierto las 24 horas',
+            staff: 'El personal permanecerá en la oficina para recibir las boletas entregadas hasta las 8 p.m. Los buzones se cerrarán con llave exactamente a las 8 p.m.',
+            electionDayHours: 'El día de las elecciones, los buzones se cerrarán con llave exactamente a las 8 p.m.',
           },
           'Election office': 'Oficina Electoral',
           'Official mail-in ballot return': 'Sitio oficial para devolver boletas',
@@ -453,6 +462,8 @@ pinboard({
               p1: 'Los comisionados de la ciudad de Filadelfia votaron para abrir ',
               p2: ' oficinas electorales satélite dispersas en toda Filadelfia. Consulte regularmente.',
               p3: 'Las oficinas electorales brindan servicios de interpretación telefónica y tienen acceso para sillas de ruedas. Para ingresar, se debe utilizar mascarilla.  ',
+              callout1: 'El día de las elecciones, las oficinas electorales tendrán un horario regular de 11:30 a.m. a 6:30 p.m.',
+              callout2: 'El personal permanecerá en la oficina para recibir las boletas entregadas hasta las 8 p.m. Los buzones se cerrarán con llave exactamente a las 8 p.m.',
               h2: 'Servicios al votante y plazos ',
               dates: {
                 d1:{
@@ -482,6 +493,7 @@ pinboard({
               header: 'Buzón oficial de la votación por correo',
               englishName: 'Official mail-in ballot drop box',
               p1: 'Si un buzón está lleno, no funciona, o está dañado de alguna manera, llame al (215) 686-3469 o envíe un correo electrónico a <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+              callout1: 'El día de las elecciones, los buzones se cerrarán con llave exactamente a las 8 p.m.',
             },
           },
           beforeYouGo: 'Antes de ir',

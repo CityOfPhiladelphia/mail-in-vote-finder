@@ -2,18 +2,23 @@
   <div
     class="grid-y custom-greeting"
   >
-    <!-- <div class="exclamation-holder">
+    <div class="exclamation-holder">
       <font-awesome-icon
-        icon="info-circle"
+        icon="exclamation-triangle"
         class="fa-3x fa-icon-class"
       />
       <div
         class="grid-y exclamation-details small-19 medium-20"
       >
-        <div><b>{{ $t('beforeYouGo') }}:</b></div>
-        <div>Access Centers are free, but you must check eligibility and register your child in advance. For full program details, visit the <a href="https://www.phila.gov/access-centers">Access Centers webpage</a>. </div>
+        <!-- <div><b>{{ $t('beforeYouGo') }}:</b></div> -->
+        <div>
+          {{ $t('introPage.exclamation') }} <a
+            target="_blank"
+            href="https://atlas.phila.gov/voting"
+          >atlas.phila.gov/voting</a>.
+        </div>
       </div>
-    </div> -->
+    </div>
 
     <div class="open-list-div">
       <!-- class="button open-list-button hide-for-medium" -->
@@ -56,7 +61,7 @@
         target="_blank"
         href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/"
       >{{ $t('introPage.link3') }}</a>
-    </div> 
+    </div>
     <!-- end of main-area -->
   </div>
 </template>

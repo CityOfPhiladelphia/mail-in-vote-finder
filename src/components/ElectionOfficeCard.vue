@@ -101,18 +101,18 @@ export default {
       for (let field of allFields) {
         let values = [];
 
-        if (field === 'site_type') {
-          if (item[field] === 'Election office') {
-            values.push('details.voterReg');
-            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
-          }
-        }
-        if (field === 'site_type') {
-          if (item[field] === 'Election office') {
-            values.push('details.ballotApp');
-            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
-          }
-        }
+        // if (field === 'site_type') {
+        //   if (item[field] === 'Election office') {
+        //     values.push('details.voterReg');
+        //     // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+        //   }
+        // }
+        // if (field === 'site_type') {
+        //   if (item[field] === 'Election office') {
+        //     values.push('details.ballotApp');
+        //     // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+        //   }
+        // }
         if (field === 'site_type') {
           if (item[field] === 'Election office') {
             values.push('details.ballotRep');
@@ -122,6 +122,12 @@ export default {
         if (field === 'site_type') {
           if (item[field] === 'Election office') {
             values.push('details.ballotDropoff');
+            // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
+          }
+        }
+        if (field === 'site_type') {
+          if (item[field] === 'Election office') {
+            values.push('details.staff');
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
