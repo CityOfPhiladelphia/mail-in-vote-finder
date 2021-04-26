@@ -57,10 +57,6 @@
         target="_blank"
         href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
       >{{ $t('introPage.link2') }}</a><br>
-      <a
-        target="_blank"
-        href="https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/"
-      >{{ $t('introPage.link3') }}</a>
     </div>
     <!-- end of main-area -->
   </div>
