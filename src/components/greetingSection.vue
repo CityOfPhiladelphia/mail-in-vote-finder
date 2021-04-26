@@ -6,39 +6,41 @@
     >
       <b>{{ $t('sections.' + header + '.header') }}</b>
     </div>
-    <h3>{{ $t('sections.' + header + '.h2') }}</h3>
-    <div class="emphasis-text">
-      {{ $t('sections.' + header + '.p1') }}
-    </div>
-    <div v-if="$t('sections.' + header + '.dates.d2.text') != ''">
-      <table class="dates">
-        <tbody>
-          <tr>
-            <td>
-              {{ $t('sections.' + header + '.dates.d2.text') }}
-            </td>
-            <td> {{ $t('sections.' + header + '.dates.d2.date') }}</td>
-          </tr>
-          <tr>
-            <td>
-              {{ $t('sections.' + header + '.dates.d3.text') }}
-            </td>
-            <td> {{ $t('sections.' + header + '.dates.d3.date') }}</td>
-          </tr>
-          <tr>
-            <td>
-              {{ $t('sections.' + header + '.dates.d4.text') }}
-            </td>
-            <td> {{ $t('sections.' + header + '.dates.d4.date') }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot drop box'">
-      <div
-        class="callout"
-        v-html="calloutText"
-      />
+    <div class="columns">
+      <h3>{{ $t('sections.' + header + '.h2') }}</h3>
+      <div class="spacer">
+        <span v-html="$t('sections.' + header + '.p1')" />
+      </div>
+      <div v-if="$t('sections.' + header + '.dates.d2.text') != ''">
+        <table class="dates">
+          <tbody>
+            <tr>
+              <td>
+                {{ $t('sections.' + header + '.dates.d2.text') }}
+              </td>
+              <td> {{ $t('sections.' + header + '.dates.d2.date') }}</td>
+            </tr>
+            <tr>
+              <td>
+                {{ $t('sections.' + header + '.dates.d3.text') }}
+              </td>
+              <td> {{ $t('sections.' + header + '.dates.d3.date') }}</td>
+            </tr>
+            <tr>
+              <td>
+                {{ $t('sections.' + header + '.dates.d4.text') }}
+              </td>
+              <td> {{ $t('sections.' + header + '.dates.d4.date') }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot drop box'">
+        <div
+          class="callout"
+          v-html="calloutText"
+        />
+      </div>
     </div>
   </div>
 </template>
