@@ -6,24 +6,19 @@
     >
       <b>{{ $t('sections.' + header + '.header') }}</b>
     </div>
-    <div v-if="$t('sections.' + header + '.englishName') === 'Election office'">
-      <div>
-        <span>{{ $t('sections.' + header + '.p1') }}</span> <span> {{ electionOfficeCount }}</span>
-        <span>{{ $t('sections.' + header + '.p2') }}</span>
-      </div>
-      <div class="emphasis-text">
-        {{ $t('sections.' + header + '.p3') }}
-      </div>
-
-      <div
-        class="callout"
-        v-html="calloutText"
-      />
-
-      <h3>{{ $t('sections.' + header + '.h2') }}</h3>
-
+    <h3>{{ $t('sections.' + header + '.h2') }}</h3>
+    <div class="emphasis-text">
+      {{ $t('sections.' + header + '.p1') }}
+    </div>
+    <div v-if="$t('sections.' + header + '.dates.d2.text') != ''">
       <table class="dates">
         <tbody>
+          <tr>
+            <td>
+              {{ $t('sections.' + header + '.dates.d2.text') }}
+            </td>
+            <td> {{ $t('sections.' + header + '.dates.d2.date') }}</td>
+          </tr>
           <tr>
             <td>
               {{ $t('sections.' + header + '.dates.d3.text') }}
@@ -39,11 +34,7 @@
         </tbody>
       </table>
     </div>
-    <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot return'" />
     <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot drop box'">
-      <div class="spacer">
-        <div v-html="$t('sections.' + header + '.p1')" />
-      </div>
       <div
         class="callout"
         v-html="calloutText"
@@ -238,6 +229,10 @@ export default {
 </script>
 
 <style>
+
+  .non-bold-header {
+    font-size: 18px;
+  }
 
   .spacer {
     margin-top: 10px;

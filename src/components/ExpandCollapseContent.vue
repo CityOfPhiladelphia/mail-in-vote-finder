@@ -17,7 +17,7 @@
     </div>
 
     <div
-      v-if="section !== 'Official mail-in ballot return'"
+      v-if="section !== 'Official mobile mail-in ballot return'"
       class="cell medium-12"
     >
       <div
@@ -39,7 +39,7 @@
     />
 
     <official-ballot-return-card
-      v-if="section === 'Official mail-in ballot return'"
+      v-if="section === 'Official mobile mail-in ballot return'"
       :item="item"
     />
     <official-ballot-return-drop-box
