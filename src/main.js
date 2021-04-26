@@ -105,11 +105,11 @@ pinboard({
       titleSingular: 'Election office',
       color: '#0F4D90',
     },
-    // 'Official mail-in ballot return': {
-    //   title: 'Official mail-in ballot returns',
-    //   titleSingular: 'Official mail-in ballot return',
-    //   color: '#721817',
-    // },
+    'Official mobile mail-in ballot return': {
+      title: 'Official mobile mail-in ballot returns',
+      titleSingular: 'Official mobile mail-in ballot return',
+      color: '#721817',
+    },
     'Official mail-in ballot drop box': {
       title: 'Official mail-in ballot drop boxes',
       titleSingular: 'Official mail-in ballot drop box',
@@ -123,7 +123,7 @@ pinboard({
   circleMarkers:{
     circleColors: {
       'Election office': '#0f4d90',
-      'Official mail-in ballot return': '#721817',
+      'Official mobile mail-in ballot return': '#721817',
       'Official mail-in ballot drop box': '#4F6D0A',
     },
     weight: 0,
@@ -335,6 +335,8 @@ pinboard({
             ballotApp: 'Mail-in ballot application.',
             ballotRep: 'Mail-in ballot replacement.',
             ballotDropoff: 'Mail-in ballot drop-off.',
+            ballotDropoffMobile: 'Mail-in mobile ballot drop-off.',
+            ballotDropoffMobileStandAlone: '*This is not a fixed, stand-alone dropbox.',
             ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote@phila.gov.',
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
@@ -343,17 +345,15 @@ pinboard({
             electionDayHours: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
           },
           'Election office': 'Election offices',
-          'Official mail-in ballot return': 'Official mail-in ballot return',
+          'Official mobile mail-in ballot return': 'Official mobile mail-in ballot return',
           'Official mail-in ballot drop box': 'Official mail-in ballot drop boxes',
           sections: {
             'Election office': {
               header: 'Election offices',
               englishName: 'Election office',
-              p1: 'The Philadelphia City Commissioners voted to open ',
-              p2: ' satellite election offices located throughout Philadelphia. Check back often.',
-              p3: 'Election offices provide telephonic interpretation services and are wheelchair accessible. Masks are required to enter. ',
-              callout1: 'On Election Day, election offices will have regular hours from 11:30 a.m. to 6:30 p.m.',
-              callout2: 'Staff will remain at the office to receive dropped off ballots until 8 p.m. Boxes will be locked at precisely 8 p.m.',
+              p1: 'Beginning April 19th, the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit. ',
+              // callout1: 'On Election Day, election offices will have regular hours from 11:30 a.m. to 6:30 p.m.',
+              // callout2: 'Staff will remain at the office to receive dropped off ballots until 8 p.m. Boxes will be locked at precisely 8 p.m.',
               h2: 'Voter services and deadlines ',
               dates: {
                 d1:{
@@ -362,22 +362,41 @@ pinboard({
                 },
                 d2:{
                   text: 'Apply for a mail-in ballot',
-                  date: 'October 27 at 5 p.m.',
+                  date: 'May 11',
                 },
                 d3:{
                   text: 'Request a replacement ballot',
-                  date: 'November 3',
+                  date: 'May 18',
                 },
                 d4:{
                   text: 'Drop off your completed ballot',
-                  date: 'November 3 at 8 p.m.',
+                  date: 'May 18 at 8 p.m.',
                 },
               },
             },
-            'Official mail-in ballot return': {
-              header: 'Official mail-in ballot return',
-              englishName: 'Official mail-in ballot return',
-
+            'Official mobile mail-in ballot return': {
+              header: 'Official mobile mail-in ballot return',
+              englishName: 'Official mobile mail-in ballot return',
+              p1: '',
+              h2: 'Voter services and deadlines',
+              dates: {
+                d1:{
+                  text: 'Register to vote (ID required)',
+                  date: 'October 19',
+                },
+                d2:{
+                  text: '',
+                  date: 'May 11',
+                },
+                d3:{
+                  text: '',
+                  date: 'May 18',
+                },
+                d4:{
+                  text: 'Drop off your completed ballot',
+                  date: 'May 18 at 8 p.m.',
+                },
+              },
             },
             'Official mail-in ballot drop box': {
               header: 'Official mail-in ballot drop boxes',
@@ -386,6 +405,22 @@ pinboard({
               If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
               ',
               callout1: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
+              callout2: '',
+              h2: '',
+              dates: {                
+                d2:{
+                  text: '',
+                  date: '',
+                },
+                d3:{
+                  text: '',
+                  date: '',
+                },
+                d4:{
+                  text: '',
+                  date: '',
+                },
+              },
             },
           },
           beforeYouGo: 'Before you go',
@@ -453,7 +488,7 @@ pinboard({
             electionDayHours: 'El día de las elecciones, los buzones se cerrarán con llave exactamente a las 8 p.m.',
           },
           'Election office': 'Oficina Electoral',
-          'Official mail-in ballot return': 'Sitio oficial para devolver boletas',
+          'Official mobile mail-in ballot return': 'Sitio oficial para devolver boletas',
           'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
           sections: {
             'Election office': {
@@ -484,10 +519,9 @@ pinboard({
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Sitio oficial para devolver boletas',
-              englishName: 'Official mail-in ballot return',
-
+              englishName: 'Official mobile mail-in ballot return',
             },
             'Official mail-in ballot drop box': {
               header: 'Buzón oficial de la votación por correo',
@@ -557,7 +591,7 @@ pinboard({
             open24Hours: '24 小时开放',
           },
           'Election office': '选举办公室',
-          'Official mail-in ballot return': '正式选票寄还地点',
+          'Official mobile mail-in ballot return': '正式选票寄还地点',
           'Official mail-in ballot drop box': '官方邮寄选票投票箱',
           sections: {
             'Election office': {
@@ -586,9 +620,9 @@ pinboard({
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: '正式选票寄还地点',
-              englishName: 'Official mail-in ballot return',
+              englishName: 'Official mobile mail-in ballot return',
 
             },
             'Official mail-in ballot drop box': {
@@ -658,7 +692,7 @@ pinboard({
             open24Hours: 'Mở 24 giờ ',
           },
           'Election office': 'Văn phòng bầu cử',
-          'Official mail-in ballot return': 'Thùng bỏ phiếu qua đường bưu điện chính thức',
+          'Official mobile mail-in ballot return': 'Thùng bỏ phiếu qua đường bưu điện chính thức',
           'Official mail-in ballot drop box': 'Thùng bỏ phiếu qua đường bưu điện chính thức ',
           sections: {
             'Election office': {
@@ -687,9 +721,9 @@ pinboard({
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Địa điểm gửi lá phiếu chính thức',
-              englishName: 'Official mail-in ballot return',
+              englishName: 'Official mobile mail-in ballot return',
 
             },
             'Official mail-in ballot drop box': {
@@ -759,7 +793,7 @@ pinboard({
             open24Hours: 'Работают круглосуточно ',
           },
           'Election office': 'Офис избирательного бюро ',
-          'Official mail-in ballot return': 'Официальный пункт возврата бюллетеней',
+          'Official mobile mail-in ballot return': 'Официальный пункт возврата бюллетеней',
           'Official mail-in ballot drop box': 'Официальный ящик для приема бюллетеней для голосования по почте',
           sections: {
             'Election office': {
@@ -788,9 +822,9 @@ pinboard({
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Официальный пункт возврата бюллетеней',
-              englishName: 'Official mail-in ballot return',
+              englishName: 'Official mobile mail-in ballot return',
 
             },
             'Official mail-in ballot drop box': {
@@ -860,7 +894,7 @@ pinboard({
             open24Hours: 'Ouvert 24h/24 ',
           },
           'Election office': 'Bureau de vote ',
-          'Official mail-in ballot return': 'Lieu officiel de dépôt de bulletins',
+          'Official mobile mail-in ballot return': 'Lieu officiel de dépôt de bulletins',
           'Official mail-in ballot drop box': 'Boîte de dépôt officielle des bulletins de vote par correspondance ',
           sections: {
             'Election office': {
@@ -889,9 +923,9 @@ pinboard({
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Lieu officiel de dépôt de bulletins',
-              englishName: 'Official mail-in ballot return',
+              englishName: 'Official mobile mail-in ballot return',
 
             },
             'Official mail-in ballot drop box': {
