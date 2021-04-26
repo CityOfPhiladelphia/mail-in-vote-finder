@@ -377,8 +377,10 @@ pinboard({
             'Official mobile mail-in ballot return': {
               header: 'Official mobile mail-in ballot return',
               englishName: 'Official mobile mail-in ballot return',
-              p1: '',
-              h2: 'Voter services and deadlines',
+              p1: '\
+              Mail-in mobile ballot drop-off. <br> *This is not a fixed, stand-alone dropbox. Limited hours only.\
+              ',
+              h2: '',
               dates: {
                 d1:{
                   text: 'Register to vote (ID required)',
