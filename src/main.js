@@ -165,10 +165,6 @@ pinboard({
         // text: 'City Commissioners',
         link: 'https://www.philadelphiavotes.com/',
       },
-      guide: {
-        text: 'ballotGuide',
-        link: 'https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/',
-      },
     },
   },
   // infoCircles: {
