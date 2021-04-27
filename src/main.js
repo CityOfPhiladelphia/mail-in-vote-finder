@@ -332,7 +332,7 @@ pinboard({
             ballotRep: 'Mail-in ballot replacement.',
             ballotDropoff: 'Mail-in ballot drop-off.',
             ballotDropoffMobile: 'Mail-in mobile ballot drop-off.',
-            ballotDropoffMobileStandAlone: '*This is not a fixed, stand-alone dropbox.',
+            ballotDropoffMobileStandAlone: '<div class="callout">This is not a fixed, stand-alone dropbox.</div>',
             ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote@phila.gov.',
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
@@ -347,9 +347,7 @@ pinboard({
             'Election office': {
               header: 'Election offices',
               englishName: 'Election office',
-              p1: 'Beginning April 19th, the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit. ',
-              // callout1: 'On Election Day, election offices will have regular hours from 11:30 a.m. to 6:30 p.m.',
-              // callout2: 'Staff will remain at the office to receive dropped off ballots until 8 p.m. Boxes will be locked at precisely 8 p.m.',
+              p1: 'Beginning April 19, the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit. ',
               h2: 'Voter services and deadlines ',
               dates: {
                 d1:{
@@ -369,13 +367,13 @@ pinboard({
                   date: 'May 18 at 8 p.m.',
                 },
               },
+              callout1: '',
+              callout2: '',
             },
             'Official mobile mail-in ballot return': {
               header: 'Official mobile mail-in ballot return',
               englishName: 'Official mobile mail-in ballot return',
-              p1: '\
-              Mail-in mobile ballot drop-off. <br> *This is not a fixed, stand-alone dropbox. Limited hours only.\
-              ',
+              p1: 'Mail-in mobile ballot drop-off.',
               h2: '',
               dates: {
                 d1:{
@@ -395,6 +393,8 @@ pinboard({
                   date: 'May 18 at 8 p.m.',
                 },
               },
+              callout1: 'This is not a fixed, stand-alone drop box. Limited hours only.',
+              callout2: '',
             },
             'Official mail-in ballot drop box': {
               header: 'Official mail-in ballot drop boxes',
