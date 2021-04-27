@@ -35,7 +35,7 @@
           </tbody>
         </table>
       </div>
-      <div v-if="$t('sections.' + header + '.englishName') === 'Official mail-in ballot drop box'">
+      <div v-if="$t('sections.' + header + '.callout1') != ''">
         <div
           class="callout"
           v-html="calloutText"
