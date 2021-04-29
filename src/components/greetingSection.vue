@@ -11,7 +11,7 @@
       <div class="spacer">
         <span v-html="$t('sections.' + header + '.p1')" />
       </div>
-      <div v-if="$t('sections.' + header + '.dates.d2.text') != ''">
+      <div v-if="$t('sections.' + header + '.dates') != '' ">
         <table class="dates">
           <tbody>
             <tr>
