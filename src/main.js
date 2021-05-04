@@ -105,11 +105,11 @@ pinboard({
       titleSingular: 'Election office',
       color: '#0F4D90',
     },
-    // 'Official mail-in ballot return': {
-    //   title: 'Official mail-in ballot returns',
-    //   titleSingular: 'Official mail-in ballot return',
-    //   color: '#721817',
-    // },
+    'Official mobile mail-in ballot return': {
+      title: 'Official mobile mail-in ballot returns',
+      titleSingular: 'Official mobile mail-in ballot return',
+      color: '#721817',
+    },
     'Official mail-in ballot drop box': {
       title: 'Official mail-in ballot drop boxes',
       titleSingular: 'Official mail-in ballot drop box',
@@ -123,7 +123,7 @@ pinboard({
   circleMarkers:{
     circleColors: {
       'Election office': '#0f4d90',
-      'Official mail-in ballot return': '#721817',
+      'Official mobile mail-in ballot return': '#721817',
       'Official mail-in ballot drop box': '#4F6D0A',
     },
     weight: 0,
@@ -164,10 +164,6 @@ pinboard({
         text: 'cityCommissioners',
         // text: 'City Commissioners',
         link: 'https://www.philadelphiavotes.com/',
-      },
-      guide: {
-        text: 'ballotGuide',
-        link: 'https://www.phila.gov/2020-09-08-general-election-mail-in-ballot-guide-for-philadelphia-voters/',
       },
     },
   },
@@ -335,6 +331,8 @@ pinboard({
             ballotApp: 'Mail-in ballot application.',
             ballotRep: 'Mail-in ballot replacement.',
             ballotDropoff: 'Mail-in ballot drop-off.',
+            ballotDropoffMobile: 'Mail-in mobile ballot drop-off.',
+            ballotDropoffMobileStandAlone: '<div class="callout">This is not a fixed, stand-alone dropbox.</div>',
             ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote@phila.gov.',
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
@@ -343,17 +341,13 @@ pinboard({
             electionDayHours: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
           },
           'Election office': 'Election offices',
-          'Official mail-in ballot return': 'Official mail-in ballot return',
+          'Official mobile mail-in ballot return': 'Official mobile mail-in ballot return',
           'Official mail-in ballot drop box': 'Official mail-in ballot drop boxes',
           sections: {
             'Election office': {
               header: 'Election offices',
               englishName: 'Election office',
-              p1: 'The Philadelphia City Commissioners voted to open ',
-              p2: ' satellite election offices located throughout Philadelphia. Check back often.',
-              p3: 'Election offices provide telephonic interpretation services and are wheelchair accessible. Masks are required to enter. ',
-              callout1: 'On Election Day, election offices will have regular hours from 11:30 a.m. to 6:30 p.m.',
-              callout2: 'Staff will remain at the office to receive dropped off ballots until 8 p.m. Boxes will be locked at precisely 8 p.m.',
+              p1: 'Beginning April 19, the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit. ',
               h2: 'Voter services and deadlines ',
               dates: {
                 d1:{
@@ -362,22 +356,28 @@ pinboard({
                 },
                 d2:{
                   text: 'Apply for a mail-in ballot',
-                  date: 'October 27 at 5 p.m.',
+                  date: 'May 11',
                 },
                 d3:{
                   text: 'Request a replacement ballot',
-                  date: 'November 3',
+                  date: 'May 18',
                 },
                 d4:{
                   text: 'Drop off your completed ballot',
-                  date: 'November 3 at 8 p.m.',
+                  date: 'May 18 at 8 p.m.',
                 },
               },
+              callout1: '',
+              callout2: '',
             },
-            'Official mail-in ballot return': {
-              header: 'Official mail-in ballot return',
-              englishName: 'Official mail-in ballot return',
-
+            'Official mobile mail-in ballot return': {
+              header: 'Official mobile mail-in ballot return',
+              englishName: 'Official mobile mail-in ballot return',
+              p1: 'Mail-in mobile ballot drop-off.',
+              h2: '',
+              dates: '',
+              callout1: 'This is not a fixed, stand-alone drop box. Limited hours only.',
+              callout2: '',
             },
             'Official mail-in ballot drop box': {
               header: 'Official mail-in ballot drop boxes',
@@ -385,7 +385,10 @@ pinboard({
               p1: '\
               If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
               ',
+              h2: '',
+              dates: '',
               callout1: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
+              callout2: '',
             },
           },
           beforeYouGo: 'Before you go',
@@ -453,17 +456,13 @@ pinboard({
             electionDayHours: 'El día de las elecciones, los buzones se cerrarán con llave exactamente a las 8 p.m.',
           },
           'Election office': 'Oficina Electoral',
-          'Official mail-in ballot return': 'Sitio oficial para devolver boletas',
+          'Official mobile mail-in ballot return': 'Sitio oficial para devolver boletas',
           'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
           sections: {
             'Election office': {
               englishName: 'Election office',
               header: 'Oficina Electoral',
-              p1: 'Los comisionados de la ciudad de Filadelfia votaron para abrir ',
-              p2: ' oficinas electorales satélite dispersas en toda Filadelfia. Consulte regularmente.',
-              p3: 'Las oficinas electorales brindan servicios de interpretación telefónica y tienen acceso para sillas de ruedas. Para ingresar, se debe utilizar mascarilla.  ',
-              callout1: 'El día de las elecciones, las oficinas electorales tendrán un horario regular de 11:30 a.m. a 6:30 p.m.',
-              callout2: 'El personal permanecerá en la oficina para recibir las boletas entregadas hasta las 8 p.m. Los buzones se cerrarán con llave exactamente a las 8 p.m.',
+              p1: 'A partir del 19 de abril, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
               h2: 'Servicios al votante y plazos ',
               dates: {
                 d1:{
@@ -471,28 +470,35 @@ pinboard({
                   date: '19 de octubre',
                 },
                 d2:{
-                  text: 'Solicitar una boleta electoral por correo',
-                  date: '27 de octubre a las 5 p.m.',
+                  text: 'Fecha limite para solicitar una papeleta',
+                  date: '11 de mayo',
                 },
                 d3:{
-                  text: 'Solicitar una boleta electoral de reemplazo',
-                  date: '3 de noviembre',
+                  text: 'Solicite una boleta de reemplazo',
+                  date: '18 de mayo',
                 },
                 d4:{
                   text: 'Entregar su boleta electoral completa',
-                  date: '3 de noviembre a las 8 p.m. ',
+                  date: '18 de mayo a las 8:00 PM',
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Sitio oficial para devolver boletas',
-              englishName: 'Official mail-in ballot return',
-
+              englishName: 'Official mobile mail-in ballot return',
+              p1: 'Entrega móvil de boletas de voto por correo.',
+              h2: '',
+              callout1: '',
+              callout2: '',
+              dates: '',
             },
             'Official mail-in ballot drop box': {
               header: 'Buzón oficial de la votación por correo',
               englishName: 'Official mail-in ballot drop box',
               p1: 'Si un buzón está lleno, no funciona, o está dañado de alguna manera, llame al (215) 686-3469 o envíe un correo electrónico a <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+              h2: '',
+              callout2: '',
+              dates: '',
               callout1: 'El día de las elecciones, los buzones se cerrarán con llave exactamente a las 8 p.m.',
             },
           },
@@ -557,15 +563,13 @@ pinboard({
             open24Hours: '24 小时开放',
           },
           'Election office': '选举办公室',
-          'Official mail-in ballot return': '正式选票寄还地点',
+          'Official mobile mail-in ballot return': '正式选票寄还地点',
           'Official mail-in ballot drop box': '官方邮寄选票投票箱',
           sections: {
             'Election office': {
               header: '选举办公室',
               englishName: 'Election office',
-              p1: '费城市市政官员投票决定在费城各地开设 ',
-              p2: ' 个附属选举办公室。经常回来查阅。 ',
-              p3: '选举办公室提供电话传译服务，并且为无障碍通行。进入必须戴口罩。 ',
+              p1: '自 4 月 19 日起，费城选举委员会（Philadelphia Board of Elections）将开始进行亲自邮寄选票投票工作。登记选民可以在一次亲自访问期间申请、收到、完成并交回他们的邮寄选票。',
               h2: '选民服务及截止日期',
               dates: {
                 d1:{
@@ -573,28 +577,36 @@ pinboard({
                   date: '10 月 19 日',
                 },
                 d2:{
-                  text: '申请邮寄选票',
-                  date: '10 月 27 日，下午 5:00',
+                  text: '申请获得选票的截止日期',
+                  date: '15 月 11 日',
                 },
                 d3:{
-                  text: '申请替代选票',
-                  date: '11 月 3 日',
+                  text: '申请更换选票 ',
+                  date: '5 月 18 日 ',
                 },
                 d4:{
-                  text: '提交填妥的选票',
-                  date: '11 月 3 日，晚上 8:00',
+                  text: '投递您填好的选票',
+                  date: '5 月 18 日晚上 8 点',
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: '正式选票寄还地点',
-              englishName: 'Official mail-in ballot return',
-
+              englishName: 'Official mobile mail-in ballot return',
+              p1: '移动邮寄选票投递',
+              h2: '',
+              dates: '',
+              callout1: 'This is not a fixed, stand-alone drop box. Limited hours only.',
+              callout2: '',
             },
             'Official mail-in ballot drop box': {
               header: '官方邮寄选票投票箱',
               englishName: 'Official mail-in ballot drop box',
               p1: '如果投票箱满了、故障或以任何形式损坏，请致电 (215) 686-3469 或发送电子邮件至 <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+              h2: '',
+              dates: '',
+              callout1: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
+              callout2: '',
             },
           },
           beforeYouGo: '在您出发前请先了解以下信息',
@@ -658,15 +670,13 @@ pinboard({
             open24Hours: 'Mở 24 giờ ',
           },
           'Election office': 'Văn phòng bầu cử',
-          'Official mail-in ballot return': 'Thùng bỏ phiếu qua đường bưu điện chính thức',
+          'Official mobile mail-in ballot return': 'Thùng bỏ phiếu qua đường bưu điện chính thức',
           'Official mail-in ballot drop box': 'Thùng bỏ phiếu qua đường bưu điện chính thức ',
           sections: {
             'Election office': {
               header: 'Văn phòng bầu cử ',
               englishName: 'Election office',
-              p1: 'Ủy Viên Thành Phố Philadelphia biểu quyết mở ',
-              p2: '  văn phòng bầu cử vệ tinh trên toàn Philadelphia. Hãy trở lại xem thường xuyên.  ',
-              p3: 'Các văn phòng bầu cử cung cấp dịch vụ phiên dịch qua điện thoại và hỗ trợ tiếp cận cho xe lăn. Yêu cầu đeo khẩu trang khi vào. ',
+              p1: 'Bắt đầu từ ngày 19 tháng 4, Ban Bầu cử Philadelphia sẽ mở hình thức đích thân đến bỏ lá phiếu bầu qua thư. Các cử tri đã đăng ký có thể đăng ký, nhận, hoàn thành và gửi lại lá phiếu bầu qua thư bằng cách đích thân đến.',
               h2: 'Các dịch vụ cử tri và thời hạn  ',
               dates: {
                 d1:{
@@ -674,22 +684,29 @@ pinboard({
                   date: 'Ngày 19 tháng 10',
                 },
                 d2:{
-                  text: 'Đăng ký lá phiếu bầu qua thư',
-                  date: 'Ngày 27 tháng 10 lúc 5 giờ chiều',
+                  text: 'Hạn chót đăng ký lá phiếu bầu',
+                  date: 'Ngày 11 tháng 5',
                 },
                 d3:{
-                  text: 'Yêu cầu lá phiếu thay thế',
-                  date: 'Ngày 3 tháng 11',
+                  text: 'Yêu cầu một lá phiếu bầu thay thế ',
+                  date: 'Ngày 18 tháng 5 ',
                 },
                 d4:{
-                  text: 'Bỏ lá phiếu hoàn chỉnh của quý vị vào thùng bỏ phiếu',
-                  date: 'Ngày 3 tháng 11 lúc 8 giờ tối. ',
+                  text: 'Bỏ lá phiếu bầu đã hoàn thành của quý vị',
+                  date: '8 giờ tối ngày 18 tháng 5 ',
                 },
               },
+              callout1: '',
+              callout2: '',
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Địa điểm gửi lá phiếu chính thức',
-              englishName: 'Official mail-in ballot return',
+              englishName: 'Official mobile mail-in ballot return',
+              p1: 'Bỏ lá phiếu bầu qua thư di động',
+              h2: '',
+              dates: '',
+              callout1: 'This is not a fixed, stand-alone drop box. Limited hours only.',
+              callout2: '',
 
             },
             'Official mail-in ballot drop box': {
@@ -759,15 +776,13 @@ pinboard({
             open24Hours: 'Работают круглосуточно ',
           },
           'Election office': 'Офис избирательного бюро ',
-          'Official mail-in ballot return': 'Официальный пункт возврата бюллетеней',
+          'Official mobile mail-in ballot return': 'Официальный пункт возврата бюллетеней',
           'Official mail-in ballot drop box': 'Официальный ящик для приема бюллетеней для голосования по почте',
           sections: {
             'Election office': {
               header: 'Офис избирательного бюро',
               englishName: 'Election office',
-              p1: 'Уполномоченные по выборам в Филадельфии проголосовали за то, чтобы открыть ',
-              p2: ' дополнительных офисов избирательного бюро по всему городу. Проверяйте обновления почаще.  ',
-              p3: 'В офисах избирательного бюро предоставляются услуги переводчика по телефону, также предусмотрена возможность их посещения лицами на инвалидных колясках. При входе следует обязательно надеть маску. ',
+              p1: 'С 19-го апреля избирательная комиссия Филадельфии открыта для очного приема бюллетеней для заочного голосования. Зарегистрированные избиратели могут лично запросить, получить, заполнить и вернуть бюллетени для заочного голосования за одно посещение.',
               h2: 'Услуги для избирателей и конечные сроки',
               dates: {
                 d1:{
@@ -775,23 +790,29 @@ pinboard({
                   date: '19 октября',
                 },
                 d2:{
-                  text: 'Подача заявки на предоставление бюллетеня для голосования по почте',
-                  date: '27 октября до 17:00',
+                  text: 'ПКрайний срок запроса бюллетеня',
+                  date: '11-е мая',
                 },
                 d3:{
-                  text: 'Обращение за повторным бюллетенем',
-                  date: '3 ноября',
+                  text: 'Запросить дубликат бюллетеня',
+                  date: '18-е мая',
                 },
                 d4:{
-                  text: 'Прием заполненного бюллетеня',
-                  date: '3 ноября до 20:00 ',
+                  text: 'Опустить заполненный бюллетень в специальный ящик',
+                  date: '18-е мая в 20:00',
                 },
               },
+              callout1: '',
+              callout2: '',
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Официальный пункт возврата бюллетеней',
-              englishName: 'Official mail-in ballot return',
-
+              englishName: 'Official mobile mail-in ballot return',
+              p1: 'Мобильные пункты, в которые можно опустить бюллетень',
+              h2: '',
+              dates: '',
+              callout1: 'This is not a fixed, stand-alone drop box. Limited hours only.',
+              callout2: '',
             },
             'Official mail-in ballot drop box': {
               header: 'Официальный ящик для приема бюллетеней для голосования по почте',
@@ -860,15 +881,13 @@ pinboard({
             open24Hours: 'Ouvert 24h/24 ',
           },
           'Election office': 'Bureau de vote ',
-          'Official mail-in ballot return': 'Lieu officiel de dépôt de bulletins',
+          'Official mobile mail-in ballot return': 'Lieu officiel de dépôt de bulletins',
           'Official mail-in ballot drop box': 'Boîte de dépôt officielle des bulletins de vote par correspondance ',
           sections: {
             'Election office': {
               header: 'Bureau de vote ',
               englishName: 'Election office',
-              p1: 'Les commissaires de la ville de Philadelphie ont approuvé l’ouverture de ',
-              p2: ' bureaux de vote satellites répartis à travers toute la ville. Vérifiez la liste régulièrement.  ',
-              p3: 'Les bureaux de vote proposent des services d’interprétation par téléphone et sont accessibles aux fauteuils roulants. Il faut porter un masque pour entrer. ',
+              p1: 'À partir de 19 avril, la Commission Electorale de Philadelphie sera ouverte pour voter avec un bulletin du vote postal en personne. Les électeurs inscrits peuvent solliciter, recevoir, compléter, et rendre leur bulletin du vote postal en personne dans la même visite. ',
               h2: 'Services aux électeurs et dates limites',
               dates: {
                 d1:{
@@ -876,23 +895,27 @@ pinboard({
                   date: '19 octobre',
                 },
                 d2:{
-                  text: 'Faire une demande de bulletin de vote par correspondance',
-                  date: '27 octobre, 17 heures',
+                  text: 'Date limite pour solliciter un bulletin de vote ',
+                  date: '11 mai',
                 },
                 d3:{
-                  text: 'Faire une demande de bulletin de remplacement',
-                  date: '3 novembre',
+                  text: 'Sollicitez un bulletin de vote de remplacement',
+                  date: '18 mai',
                 },
                 d4:{
-                  text: 'Déposer votre bulletin dûment rempli',
-                  date: '3 novembre, 20 heures ',
+                  text: 'Déposez votre bulletin de vote complété ',
+                  date: '18 mai à 20h00',
                 },
               },
             },
-            'Official mail-in ballot return': {
+            'Official mobile mail-in ballot return': {
               header: 'Lieu officiel de dépôt de bulletins',
-              englishName: 'Official mail-in ballot return',
-
+              englishName: 'Official mobile mail-in ballot return',
+              p1: 'Dépôt mobile du bulletin de vote postal',
+              h2: '',
+              dates: '',
+              callout1: 'This is not a fixed, stand-alone drop box. Limited hours only.',
+              callout2: '',
             },
             'Official mail-in ballot drop box': {
               header: 'Boîte de dépôt officielle des bulletins de vote par correspondance ',

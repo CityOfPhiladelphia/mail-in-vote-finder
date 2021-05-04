@@ -125,8 +125,9 @@ export default {
         }
 
         if (field === 'site_type') {
-          if (item[field] === 'Official mail-in ballot return') {
-            values.push('details.ballotDropoff');
+          if (item[field] === 'Official mobile mail-in ballot return') {
+            values.push('details.ballotDropoffMobile');
+            values.push('details.ballotDropoffMobileStandAlone');
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
