@@ -21,12 +21,22 @@
         </template>
 
         <template
-          v-slot:component2
+          v-slot:component
           class="table-slot"
         >
           <vertical-table-light
             class="print-padding"
             :slots="component1VerticalTableSlots"
+            :options="component1VerticalTableOptions"
+          />
+        </template>
+        <template
+          v-slot:component2
+          class="table-slot"
+        >
+          <vertical-table-light
+            class="print-padding uppercase"
+            :slots="component2VerticalTableSlots"
             :options="component1VerticalTableOptions"
           />
         </template>
@@ -40,7 +50,7 @@
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
 
 export default {
-  name: 'MailInBallotDropOffCard',
+  name: 'OfficalMobileBallotReturnCard',
   components: {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
   },
@@ -65,16 +75,7 @@ export default {
           },
         ],
       };
-      // if (this.days.length > 0) {
-      if (this.$props.item.open_24_hours === "TRUE") {
-        let newField = {
-          label: 'siteHours',
-          labelType: 'i18n',
-          value: 'details.open24Hours',
-          valueType: 'i18n',
-        };
-        slots.fields.push(newField);
-      } else if (this.days.length > 0) {
+      if (this.days.length > 0) {
         let newField = {
           label: 'siteHours',
           labelType: 'i18n',
@@ -155,67 +156,52 @@ export default {
     },
 
     days() {
-      let allDays = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+      let allDays = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ];
       let theFields = [];
       // let days = {};
 
       let item = this.item;
-      // let holidays = [];
-      // let exceptions = [];
-      // if (this.$config.holidays && this.$config.holidays.days) {
-      //   holidays = this.$config.holidays.days;
-      // }
-      // if (this.$config.holidays && this.$config.holidays.exceptions) {
-      //   exceptions = this.$config.holidays.exceptions;
-      // }
-      // let siteName = this.getSiteName(this.item);
+      let holidays = [];
+      let exceptions = [];
+      if (this.$config.holidays && this.$config.holidays.days) {
+        holidays = this.$config.holidays.days;
+      }
+      if (this.$config.holidays && this.$config.holidays.exceptions) {
+        exceptions = this.$config.holidays.exceptions;
+      }
 
       for (let [ index, day ] of allDays.entries()) {
-        // let normallyOpen = item[day] != null;
-        // let holidayToday = holidays.includes(day);
-        // let yesterday = allDays[index-1];
-        // let normallyOpenYesterday = item[yesterday] != null;
-        // let holidayYesterday = holidays.includes(yesterday);
+        let normallyOpen = item[day+"_hours"] != null;
+        let holidayToday = holidays.includes(day);
+        let yesterday = allDays[index-1];
+        let normallyOpenYesterday = item[yesterday] != null;
+        let holidayYesterday = holidays.includes(yesterday);
+        let siteIsException = false;
         // let siteIsException = exceptions.includes(this.getSiteName(this.item));
 
-        let fridayWeekendHours = item['friday_weekend_hours'];
-        let isWeekend;
-        if (fridayWeekendHours === "TRUE") {
-          isWeekend = [ 'Sunday', 'Friday', 'Saturday' ].includes(day);
-        } else {
-          isWeekend = [ 'Sunday', 'Saturday' ].includes(day);
-        }
+        // if (this.item.attributes[day] != null){
+        if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
 
-        // console.log('day:', day, 'fridayWeekendHours:', fridayWeekendHours, 'isWeekend:', isWeekend)
-        // if (this.item[day] != null){
-        // if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
-
-        let hours;
-        if (isWeekend && item['weekend_start']) {
-          hours = item['weekend_start'] + ' - ' + item['weekend_end'];
-        } else if (!isWeekend) {
-          hours = item['weekday_start'] + ' - ' + item['weekday_end'];
-        }
-        // if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
-        //   hours = item[day];
-        // } else if (!normallyOpen && holidayYesterday) {
-        //   hours = item[yesterday];
-        // }
-
-        let dayObject = {
-          label: day,
-          labelType: 'i18n',
-          value: hours,
-          // valueType: 'i18n',
-        };
-        if (hours) {
+          let hours;
+          if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
+            hours = item[day+"_hours"];
+          } else if (!normallyOpen && holidayYesterday) {
+            hours = item[yesterday];
+          }
+          
+          let dayObject = {
+            label: day,
+            labelType: 'i18n',
+            value: hours,
+            // valueType: 'i18n',
+          };
           theFields.push(dayObject);
         }
       }
       // }
       return theFields;
     },
-    component1VerticalTableSlots() {
+    component2VerticalTableSlots() {
       return {
         id: 'compTable1',
         fields: this.days,
@@ -331,5 +317,8 @@ export default {
       overflow: initial;
     }
   }
+}
+.uppercase{
+  text-transform: capitalize;
 }
 </style>

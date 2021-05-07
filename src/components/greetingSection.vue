@@ -104,7 +104,7 @@ export default {
       let value = {};
       if (Array.isArray(subsections[0])) {
         for (let subsubsection of subsections[0]) {
-          console.log('subsubsection:', subsubsection, 'this.subsectionsData[subsubsection]:', this.subsectionsData[subsubsection]);
+          // console.log('subsubsection:', subsubsection, 'this.subsectionsData[subsubsection]:', this.subsectionsData[subsubsection]);
           if (this.subsectionsData[subsubsection]) {
             compiled += this.subsectionsData[subsubsection];
           }
