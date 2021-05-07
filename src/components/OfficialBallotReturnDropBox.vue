@@ -66,22 +66,22 @@ export default {
         ],
       };
       // if (this.days.length > 0) {
-      // if (this.$props.item.open_24_hours === "TRUE") {
-      let newField = {
-        label: 'siteHours',
-        labelType: 'i18n',
-        value: 'details.electionDayHours',
-        valueType: 'i18n',
-      };
-      slots.fields.push(newField);
-      // } else if (this.days.length > 0) {
-      //   let newField = {
-      //     label: 'siteHours',
-      //     labelType: 'i18n',
-      //     valueType: 'component2',
-      //   };
-      //   slots.fields.push(newField);
-      // }
+      if (this.$props.item.open_24_hours === "TRUE") {
+        let newField = {
+          label: 'siteHours',
+          labelType: 'i18n',
+          value: 'details.electionDayHours',
+          valueType: 'i18n',
+        };
+        slots.fields.push(newField);
+      } else if (this.days.length > 0) {
+        let newField = {
+          label: 'siteHours',
+          labelType: 'i18n',
+          valueType: 'component2',
+        };
+        slots.fields.push(newField);
+      }
 
       return slots;
     },

@@ -38,7 +38,7 @@
       :item="item"
     />
 
-    <official-ballot-return-card
+    <official-mobile-ballot-return-card
       v-if="section === 'Official mobile mail-in ballot return'"
       :item="item"
     />
@@ -53,7 +53,7 @@
 
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
 import ElectionOfficeCard from './ElectionOfficeCard.vue';
-import OfficialBallotReturnCard from './OfficialBallotReturnCard.vue';
+import OfficialMobileBallotReturnCard from './OfficialMobileBallotReturnCard.vue';
 import OfficialBallotReturnDropBox from './OfficialBallotReturnDropBox.vue';
 
 export default {
@@ -61,7 +61,7 @@ export default {
   components: {
     VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
     ElectionOfficeCard,
-    OfficialBallotReturnCard,
+    OfficialMobileBallotReturnCard,
     OfficialBallotReturnDropBox,
   },
   mixins: [ SharedFunctions ],
