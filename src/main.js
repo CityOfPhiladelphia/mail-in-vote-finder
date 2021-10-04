@@ -347,7 +347,7 @@ pinboard({
             'Election office': {
               header: 'Election offices',
               englishName: 'Election office',
-              p1: 'Beginning April 19, the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit. ',
+              p1: 'Beginning September 30 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
               h2: 'Voter services and deadlines ',
               dates: {
                 d1:{
@@ -356,18 +356,18 @@ pinboard({
                 },
                 d2:{
                   text: 'Apply for a mail-in ballot',
-                  date: 'May 11',
+                  date: 'October 26',
                 },
                 d3:{
                   text: 'Request a replacement ballot',
-                  date: 'May 18',
+                  date: 'November 2',
                 },
                 d4:{
                   text: 'Drop off your completed ballot',
-                  date: 'May 18 at 8 p.m.',
+                  date: 'November 2 at 8 p.m.',
                 },
               },
-              callout1: '',
+              callout1: 'Masks are required regardless of vaccination status.',
               callout2: '',
             },
             'Official mobile mail-in ballot return': {
@@ -462,7 +462,8 @@ pinboard({
             'Election office': {
               englishName: 'Election office',
               header: 'Oficina Electoral',
-              p1: 'A partir del 19 de abril, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
+              p1: 'A partir del 30 de septiembre, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
+              callout1: 'Las mascarillas son obligatorias independientemente del estado de vacunación.',
               h2: 'Servicios al votante y plazos ',
               dates: {
                 d1:{
@@ -471,15 +472,15 @@ pinboard({
                 },
                 d2:{
                   text: 'Fecha limite para solicitar una papeleta',
-                  date: '11 de mayo',
+                  date: '26 de octubre',
                 },
                 d3:{
                   text: 'Solicite una boleta de reemplazo',
-                  date: '18 de mayo',
+                  date: '2 de noviembre',
                 },
                 d4:{
                   text: 'Entregar su boleta electoral completa',
-                  date: '18 de mayo a las 8:00 PM',
+                  date: '2 de noviembre a las 8:00 p.m.',
                 },
               },
             },
