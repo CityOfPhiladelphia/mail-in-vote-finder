@@ -11,12 +11,12 @@
       <div class="spacer">
         <span v-html="$t('sections.' + header + '.p1')" />
       </div>
-      <div v-if="$t('sections.' + header + '.callout1') != ''">
+      <!-- <div v-if="$t('sections.' + header + '.callout1') != ''">
         <div
           class="callout"
           v-html="calloutText"
         />
-      </div>
+      </div> -->
       <div v-if="$t('sections.' + header + '.dates') != '' ">
         <table class="dates">
           <tbody>
