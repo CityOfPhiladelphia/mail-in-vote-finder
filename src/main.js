@@ -285,7 +285,8 @@ pinboard({
   i18n: {
     header: 'i18nBanner',
     enabled: true,
-    // languages: [ 'en-US', 'es' ],
+    //use this to select which languages are being displayed
+    languages: [ 'en-US', 'es' , 'ch' ],
     refinePanel: false,
     expandCollapseTitle: false,
     footer: true,
@@ -347,27 +348,27 @@ pinboard({
             'Election office': {
               header: 'Election offices',
               englishName: 'Election office',
-              p1: 'Beginning September 30 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
+              p1: 'Beginning April 25 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
               h2: 'Voter services and deadlines ',
               dates: {
-                d1:{
-                  text: 'Register to vote (ID required)',
-                  date: 'October 19',
-                },
+                // d1:{
+                //   text: 'Register to vote (ID required)',
+                //   date: 'May 2nd',
+                // },
                 d2:{
                   text: 'Apply for a mail-in ballot',
-                  date: 'October 26',
+                  date: 'May 10th',
                 },
                 d3:{
                   text: 'Request a replacement ballot',
-                  date: 'November 2',
+                  date: 'May 17th',
                 },
                 d4:{
                   text: 'Drop off your completed ballot',
-                  date: 'November 2 at 8 p.m.',
+                  date: 'May 17th at 8pm',
                 },
               },
-              callout1: 'Masks are required regardless of vaccination status.',
+              // callout1: 'Masks are required regardless of vaccination status.',
               callout2: '',
             },
             'Official mobile mail-in ballot return': {
@@ -462,25 +463,25 @@ pinboard({
             'Election office': {
               englishName: 'Election office',
               header: 'Oficina Electoral',
-              p1: 'A partir del 30 de septiembre, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
-              callout1: 'Las mascarillas son obligatorias independientemente del estado de vacunación.',
+              p1: 'A partir del 25 de abril, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
+              // callout1: 'Las mascarillas son obligatorias independientemente del estado de vacunación.',
               h2: 'Servicios al votante y plazos ',
               dates: {
-                d1:{
-                  text: 'Registrarse para votar (se requiere identificación)',
-                  date: '19 de octubre',
-                },
+                // d1:{
+                //   text: 'Registrarse para votar (se requiere identificación)',
+                //   date: '19 de octubre',
+                // },
                 d2:{
                   text: 'Fecha limite para solicitar una papeleta',
-                  date: '26 de octubre',
+                  date: '10 de mayo',
                 },
                 d3:{
                   text: 'Solicite una boleta de reemplazo',
-                  date: '2 de noviembre',
+                  date: '17 de mayo',
                 },
                 d4:{
                   text: 'Entregar su boleta electoral completa',
-                  date: '2 de noviembre a las 8:00 p.m.',
+                  date: '17 de mayo a las 8pm',
                 },
               },
             },
@@ -565,41 +566,41 @@ pinboard({
             open24Hours: '24 小时开放',
           },
           'Election office': '选举办公室',
-          'Official mobile mail-in ballot return': '正式选票寄还地点',
+          'Official mobile mail-in ballot return': '正式移動式郵寄选票投遞処',
           'Official mail-in ballot drop box': '官方邮寄选票投票箱',
           sections: {
             'Election office': {
               header: '选举办公室',
               englishName: 'Election office',
-              p1: '从 9 月 30 日开始，费城选举委员会将开放进行当面邮寄投票。登记选民可以在一次访问中亲自申请、接收、完成和返回他们的邮寄选票。',
-              callout1: '无论疫苗接种情况如何，都需要戴口罩',
+              p1: '從4月25日開始，費城選舉委員會將開放面對面的郵寄選票投票。已登記的選民可以親自訪問費城選舉委員會，一次搞定申請，接收，填寫和返回郵寄選票。',
+              // callout1: '无论疫苗接种情况如何，都需要戴口罩',
               h2: '选民服务及截止日期',
               dates: {
-                d1:{
-                  text: '登记投票（需要身份证件',
-                  date: '10 月 19 日',
-                },
+                // d1:{
+                //   text: '登记投票（需要身份证件',
+                //   date: '10 月 19 日',
+                // },
                 d2:{
-                  text: '申请获得选票的截止日期',
-                  date: '10 月 26 日',
+                  text: '申請郵寄選票的截至日期',
+                  date: '五月十日',
                 },
                 d3:{
-                  text: '申请更换选票 ',
-                  date: '11 月 2 日',
+                  text: '申請補發選票的截至日期',
+                  date: '五月十七日',
                 },
                 d4:{
-                  text: '投递您填好的选票',
-                  date: '11 月 2 日晚上 8 点',
+                  text: '投递您填好的选票的截至日期',
+                  date: '五月十七日晚八點',
                 },
               },
             },
             'Official mobile mail-in ballot return': {
               header: '正式选票寄还地点',
               englishName: 'Official mobile mail-in ballot return',
-              p1: '移动邮寄选票投递',
+              p1: '移動式郵寄選票投遞箱',
               h2: '',
               dates: '',
-              callout1: '该投递箱不是固定的，非单一用途，所以仅用于限时投递（选票）',
+              callout1: '這不是一個固定的獨立投遞箱。投遞時間有限。',
               callout2: '',
             },
             'Official mail-in ballot drop box': {
