@@ -80,8 +80,15 @@ pinboard({
   gtag: {
     category: 'rf-voting',
   },
-  comboSearch: {
-    dropdown: [ 'address' ],
+  // comboSearch: {
+  //   dropdown: [ 'address' ],
+  //   searchDistance: 3,
+  // },
+  searchBar: {
+    placeholder: 'Search by address',
+    searchTypes: [
+      'address',
+    ],
     searchDistance: 3,
   },
   locationInfo: {
@@ -157,16 +164,40 @@ pinboard({
       include_units: true,
     },
   },
-  footer: {
-    'HowToUse': false,
-    'OtherLinks': {
-      commissioners: {
-        text: 'cityCommissioners',
-        // text: 'City Commissioners',
-        link: 'https://www.philadelphiavotes.com/',
+  footer: [
+    {
+      type: "native",
+      href: "https://www.phila.gov/",
+      attrs: {
+        target: "_blank",
       },
+      // text: "City of Philadelphia",
+      text: "cityOfPhiladelphia",
     },
-  },
+    {
+      type: "native",
+      href: "#",
+      // text: "About",
+      text: "about",
+    },
+    {
+      type: "native",
+      href: "https://www.phila.gov/feedback/",
+      attrs: {
+        target: "_blank",
+      },
+      // text: "Feedback",
+      text: "feedback",
+    },
+    {
+      type: "native",
+      href: "https://www.philadelphiavotes.com/",
+      attrs: {
+        target: "_blank",
+      },
+      text: 'cityCommissioners',
+    },
+  ],
   // infoCircles: {
   //   'symptomatic': {
   //     'html': '\
