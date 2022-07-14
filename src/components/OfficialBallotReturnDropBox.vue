@@ -305,26 +305,26 @@ export default {
     }
   }
 
-  &::after{
-    position: absolute;
-    right:1rem;
-    top: 0;
-    content: '+';
-    font-weight: 900;
-    font-size:1.5rem;
-    z-index: 100;
-    color: color(dark-ben-franklin)
-  }
+  // &::after{
+  //   position: absolute;
+  //   right:1rem;
+  //   top: 0;
+  //   content: '+';
+  //   font-weight: 900;
+  //   font-size:1.5rem;
+  //   z-index: 100;
+  //   color: color(dark-ben-franklin)
+  // }
   &.open{
     h2{
       color:white;
       background-color: color(ben-franklin-blue);
       font-weight: 900;
     }
-    &::after{
-      content: '-';
-      color:white;
-    }
+    // &::after{
+    //   content: '-';
+    //   color:white;
+    // }
   }
   .location-content{
     overflow: hidden;

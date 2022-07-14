@@ -317,7 +317,21 @@ pinboard({
     header: 'i18nBanner',
     enabled: true,
     //use this to select which languages are being displayed
-    languages: [ 'en-US', 'es' , 'ch' ],
+    // languages: [ 'en-US', 'es' , 'ch' ],
+    languages: [
+      {
+        language: 'en-US',
+        title: 'English',
+      },
+      {
+        language: 'es',
+        title: 'Español',
+      },
+      {
+        language: 'ch',
+        title: '中文',
+      },
+    ],
     refinePanel: false,
     expandCollapseTitle: false,
     footer: true,

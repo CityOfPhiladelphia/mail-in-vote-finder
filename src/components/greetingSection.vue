@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <div class="greeting-section">
     <div
       class="section-header"
       :style="{ 'background-color': color }"
     >
       <b>{{ $t('sections.' + header + '.header') }}</b>
     </div>
-    <div class="columns">
+
+    <div>
       <h3>{{ $t('sections.' + header + '.h2') }}</h3>
       <div class="spacer">
         <span v-html="$t('sections.' + header + '.p1')" />
@@ -232,6 +233,10 @@ export default {
 
 <style>
 
+  .greeting-section {
+    font-size: 14px;
+  }
+
   .non-bold-header {
     font-size: 18px;
   }
@@ -270,6 +275,7 @@ export default {
     /* font-style: italic; */
     padding: 1rem 0;
   }
+
   .section-header {
     background-color: #0f4d90;
     font-size: 16px;

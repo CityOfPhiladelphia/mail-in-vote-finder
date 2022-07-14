@@ -1,16 +1,15 @@
 <template>
   <div
-    class="grid-y custom-greeting"
+    class="custom-greeting content"
   >
-    <div class="exclamation-holder">
-      <font-awesome-icon
-        icon="exclamation-triangle"
-        class="fa-3x fa-icon-class"
-      />
-      <div
-        class="grid-y exclamation-details small-19 medium-20"
-      >
-        <!-- <div><b>{{ $t('beforeYouGo') }}:</b></div> -->
+    <div class="exclamation-holder columns is-mobile">
+      <div class="column is-narrow">
+        <font-awesome-icon
+          icon="exclamation-triangle"
+          class="fa-3x fa-icon-class"
+        />
+      </div>
+      <div class="column exclamation-details">
         <div>
           {{ $t('introPage.exclamation') }} <a
             target="_blank"
@@ -20,15 +19,13 @@
       </div>
     </div>
 
-    <div class="open-list-div">
-      <!-- class="button open-list-button hide-for-medium" -->
-      <phila-button
+    <div class="has-text-centered container">
+      <button
         class="button open-list-button"
-        @click.native="$emit('view-list')"
+        @click="$emit('view-list')"
         v-html="$t('app.viewList')"
       />
     </div>
-
 
     <!-- sections that rely on data -->
     <greeting-section
@@ -40,24 +37,26 @@
       :election-office-count="electionOfficeCount"
     />
 
-    <div
+    <!-- <div
       class="main-area"
+    > -->
+    <div
+      class="section-header"
+      :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
     >
-      <div
-        class="section-header"
-        :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
-      >
-        <b>{{ $t('introPage.relatedContent') }}</b>
-      </div>
-      <a
-        target="_blank"
-        href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx"
-      >{{ $t('introPage.link1') }}</a><br>
-      <a
-        target="_blank"
-        href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
-      >{{ $t('introPage.link2') }}</a><br>
+      <b>{{ $t('introPage.relatedContent') }}</b>
     </div>
+    <a
+      target="_blank"
+      href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx"
+    >{{ $t('introPage.link1') }}</a><br>
+    <a
+      target="_blank"
+      href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
+    >{{ $t('introPage.link2') }}</a><br>
+
+
+    <!-- </div> -->
     <!-- end of main-area -->
   </div>
 </template>
@@ -65,7 +64,7 @@
 <script>
 
 // import TopicComponent from '@phila/vue-comps/src/components/TopicComponent.vue';
-import PhilaButton from '@phila/pinboard/src/components/PhilaButton.vue';
+// import PhilaButton from '@phila/pinboard/src/components/PhilaButton.vue';
 // import callout from '@phila/vue-comps/src/components/Callout.vue';
 import greetingSection from './greetingSection.vue';
 
@@ -73,7 +72,7 @@ import greetingSection from './greetingSection.vue';
 export default {
   name: 'CustomGreeting',
   components: {
-    PhilaButton,
+    // PhilaButton,
     // callout,
     greetingSection,
   },
@@ -242,6 +241,13 @@ export default {
   }
 
   .open-list-button {
+    text-transform: uppercase;
+    background-color: #0f4d90;
+    color: #ffffff;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 17px;
+    padding-bottom: 17px;
     margin-top: 6px;
     margin-bottom: 14px;
     width: 200px;
@@ -265,7 +271,7 @@ export default {
 
   .exclamation-details {
     margin-left: 14px;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .mb-panel-topics-greeting {
