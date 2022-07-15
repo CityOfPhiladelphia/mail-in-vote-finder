@@ -56,7 +56,7 @@ import OfficialBallotReturnDropBox from './OfficialBallotReturnDropBox.vue';
 export default {
   name: 'ExpandCollapseContent',
   components: {
-    VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
+    // VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
     ElectionOfficeCard,
     OfficialMobileBallotReturnCard,
     OfficialBallotReturnDropBox,
