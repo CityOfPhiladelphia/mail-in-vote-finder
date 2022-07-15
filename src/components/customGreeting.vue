@@ -3,14 +3,14 @@
     class="custom-greeting content"
   >
     <div class="exclamation-holder columns is-mobile">
-      <div class="column is-narrow">
+      <div class="column is-narrow padding-4 padding-top-8">
         <font-awesome-icon
           icon="exclamation-triangle"
-          class="fa-3x fa-icon-class"
+          class="fa-2x fa-icon-class"
         />
       </div>
       <div class="column exclamation-details">
-        <div>
+        <div class="column padding-4">
           {{ $t('introPage.exclamation') }} <a
             target="_blank"
             href="https://atlas.phila.gov/voting"
@@ -37,9 +37,6 @@
       :election-office-count="electionOfficeCount"
     />
 
-    <!-- <div
-      class="main-area"
-    > -->
     <div
       class="section-header"
       :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
@@ -54,29 +51,18 @@
       target="_blank"
       href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
     >{{ $t('introPage.link2') }}</a><br>
-
-
-    <!-- </div> -->
-    <!-- end of main-area -->
   </div>
 </template>
 
 <script>
 
-// import TopicComponent from '@phila/vue-comps/src/components/TopicComponent.vue';
-// import PhilaButton from '@phila/pinboard/src/components/PhilaButton.vue';
-// import callout from '@phila/vue-comps/src/components/Callout.vue';
 import greetingSection from './greetingSection.vue';
-
 
 export default {
   name: 'CustomGreeting',
   components: {
-    // PhilaButton,
-    // callout,
     greetingSection,
   },
-  // mixins: [ TopicComponent ],
   props: {
     'message': {
       type: String,
@@ -146,13 +132,6 @@ export default {
         `;
     },
   },
-  watch: {
-    // database() {
-    //   let subsections = this.getCounts();
-    //   this.subsections = subsections;
-    //   this.$store.commit('setSubsections', subsections);
-    // },
-  },
   mounted() {
     this.sections = this.$config.sections;
   },
@@ -202,7 +181,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
   .section-header {
     background-color: #0f4d90;
@@ -254,14 +233,27 @@ export default {
   }
 
   .custom-greeting {
-    padding: 12px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    /* padding: 12px; */
+  }
+
+  .padding-4 {
+    padding: 4px;
+  }
+
+  .padding-top-8 {
+    padding-top: 8px;
   }
 
   .exclamation-holder {
+    padding: 1rem;
     display: flex;
     align-items: center;
-    margin-top: 6px;
-    margin-bottom: 14px;
+    // margin-top: 6px;
+    // margin-bottom: 14px;
   }
 
   .fa-icon-class {

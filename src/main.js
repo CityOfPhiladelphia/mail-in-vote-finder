@@ -19,8 +19,14 @@ import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
 import { faUserMd } from '@fortawesome/free-solid-svg-icons/faUserMd';
 import { faCircle } from '@fortawesome/free-solid-svg-icons/faCircle';
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons/faExternalLinkAlt";
+import { faAngleDown as farAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
+import { faAngleUp as farAngleUp } from '@fortawesome/pro-regular-svg-icons/faAngleUp';
+import { faTimes as farTimes } from '@fortawesome/pro-regular-svg-icons/faTimes';
+import { faPlus as farPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
+import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons/faMinus';
 
-library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLinkAlt );
+
+library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLinkAlt,farAngleUp, farAngleDown, farTimes, farPlus, farMinus );
 
 // import pinboard
 import pinboard from '@phila/pinboard/src/main.js';
@@ -374,11 +380,11 @@ pinboard({
             details: 'Details',
             inPerson: 'In-person registration and mail-in voting',
             voterReg: 'Voter registration.',
-            ballotApp: 'Mail-in ballot application.',
-            ballotRep: 'Mail-in ballot replacement.',
-            ballotDropoff: 'Mail-in ballot drop-off.',
-            ballotDropoffMobile: 'Mail-in mobile ballot drop-off.',
-            ballotDropoffMobileStandAlone: '<div class="callout">This is not a fixed, stand-alone dropbox.</div>',
+            ballotApp: 'Mail-in ballot application',
+            ballotRep: 'Mail-in ballot replacement',
+            ballotDropoff: 'Mail-in ballot drop-off',
+            ballotDropoffMobile: 'Mail-in mobile ballot drop-off',
+            ballotDropoffMobileStandAlone: '<div class="callout">This is not a fixed, stand-alone dropbox</div>',
             ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote@phila.gov.',
             interpretationAvailable: 'Telephonic interpretation services available',
             wheelchair: 'Wheelchair accessible',
