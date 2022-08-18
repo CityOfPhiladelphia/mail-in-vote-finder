@@ -175,8 +175,7 @@ pinboard({
     },
     {
       type: "native",
-      href: "#",
-      // text: "About",
+      href: "https://www.phila.gov/voting/",
       text: "about",
     },
     {
