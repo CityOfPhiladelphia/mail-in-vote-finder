@@ -1,22 +1,21 @@
 <template>
-  <div>
+  <div class="greeting-section">
     <div
       class="section-header"
       :style="{ 'background-color': color }"
     >
       <b>{{ $t('sections.' + header + '.header') }}</b>
     </div>
-    <div class="columns">
-      <h3>{{ $t('sections.' + header + '.h2') }}</h3>
+
+    <div>
+      <h3
+        v-if="$i18n.messages[this.$i18n.locale].sections[header].h2"
+      >
+        {{ $t('sections.' + header + '.h2') }}
+      </h3>
       <div class="spacer">
         <span v-html="$t('sections.' + header + '.p1')" />
       </div>
-      <!-- <div v-if="$t('sections.' + header + '.callout1') != ''">
-        <div
-          class="callout"
-          v-html="calloutText"
-        />
-      </div> -->
       <div v-if="$t('sections.' + header + '.dates') != '' ">
         <table class="dates">
           <tbody>
@@ -47,16 +46,8 @@
 
 <script>
 
-import TopicComponent from '@phila/vue-comps/src/components/TopicComponent.vue';
-
 export default {
   name: 'GreetingSection',
-  components: {
-    VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTableLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
-    Callout: () => import(/* webpackChunkName: "pvc_Callout" */'@phila/vue-comps/src/components/Callout.vue'),
-    // HorizontalTableLight: () => import(/* webpackChunkName: "pvc_HorizontalTableLight" */'@phila/vue-comps/src/components/HorizontalTableLight.vue'),
-  },
-  mixins: [ TopicComponent ],
   props: {
     'header': {
       type: String,
@@ -78,7 +69,6 @@ export default {
     },
   },
   computed: {
-
     calloutText() {
       // console.log('greetingSection.vue calloutText computed, this.$i18n:', this.$i18n, 'this.$i18n.messages[this.$i18n.locale]:', this.$i18n.messages[this.$i18n.locale]);
       let text = '';
@@ -115,112 +105,6 @@ export default {
       }
       return value || {};
     },
-    mainVerticalTableOptions() {
-      return {
-        styles: {
-          th: {
-            'vertical-align': 'top',
-            'font-size': '14px',
-            'min-width': '45px !important',
-            'max-width': '50px !important',
-            'width': '10% !important',
-          },
-          td: {
-            'font-size': '14px',
-          },
-        },
-      };
-    },
-    mainVerticalTableSlots() {
-      return {
-        id: 'mainTable',
-        fields: [
-          {
-            label: 'eligibility',
-            labelType: 'i18n',
-            value: 'sections.' + this.$props.header + '.dates',
-            valueType: 'i18n',
-            // valueType: 'component1',
-            // value: 'component value',
-          },
-          {
-            label: 'dates',
-            labelType: 'i18n',
-            valueType: 'component',
-            value: 'component value',
-          },
-        ],
-      };
-    },
-
-    // insideVerticalTableSlots() {
-    //   return {
-    //     id: 'insideTable',
-    //     fields: [
-    //       {
-    //         label: 'Monday',
-    //         value: 'test1',
-    //         value1: 'test2',
-    //         // value: function(state) {
-    //         //   return state.sources.covidFreeMealSites.data.features[0].attributes.MONDAY;
-    //         // },
-    //       },
-    //       {
-    //         label: 'Tuesday',
-    //         // valueType: 'i18n',
-    //         value: function(state) {
-    //           return state.sources.covidFreeMealSites.data.features[0].attributes.TUESDAY;
-    //         },
-    //       }
-    //     ]
-    //   }
-    // },
-    // insideHorizontalTableOptions() {
-    //   return {
-    //     id: 'daysAndHours',
-    //     showOnlyIfData: true,
-    //     limit: 5,
-    //     fields: [
-    //       {
-    //         label: 'Day',
-    //         value: function(state, item){
-    //           return item.attributes.CATEGORY;
-    //         },
-    //         nullValue: 'no date available',
-    //       },
-    //       {
-    //         label: 'Hours',
-    //         value: function(state, item){
-    //           return item.attributes.CATEGORY;
-    //         },
-    //         nullValue: 'no date available',
-    //       },
-    //       {
-    //         label: 'Info',
-    //         value: function(state, item){
-    //           return item.attributes.CATEGORY;
-    //         },
-    //         nullValue: 'no date available',
-    //       },
-    //     ]
-    //   }
-    // },
-    // insideHorizontalTableSlots() {
-    //   return {
-    //     // title: 'testtesttest',
-    //     items: function(state) {
-    //       let rows = {};
-    //       if (state.sources.covidFreeMealSites.data) {
-    //         var data = state.sources.covidFreeMealSites.data.features;
-    //         rows = data.map(function(row){
-    //           var itemRow = row;
-    //           return itemRow;
-    //         });
-    //       }
-    //       return rows;
-    //     },
-    //   }
-    // }
   },
   watch: {
     subsectionsFromStore(nextSubsections) {
@@ -230,7 +114,23 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
+  h3 {
+    color: #444444;
+    font-family: "Montserrat-SemiBold", "Montserrat SemiBold", "Montserrat", sans-serif;
+    font-weight: 650;
+    font-size: 24px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    line-height: 30px !important;
+  }
+
+  .greeting-section {
+    font-size: 14px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 
   .non-bold-header {
     font-size: 18px;
@@ -270,6 +170,7 @@ export default {
     /* font-style: italic; */
     padding: 1rem 0;
   }
+
   .section-header {
     background-color: #0f4d90;
     font-size: 16px;

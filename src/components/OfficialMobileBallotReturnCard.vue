@@ -52,7 +52,7 @@ import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctio
 export default {
   name: 'OfficalMobileBallotReturnCard',
   components: {
-    VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
+    // VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
   },
   mixins: [ SharedFunctions ],
   props: {
@@ -188,7 +188,7 @@ export default {
           } else if (!normallyOpen && holidayYesterday) {
             hours = item[yesterday];
           }
-          
+
           let dayObject = {
             label: day,
             labelType: 'i18n',
@@ -286,26 +286,26 @@ export default {
     }
   }
 
-  &::after{
-    position: absolute;
-    right:1rem;
-    top: 0;
-    content: '+';
-    font-weight: 900;
-    font-size:1.5rem;
-    z-index: 100;
-    color: color(dark-ben-franklin)
-  }
+  // &::after{
+  //   position: absolute;
+  //   right:1rem;
+  //   top: 0;
+  //   content: '+';
+  //   font-weight: 900;
+  //   font-size:1.5rem;
+  //   z-index: 100;
+  //   color: color(dark-ben-franklin)
+  // }
   &.open{
     h2{
       color:white;
       background-color: color(ben-franklin-blue);
       font-weight: 900;
     }
-    &::after{
-      content: '-';
-      color:white;
-    }
+    // &::after{
+    //   content: '-';
+    //   color:white;
+    // }
   }
   .location-content{
     overflow: hidden;

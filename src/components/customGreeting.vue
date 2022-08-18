@@ -1,17 +1,16 @@
 <template>
   <div
-    class="grid-y custom-greeting"
+    class="custom-greeting content"
   >
-    <div class="exclamation-holder">
-      <font-awesome-icon
-        icon="exclamation-triangle"
-        class="fa-3x fa-icon-class"
-      />
-      <div
-        class="grid-y exclamation-details small-19 medium-20"
-      >
-        <!-- <div><b>{{ $t('beforeYouGo') }}:</b></div> -->
-        <div>
+    <div class="exclamation-holder columns is-mobile">
+      <div class="column is-narrow padding-4 padding-top-8">
+        <font-awesome-icon
+          icon="exclamation-triangle"
+          class="fa-2x fa-icon-class"
+        />
+      </div>
+      <div class="column exclamation-details">
+        <div class="column padding-4">
           {{ $t('introPage.exclamation') }} <a
             target="_blank"
             href="https://atlas.phila.gov/voting"
@@ -20,15 +19,13 @@
       </div>
     </div>
 
-    <div class="open-list-div">
-      <!-- class="button open-list-button hide-for-medium" -->
-      <phila-button
+    <div class="has-text-centered container">
+      <button
         class="button open-list-button"
-        @click.native="$emit('view-list')"
+        @click="$emit('view-list')"
         v-html="$t('app.viewList')"
       />
     </div>
-
 
     <!-- sections that rely on data -->
     <greeting-section
@@ -41,43 +38,31 @@
     />
 
     <div
-      class="main-area"
+      class="section-header"
+      :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
     >
-      <div
-        class="section-header"
-        :style="{ 'background-color': '#F0F0F0', 'color': 'black' }"
-      >
-        <b>{{ $t('introPage.relatedContent') }}</b>
-      </div>
-      <a
-        target="_blank"
-        href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx"
-      >{{ $t('introPage.link1') }}</a><br>
-      <a
-        target="_blank"
-        href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
-      >{{ $t('introPage.link2') }}</a><br>
+      <b>{{ $t('introPage.relatedContent') }}</b>
     </div>
-    <!-- end of main-area -->
+    <a
+      target="_blank"
+      href="https://www.pavoterservices.pa.gov/Pages/voterregistrationstatus.aspx"
+    >{{ $t('introPage.link1') }}</a><br>
+    <a
+      target="_blank"
+      href="https://www.pavoterservices.pa.gov/pages/ballottracking.aspx"
+    >{{ $t('introPage.link2') }}</a><br>
   </div>
 </template>
 
 <script>
 
-import TopicComponent from '@phila/vue-comps/src/components/TopicComponent.vue';
-import PhilaButton from '@phila/pinboard/src/components/PhilaButton.vue';
-import callout from '@phila/vue-comps/src/components/Callout.vue';
 import greetingSection from './greetingSection.vue';
-
 
 export default {
   name: 'CustomGreeting',
   components: {
-    PhilaButton,
-    callout,
     greetingSection,
   },
-  mixins: [ TopicComponent ],
   props: {
     'message': {
       type: String,
@@ -147,13 +132,6 @@ export default {
         `;
     },
   },
-  watch: {
-    // database() {
-    //   let subsections = this.getCounts();
-    //   this.subsections = subsections;
-    //   this.$store.commit('setSubsections', subsections);
-    // },
-  },
   mounted() {
     this.sections = this.$config.sections;
   },
@@ -203,7 +181,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
   .section-header {
     background-color: #0f4d90;
@@ -242,20 +220,40 @@ export default {
   }
 
   .open-list-button {
+    text-transform: uppercase;
+    background-color: #0f4d90;
+    color: #ffffff;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 17px;
+    padding-bottom: 17px;
     margin-top: 6px;
     margin-bottom: 14px;
     width: 200px;
   }
 
   .custom-greeting {
-    padding: 12px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    /* padding: 12px; */
+  }
+
+  .padding-4 {
+    padding: 4px;
+  }
+
+  .padding-top-8 {
+    padding-top: 8px;
   }
 
   .exclamation-holder {
+    padding: 1rem;
     display: flex;
     align-items: center;
-    margin-top: 6px;
-    margin-bottom: 14px;
+    // margin-top: 6px;
+    // margin-bottom: 14px;
   }
 
   .fa-icon-class {
@@ -265,7 +263,7 @@ export default {
 
   .exclamation-details {
     margin-left: 14px;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .mb-panel-topics-greeting {
