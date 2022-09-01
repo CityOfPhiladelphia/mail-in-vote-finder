@@ -7,6 +7,7 @@
     "serve": "vue-cli-service serve",
     "build:development": "vue-cli-service build --mode development",
     "build:development2": "vue-cli-service build --mode development2",
+    "build:development3": "vue-cli-service build --mode development3",
     "build:production": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "lintFix": "vue-cli-service lint --fix"
@@ -15,7 +16,7 @@
     "@fortawesome/pro-light-svg-icons": "5.15.4",
     "@fortawesome/pro-regular-svg-icons": "5.15.4",
     "@fortawesome/pro-solid-svg-icons": "5.15.4",
-    "@phila/pinboard": "1.1.33",
+    "@phila/pinboard": "https://github.com/CityOfPhiladelphia/pinboard#c250428172c01fb533061c86fe82e3f9bb2ee689",
     "bulma": "^0.9.1",
     "core-js": "^3.3.3",
     "vue": "^2.6.10"
