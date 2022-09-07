@@ -110,7 +110,7 @@ export default {
       let columns = [
         {
           label: 'Days',
-          i18nLabel: 'daysOfTheWeek',
+          i18nLabel: 'daysOfOperation',
           field: 'days',
           thClass: 'th-black-class',
         },

@@ -93,6 +93,7 @@ export default {
   eligibility: 'Détails',
   testingHours: 'Horaires de dépistage',
   daysOfOperation: 'Jours d’ouverture',
+  schedule: "Calendrier",
   Monday: 'Lundi',
   Tuesday: 'Mardi',
   Wednesday: 'Mercredi',
