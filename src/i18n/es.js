@@ -61,8 +61,8 @@ export default {
         //   date: '19 de octubre',
         // },
         d2:{
-          text: 'Fecha limite para solicitar una papeleta',
-          date: '1ro de noviembre',
+          text: 'Fecha limite para solicitar una boleta',
+          date: '1 de noviembre',
         },
         d3:{
           text: 'Solicite una boleta de reemplazo',
