@@ -1,7 +1,71 @@
 <template>
-  <section class="services grid-x grid-padding-x">
-    <div class="cell">
-      <vertical-table-light
+  <section class="services">
+    <h3>{{ $t('details.details') }}</h3>
+
+    <p
+      v-for="field in arrayFields"
+      :key="field"
+      class="no-margin"
+      v-html="$t(field)"
+    >
+      <!-- {{ field }} -->
+    </p>
+
+    <h3>{{ $t('siteHours') }}</h3>
+
+    <p
+      v-if="hoursTableOrLine === 'line'"
+    >
+      {{ $t('details.electionDayHours') }}
+    </p>
+
+    <vue-good-table
+      v-if="hoursTableOrLine === 'table'"
+      :columns="hours.columns"
+      :rows="hours.rows"
+      :sort-options="{ enabled: false }"
+      style-class="vgt-table condensed"
+    >
+      <template
+        slot="table-column"
+        slot-scope="props"
+      >
+        <span
+          v-if="props.column.label =='Days'"
+          class="table-header-text"
+        >
+          {{ $t(props.column.i18nLabel) }}
+        </span>
+        <span
+          v-if="props.column.label =='Schedule'"
+          class="table-header-text"
+        >
+          {{ $t(props.column.i18nLabel) }}
+        </span>
+      </template>
+
+      <template
+        slot="table-row"
+        slot-scope="props"
+      >
+        <span
+          v-if="props.column.field == 'days'"
+          class="table-text"
+        >
+          {{ $t(props.row.days) }}
+        </span>
+        <div
+          v-if="props.column.field == 'schedule'"
+          class="table-text"
+        >
+          {{ props.row.schedule }}
+        </div>
+      </template>
+    </vue-good-table>
+
+
+    <!-- <div class="cell"> -->
+    <!-- <vertical-table-light
         class="print-padding"
         :slots="mainVerticalTableSlots"
         :options="mainVerticalTableOptions"
@@ -15,7 +79,6 @@
             :key="field"
             v-html="$t(field)"
           >
-            <!-- {{ field }} -->
           </p>
         </template>
 
@@ -39,19 +102,21 @@
             :options="component1VerticalTableOptions"
           />
         </template>
-      </vertical-table-light>
-    </div>
+      </vertical-table-light> -->
+    <!-- </div> -->
   </section>
 </template>
 
 <script>
 
 import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
+import { VueGoodTable } from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css';
 
 export default {
   name: 'OfficalMobileBallotReturnCard',
   components: {
-    // VerticalTableLight: () => import(/* webpackChunkName: "pvc_VerticalTable3CellsLight" */'@phila/vue-comps/src/components/VerticalTableLight.vue'),
+    VueGoodTable,
   },
   mixins: [ SharedFunctions ],
   props: {
@@ -63,43 +128,93 @@ export default {
     },
   },
   computed: {
-    mainVerticalTableSlots() {
-      let slots = {
-        id: 'mainTable',
-        fields: [
-          {
-            label: 'details.details',
-            labelType: 'i18n',
-            valueType: 'component1',
-          },
-        ],
-      };
-      if (this.days.length > 0) {
-        let newField = {
-          label: 'siteHours',
-          labelType: 'i18n',
-          valueType: 'component2',
-        };
-        slots.fields.push(newField);
-      }
+    // mainVerticalTableSlots() {
+    //   let slots = {
+    //     id: 'mainTable',
+    //     fields: [
+    //       {
+    //         label: 'details.details',
+    //         labelType: 'i18n',
+    //         valueType: 'component1',
+    //       },
+    //     ],
+    //   };
+    //   if (this.days.length > 0) {
+    //     let newField = {
+    //       label: 'siteHours',
+    //       labelType: 'i18n',
+    //       valueType: 'component2',
+    //     };
+    //     slots.fields.push(newField);
+    //   }
+    //
+    //   return slots;
+    // },
+    // mainVerticalTableOptions() {
+    //   return {
+    //     styles: {
+    //       th: {
+    //         'vertical-align': 'top',
+    //         'font-size': '14px',
+    //         'min-width': '40px !important',
+    //         'max-width': '50px !important',
+    //         'width': '10% !important',
+    //       },
+    //       td: {
+    //         'font-size': '14px !important',
+    //       },
+    //     },
+    //   };
+    // },
 
-      return slots;
+    hoursTableOrLine() {
+      let value;
+      if (this.$props.item.open_24_hours === "TRUE") {
+        value = 'line';
+      } else {
+        value = 'table';
+      }
+      return value;
     },
-    mainVerticalTableOptions() {
+    daysKey() {
       return {
-        styles: {
-          th: {
-            'vertical-align': 'top',
-            'font-size': '14px',
-            'min-width': '40px !important',
-            'max-width': '50px !important',
-            'width': '10% !important',
-          },
-          td: {
-            'font-size': '14px !important',
-          },
-        },
+        'monday': 'Monday',
+        'tuesday': 'Tuesday',
+        'wednesday': 'Wednesday',
+        'thursday': 'Thursday',
+        'friday': 'Friday',
+        'saturday': 'Saturday',
+        'sunday': 'Sunday',
       };
+    },
+    hours() {
+      let columns = [
+        {
+          label: 'Days',
+          i18nLabel: 'daysOfOperation',
+          field: 'days',
+          thClass: 'th-black-class',
+        },
+        {
+          label: 'Schedule',
+          i18nLabel: 'schedule',
+          field: 'schedule',
+          thClass: 'th-black-class',
+        },
+      ];
+      let days = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ];
+      let rows = [];
+      for (let [ index, day ] of days.entries()) {
+        // console.log('day:', day, 'index:', index);
+        // let scheduleOrClosed = this.parseTimeRange(day, this.item.attributes[day+'_hours'], this.item.attributes['hours_'+day+'_end']);
+        let scheduleOrClosed = this.item[day+'_hours'] || 'Closed';
+        rows.push({
+          id: index + 1,
+          days: this.daysKey[day],
+          schedule: scheduleOrClosed,
+        });
+      }
+      return { columns, rows };
     },
 
     arrayFields() {
@@ -154,80 +269,80 @@ export default {
       return finalArray;
     },
 
-    days() {
-      let allDays = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ];
-      let theFields = [];
-      // let days = {};
-
-      let item = this.item;
-      let holidays = [];
-      let exceptions = [];
-      if (this.$config.holidays && this.$config.holidays.days) {
-        holidays = this.$config.holidays.days;
-      }
-      if (this.$config.holidays && this.$config.holidays.exceptions) {
-        exceptions = this.$config.holidays.exceptions;
-      }
-
-      for (let [ index, day ] of allDays.entries()) {
-        let normallyOpen = item[day+"_hours"] != null;
-        let holidayToday = holidays.includes(day);
-        let yesterday = allDays[index-1];
-        let normallyOpenYesterday = item[yesterday] != null;
-        let holidayYesterday = holidays.includes(yesterday);
-        let siteIsException = false;
-        // let siteIsException = exceptions.includes(this.getSiteName(this.item));
-
-        // if (this.item.attributes[day] != null){
-        if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
-
-          let hours;
-          if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
-            hours = item[day+"_hours"];
-          } else if (!normallyOpen && holidayYesterday) {
-            hours = item[yesterday];
-          }
-
-          let dayObject = {
-            label: day,
-            labelType: 'i18n',
-            value: hours,
-            // valueType: 'i18n',
-          };
-          theFields.push(dayObject);
-        }
-      }
-      // }
-      return theFields;
-    },
-    component2VerticalTableSlots() {
-      return {
-        id: 'compTable1',
-        fields: this.days,
-      };
-    },
-    component1VerticalTableOptions() {
-      return {
-        styles: {
-          th: {
-            'font-size': '14px',
-            'min-width': '45px !important',
-            'max-width': '50px !important',
-            'width': '25% !important',
-          },
-          td: {
-            'font-size': '14px !important',
-          },
-        },
-      };
-    },
+    // days() {
+    //   let allDays = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ];
+    //   let theFields = [];
+    //   // let days = {};
+    //
+    //   let item = this.item;
+    //   let holidays = [];
+    //   let exceptions = [];
+    //   if (this.$config.holidays && this.$config.holidays.days) {
+    //     holidays = this.$config.holidays.days;
+    //   }
+    //   if (this.$config.holidays && this.$config.holidays.exceptions) {
+    //     exceptions = this.$config.holidays.exceptions;
+    //   }
+    //
+    //   for (let [ index, day ] of allDays.entries()) {
+    //     let normallyOpen = item[day+"_hours"] != null;
+    //     let holidayToday = holidays.includes(day);
+    //     let yesterday = allDays[index-1];
+    //     let normallyOpenYesterday = item[yesterday] != null;
+    //     let holidayYesterday = holidays.includes(yesterday);
+    //     let siteIsException = false;
+    //     // let siteIsException = exceptions.includes(this.getSiteName(this.item));
+    //
+    //     // if (this.item.attributes[day] != null){
+    //     if ((normallyOpen || (!siteIsException && holidayYesterday && normallyOpenYesterday)) && (!holidayToday || siteIsException)) {
+    //
+    //       let hours;
+    //       if ((normallyOpen && !holidayToday) || (normallyOpen && siteIsException)) {
+    //         hours = item[day+"_hours"];
+    //       } else if (!normallyOpen && holidayYesterday) {
+    //         hours = item[yesterday];
+    //       }
+    //
+    //       let dayObject = {
+    //         label: day,
+    //         labelType: 'i18n',
+    //         value: hours,
+    //         // valueType: 'i18n',
+    //       };
+    //       theFields.push(dayObject);
+    //     }
+    //   }
+    //   // }
+    //   return theFields;
+    // },
+    // component2VerticalTableSlots() {
+    //   return {
+    //     id: 'compTable1',
+    //     fields: this.days,
+    //   };
+    // },
+    // component1VerticalTableOptions() {
+    //   return {
+    //     styles: {
+    //       th: {
+    //         'font-size': '14px',
+    //         'min-width': '45px !important',
+    //         'max-width': '50px !important',
+    //         'width': '25% !important',
+    //       },
+    //       td: {
+    //         'font-size': '14px !important',
+    //       },
+    //     },
+    //   };
+    // },
   },
-  methods: {
-    parseAddress(address) {
-      const formattedAddress = address.replace(/(Phila.+)/g, city => `<div>${city}</div>`).replace(/^\d+\s[A-z]+\s[A-z]+/g, lineOne => `<div>${lineOne}</div>`).replace(/,/, '');
-      return formattedAddress;
-    },
-  },
+  // methods: {
+  //   parseAddress(address) {
+  //     const formattedAddress = address.replace(/(Phila.+)/g, city => `<div>${city}</div>`).replace(/^\d+\s[A-z]+\s[A-z]+/g, lineOne => `<div>${lineOne}</div>`).replace(/,/, '');
+  //     return formattedAddress;
+  //   },
+  // },
 };
 
 </script>
