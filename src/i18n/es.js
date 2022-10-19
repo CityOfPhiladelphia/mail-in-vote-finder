@@ -38,6 +38,8 @@ export default {
     ballotApp: 'Solicitud de boleta electoral por correo',
     ballotRep: 'Solicitud de reemplazo de boleta electoral por correo',
     ballotDropoff: 'Entrega de boletas por correo',
+    ballotDropoffMobile: 'Entrega móvil de boletas por vorreo',
+    ballotDropoffMobileStandAlone: '<div class="callout">Este no es un buzón fijo e independiente</div>',
     ballotDropoffLong: 'En caso de que el buzón esté lleno, no funcione o esté dañado de alguna manera, se debe notificar inmediatamente a la Junta Electoral, llamando al 215-686-3469 o enviando un correo electrónico a vote@phila.gov.',
     interpretationAvailable: 'Servicios de intérprete disponibles',
     wheelchair: 'Local accesible en silla de ruedas',
