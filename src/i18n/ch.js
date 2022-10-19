@@ -38,6 +38,8 @@ export default {
     ballotApp: '邮寄选票申请',
     ballotRep: '邮寄选票替代 ',
     ballotDropoff: '邮寄选票提交',
+    ballotDropoffMobile: '移動式郵寄選票投遞',
+    ballotDropoffMobileStandAlone: '<div class="callout">這個不是固定獨立的投遞箱。</div>',
     interpretationAvailable: '提供电话口译服务',
     wheelchair: '轮椅无障碍服务',
     open24Hours: '24 小时开放',

@@ -1,6 +1,6 @@
 <template>
   <section class="services">
-    <h3>{{ $t('details.details') }}</h3>
+    <h3>{{ $t("details.details") }}</h3>
 
     <p
       v-for="field in arrayFields"
@@ -11,12 +11,10 @@
       <!-- {{ field }} -->
     </p>
 
-    <h3>{{ $t('siteHours') }}</h3>
+    <h3>{{ $t("siteHours") }}</h3>
 
-    <p
-      v-if="hoursTableOrLine === 'line'"
-    >
-      {{ $t('details.electionDayHours') }}
+    <p v-if="hoursTableOrLine === 'line'">
+      {{ $t("details.electionDayHours") }}
     </p>
 
     <vue-good-table
@@ -31,13 +29,13 @@
         slot-scope="props"
       >
         <span
-          v-if="props.column.label =='Days'"
+          v-if="props.column.label == 'Days'"
           class="table-header-text"
         >
           {{ $t(props.column.i18nLabel) }}
         </span>
         <span
-          v-if="props.column.label =='Schedule'"
+          v-if="props.column.label == 'Schedule'"
           class="table-header-text"
         >
           {{ $t(props.column.i18nLabel) }}
@@ -62,7 +60,6 @@
         </div>
       </template>
     </vue-good-table>
-
 
     <!-- <div class="cell"> -->
     <!-- <vertical-table-light
@@ -108,13 +105,12 @@
 </template>
 
 <script>
-
-import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
-import { VueGoodTable } from 'vue-good-table';
-import 'vue-good-table/dist/vue-good-table.css';
+import SharedFunctions from "@phila/pinboard/src/components/mixins/SharedFunctions.vue";
+import { VueGoodTable } from "vue-good-table";
+import "vue-good-table/dist/vue-good-table.css";
 
 export default {
-  name: 'OfficalMobileBallotReturnCard',
+  name: "OfficalMobileBallotReturnCard",
   components: {
     VueGoodTable,
   },
@@ -122,7 +118,7 @@ export default {
   props: {
     item: {
       type: Object,
-      default: function(){
+      default: function() {
         return {};
       },
     },
@@ -170,44 +166,52 @@ export default {
     hoursTableOrLine() {
       let value;
       if (this.$props.item.open_24_hours === "TRUE") {
-        value = 'line';
+        value = "line";
       } else {
-        value = 'table';
+        value = "table";
       }
       return value;
     },
     daysKey() {
       return {
-        'monday': 'Monday',
-        'tuesday': 'Tuesday',
-        'wednesday': 'Wednesday',
-        'thursday': 'Thursday',
-        'friday': 'Friday',
-        'saturday': 'Saturday',
-        'sunday': 'Sunday',
+        monday: "Monday",
+        tuesday: "Tuesday",
+        wednesday: "Wednesday",
+        thursday: "Thursday",
+        friday: "Friday",
+        saturday: "Saturday",
+        sunday: "Sunday",
       };
     },
     hours() {
       let columns = [
         {
-          label: 'Days',
-          i18nLabel: 'daysOfOperation',
-          field: 'days',
-          thClass: 'th-black-class',
+          label: "Days",
+          i18nLabel: "daysOfOperation",
+          field: "days",
+          thClass: "th-black-class",
         },
         {
-          label: 'Schedule',
-          i18nLabel: 'schedule',
-          field: 'schedule',
-          thClass: 'th-black-class',
+          label: "Schedule",
+          i18nLabel: "schedule",
+          field: "schedule",
+          thClass: "th-black-class",
         },
       ];
-      let days = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ];
+      let days = [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+      ];
       let rows = [];
       for (let [ index, day ] of days.entries()) {
         // console.log('day:', day, 'index:', index);
         // let scheduleOrClosed = this.parseTimeRange(day, this.item.attributes[day+'_hours'], this.item.attributes['hours_'+day+'_end']);
-        let scheduleOrClosed = this.item[day+'_hours'] || 'Closed';
+        let scheduleOrClosed = this.item[day + "_hours"] || "Closed";
         rows.push({
           id: index + 1,
           days: this.daysKey[day],
@@ -218,45 +222,45 @@ export default {
     },
 
     arrayFields() {
-      let allFields = [ 'site_type', 'multilingual_support', 'site_accessible' ];
+      let allFields = [ "site_type", "multilingual_support", "site_accessible" ];
       let finalArray = [];
       let item = this.item;
 
       for (let field of allFields) {
         let values = [];
 
-        if (field === 'site_type') {
-          if (item[field] === 'Election office') {
-            values.push('details.inPerson');
+        if (field === "site_type") {
+          if (item[field] === "Election office") {
+            values.push("details.inPerson");
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
 
-        if (field === 'site_type') {
-          if (item[field] === 'Election office') {
-            values.push('details.ballotDropoff');
+        if (field === "site_type") {
+          if (item[field] === "Election office") {
+            values.push("details.ballotDropoff");
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
 
-        if (field === 'site_type') {
-          if (item[field] === 'Official mobile mail-in ballot return') {
-            values.push('details.ballotDropoffMobile');
-            values.push('details.ballotDropoffMobileStandAlone');
+        if (field === "site_type") {
+          if (item[field] === "Official mobile mail-in ballot return") {
+            values.push("details.ballotDropoffMobile");
+            values.push("details.ballotDropoffMobileStandAlone");
             // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
           }
         }
 
-        if (field === 'multilingual_support') {
-          if (item[field] === 'TRUE') {
-            values.push('details.interpretationAvailable');
+        if (field === "multilingual_support") {
+          if (item[field] === "TRUE") {
+            values.push("details.interpretationAvailable");
             // value = 'Telephonic interpretation services available.';
           }
         }
 
-        if (field === 'site_accessible') {
-          if (item[field] === 'TRUE') {
-            values.push('details.wheelchair');
+        if (field === "site_accessible") {
+          if (item[field] === "TRUE") {
+            values.push("details.wheelchair");
             // value = 'Wheelchair accessible.';
           }
         }
@@ -344,13 +348,10 @@ export default {
   //   },
   // },
 };
-
 </script>
 
 <style lang="scss">
-
-.uppercase{
+.uppercase {
   text-transform: capitalize;
 }
-
 </style>
