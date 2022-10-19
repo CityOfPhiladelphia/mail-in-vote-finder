@@ -124,45 +124,9 @@ export default {
     },
   },
   computed: {
-    // mainVerticalTableSlots() {
-    //   let slots = {
-    //     id: 'mainTable',
-    //     fields: [
-    //       {
-    //         label: 'details.details',
-    //         labelType: 'i18n',
-    //         valueType: 'component1',
-    //       },
-    //     ],
-    //   };
-    //   if (this.days.length > 0) {
-    //     let newField = {
-    //       label: 'siteHours',
-    //       labelType: 'i18n',
-    //       valueType: 'component2',
-    //     };
-    //     slots.fields.push(newField);
-    //   }
-    //
-    //   return slots;
-    // },
-    // mainVerticalTableOptions() {
-    //   return {
-    //     styles: {
-    //       th: {
-    //         'vertical-align': 'top',
-    //         'font-size': '14px',
-    //         'min-width': '40px !important',
-    //         'max-width': '50px !important',
-    //         'width': '10% !important',
-    //       },
-    //       td: {
-    //         'font-size': '14px !important',
-    //       },
-    //     },
-    //   };
-    // },
-
+    i18nLocale() {
+      return this.$i18n.locale;
+    },
     hoursTableOrLine() {
       let value;
       if (this.$props.item.open_24_hours === "TRUE") {
@@ -209,9 +173,9 @@ export default {
       ];
       let rows = [];
       for (let [ index, day ] of days.entries()) {
-        // console.log('day:', day, 'index:', index);
-        // let scheduleOrClosed = this.parseTimeRange(day, this.item.attributes[day+'_hours'], this.item.attributes['hours_'+day+'_end']);
-        let scheduleOrClosed = this.item[day + "_hours"] || "Closed";
+        let closed = this.$i18n.messages[this.i18nLocale].closed;
+        console.log('closed:', closed);
+        let scheduleOrClosed = this.item[day+'_hours'] || closed;
         rows.push({
           id: index + 1,
           days: this.daysKey[day],

@@ -97,13 +97,13 @@ export default {
     },
     daysKey() {
       return {
-        'mon': 'Monday',
-        'tues': 'Tuesday',
-        'wed': 'Wednesday',
-        'thurs': 'Thursday',
-        'fri': 'Friday',
-        'sat': 'Saturday',
-        'sun': 'Sunday',
+        monday: "Monday",
+        tuesday: "Tuesday",
+        wednesday: "Wednesday",
+        thursday: "Thursday",
+        friday: "Friday",
+        saturday: "Saturday",
+        sunday: "Sunday",
       };
     },
     hours() {
@@ -121,12 +121,20 @@ export default {
           thClass: 'th-black-class',
         },
       ];
-      let days = [ 'mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun' ];
+      let days = [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+      ];
       let rows = [];
       for (let [ index, day ] of days.entries()) {
-        // console.log('day:', day, 'index:', index);
-        // let scheduleOrClosed = this.parseTimeRange(day, this.item.attributes['hours_'+day+'_start'], this.item.attributes['hours_'+day+'_end']);
-        let scheduleOrClosed = 'wawa';
+        let closed = this.$i18n.messages[this.i18nLocale].closed;
+        console.log('closed:', closed);
+        let scheduleOrClosed = this.item[day+'_hours'] || closed;
         rows.push({
           id: index + 1,
           days: this.daysKey[day],
@@ -186,39 +194,6 @@ export default {
       }
       return finalArray;
     },
-
-    // days() {
-    //   let allDays = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
-    //   let theFields = [];
-    //   let item = this.item;
-    //
-    //   for (let [ index, day ] of allDays.entries()) {
-    //     let fridayWeekendHours = item['friday_weekend_hours'];
-    //     let isWeekend;
-    //     if (fridayWeekendHours === "TRUE") {
-    //       isWeekend = [ 'Sunday', 'Friday', 'Saturday' ].includes(day);
-    //     } else {
-    //       isWeekend = [ 'Sunday', 'Saturday' ].includes(day);
-    //     }
-    //
-    //     let hours;
-    //     if (isWeekend && item['weekend_start']) {
-    //       hours = item['weekend_start'] + ' - ' + item['weekend_end'];
-    //     } else if (!isWeekend) {
-    //       hours = item['weekday_start'] + ' - ' + item['weekday_end'];
-    //     }
-    //
-    //     let dayObject = {
-    //       label: day,
-    //       labelType: 'i18n',
-    //       value: hours,
-    //     };
-    //     if (hours) {
-    //       theFields.push(dayObject);
-    //     }
-    //   }
-    //   return theFields;
-    // },
   },
 };
 

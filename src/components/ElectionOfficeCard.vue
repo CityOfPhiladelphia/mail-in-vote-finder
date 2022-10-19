@@ -86,6 +86,9 @@ export default {
     },
   },
   computed: {
+    i18nLocale() {
+      return this.$i18n.locale;
+    },
     hoursTableOrLine() {
       let value;
       if (this.$props.item.open_24_hours === "TRUE") {
@@ -138,7 +141,8 @@ export default {
         if (isWeekend && this.item['weekend_start']) {
           hours = this.item['weekend_start'] + ' - ' + this.item['weekend_end'];
         } else if (isWeekend) {
-          hours = "Closed";
+          hours = this.$i18n.messages[this.i18nLocale].closed;
+          // hours = "Closed";
         } else if (!isWeekend) {
           hours = this.item['weekday_start'] + ' - ' + this.item['weekday_end'];
         }
