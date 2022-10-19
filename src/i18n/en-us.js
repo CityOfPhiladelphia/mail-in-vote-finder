@@ -116,4 +116,5 @@ export default {
   No: 'No',
   Unknown: 'Unknown',
   website: 'Website',
+  closed: "Closed",
 };
