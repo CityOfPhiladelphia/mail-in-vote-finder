@@ -2,7 +2,7 @@
 export default {
   language: 'English',
   app: {
-    title: 'Mail-in Voting Centers',
+    title: 'Election Offices and Mail-in Dropoff Locations',
     subtitle: 'Find a vote-by-mail location near you.',
     // bannerAlert: 'Many sites are closed today. Check specific site details for more information.',
     noResults: 'No site was found within your search. Please try again.',

@@ -2,7 +2,7 @@
 export default {
   language: 'Español',
   app: {
-    title: 'Centros de votación por correo',
+    title: 'Oficinas electorales y lugares de entrega por correo',
     subtitle: 'Encuentre un centro de votación por correo cerca de usted.',
     // bannerAlert: 'Muchos lugares están cerrados hoy. Consulte los detalles específicos del lugar para obtener más información.',
     noResults: 'No se encontró un lugar donde se realicen pruebas que coincida con su búsqueda.',
