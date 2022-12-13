@@ -2,7 +2,7 @@
 export default {
   language: '中文',
   app: {
-    title: '邮寄投票中心',
+    title: '選舉辦公室和郵寄選票投遞地點',
     subtitle: '查找您附近的邮寄投票地点',
     // bannerAlert: '今天很多地点均关闭。有关更多信息，请查看具体地点详细信息。',
     noResults: 'No site was found within your search. Please try again.',
