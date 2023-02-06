@@ -45,11 +45,11 @@ export default {
     wheelchair: 'Wheelchair accessible',
     open24Hours: 'Open 24 hours',
     staff: 'Staff will remain at the office to receive dropped off ballots until 8 p.m. Boxes will be locked at precisely 8 p.m.',
-    electionDayHours: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
+    electionDayHours: 'On Election Day, dropboxes will be locked at precisely 8 p.m.',
   },
   'Election office': 'Election offices',
   'Official mobile mail-in ballot return': 'Official mobile mail-in ballot return',
-  'Official mail-in ballot drop box': 'Official mail-in ballot drop boxes',
+  'Official mail-in ballot drop box': 'Official mail-in ballot dropboxes',
   sections: {
     'Election office': {
       header: 'Election offices',
@@ -83,18 +83,18 @@ export default {
       p1: 'Mail-in mobile ballot drop-off.',
       h2: '',
       dates: '',
-      callout1: 'This is not a fixed, stand-alone drop box. Limited hours only.',
+      callout1: 'This is not a fixed, stand-alone dropbox. Limited hours only.',
       callout2: '',
     },
     'Official mail-in ballot drop box': {
-      header: 'Official mail-in ballot drop boxes',
-      englishName: 'Official mail-in ballot drop box',
+      header: 'Official mail-in ballot dropboxes',
+      englishName: 'Official mail-in ballot dropbox',
       p1: '\
-      If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
+      If a dropbox is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
       ',
       h2: '',
       dates: '',
-      callout1: 'On Election Day, drop boxes will be locked at precisely 8 p.m.',
+      callout1: 'On Election Day, dropboxes will be locked at precisely 8 p.m.',
       callout2: '',
     },
   },
