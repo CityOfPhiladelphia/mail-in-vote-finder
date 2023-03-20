@@ -85,6 +85,11 @@ pinboard({
   gtag: {
     category: 'rf-voting',
   },
+  allowPrint: true,
+  showBuffers: true,
+  resetDataOnGeocode: true,
+  retractableRefine: false,
+  dropdownRefine: false,
   searchBar: {
     placeholder: 'Search by address',
     searchTypes: [
