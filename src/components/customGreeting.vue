@@ -183,6 +183,8 @@ export default {
 
 <style lang="scss" scoped>
 
+@import "../../node_modules/@phila/pinboard/src/assets/scss/customGreeting.scss";
+
   .section-header {
     background-color: #0f4d90;
     font-size: 16px;
