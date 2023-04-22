@@ -54,7 +54,7 @@ export default {
     'Election office': {
       header: 'Election offices',
       englishName: 'Election office',
-      p1: 'Beginning October 11 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
+      p1: 'Beginning April 24 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
       h2: 'Voter services and deadlines ',
       dates: {
         // d1:{
@@ -63,15 +63,15 @@ export default {
         // },
         d2:{
           text: 'Apply for a mail-in ballot',
-          date: 'November 1st',
+          date: 'May 9th at 5:00 pm',
         },
         d3:{
           text: 'Request a replacement ballot',
-          date: 'October 17th',
+          date: 'April 25th',
         },
         d4:{
           text: 'Drop off your completed ballot',
-          date: 'November 8th at 8pm',
+          date: 'May 16th at 8:00 pm',
         },
       },
       // callout1: 'Masks are required regardless of vaccination status.',
