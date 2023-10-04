@@ -64,15 +64,15 @@ export default {
         // },
         d2:{
           text: 'Fecha limite para solicitar una boleta',
-          date: '9 de mayo a las 05:00 pm',
+          date: '31 de octubre a las 17:00 horas',
         },
         d3:{
           text: 'Solicite una boleta de reemplazo',
-          date: '25 de abril',
+          date: '13 de octubre',
         },
         d4:{
           text: 'Entregar su boleta electoral completa',
-          date: '16 de mayo a las 08:00 pm',
+          date: '7 de noviembre a las 20:00 horas',
         },
       },
     },
