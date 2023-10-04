@@ -63,15 +63,15 @@ export default {
         // },
         d2:{
           text: 'Apply for a mail-in ballot',
-          date: 'May 9th at 5:00 pm',
+          date: 'October 31st at 5:00 pm',
         },
         d3:{
           text: 'Request a replacement ballot',
-          date: 'April 25th',
+          date: 'October 13th',
         },
         d4:{
           text: 'Drop off your completed ballot',
-          date: 'May 16th at 8:00 pm',
+          date: 'November 7th at 8:00 pm',
         },
       },
       // callout1: 'Masks are required regardless of vaccination status.',
