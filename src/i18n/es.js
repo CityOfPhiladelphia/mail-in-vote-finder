@@ -54,7 +54,7 @@ export default {
     'Election office': {
       englishName: 'Election office',
       header: 'Oficina Electoral',
-      p1: 'A partir del 24 de abril, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
+      p1: 'A partir del 10 de Octubre, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
       // callout1: 'Las mascarillas son obligatorias independientemente del estado de vacunación.',
       h2: 'Servicios al votante y plazos ',
       dates: {

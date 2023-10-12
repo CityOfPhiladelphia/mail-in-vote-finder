@@ -54,7 +54,7 @@ export default {
     'Election office': {
       header: 'Election offices',
       englishName: 'Election office',
-      p1: 'Beginning April 24 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
+      p1: 'Beginning October 10 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
       h2: 'Voter services and deadlines ',
       dates: {
         // d1:{
