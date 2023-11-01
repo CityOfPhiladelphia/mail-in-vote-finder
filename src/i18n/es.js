@@ -68,7 +68,7 @@ export default {
         },
         d3:{
           text: 'Solicite una boleta de reemplazo',
-          date: '13 de octubre',
+          date: 'No antes del 13 de octubre',
         },
         d4:{
           text: 'Entregar su boleta electoral completa',
