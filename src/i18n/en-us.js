@@ -67,7 +67,7 @@ export default {
         },
         d3:{
           text: 'Request a replacement ballot',
-          date: 'October 13th',
+          date: 'No earlier than October 13th',
         },
         d4:{
           text: 'Drop off your completed ballot',
