@@ -117,7 +117,8 @@ pinboard({
     'Election office': {
       title: 'Election offices',
       titleSingular: 'Election office',
-      color: '#0F4D90',
+      color: '#9400c6',
+      // color: '#0F4D90',
     },
     'Official mobile mail-in ballot return': {
       title: 'Official mobile mail-in ballot returns',
@@ -135,11 +136,13 @@ pinboard({
   markerType: 'circle-marker',
   circleMarkers:{
     circleColors: {
-      'Election office': '#0f4d90',
+      // 'Election office': '#0f4d90',
+      'Election office': '#9400c6',
       'Official mobile mail-in ballot return': '#721817',
       'Official mail-in ballot drop box': '#4F6D0A',
     },
-    weight: 0,
+    borderColor: 'white',
+    weight: 1,
     radius: 8,
     mobileRadius: 12,
     size: 16,
