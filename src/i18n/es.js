@@ -50,6 +50,11 @@ export default {
   'Election office': 'Oficina Electoral',
   'Official mobile mail-in ballot return': 'Sitio oficial para devolver boletas',
   'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
+  categoryType: {
+    'Election office': 'Oficina Electoral',
+    'Official mobile mail-in ballot return': 'Sitio oficial para devolver boletas',
+    'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
+  },
   sections: {
     'Election office': {
       englishName: 'Election office',

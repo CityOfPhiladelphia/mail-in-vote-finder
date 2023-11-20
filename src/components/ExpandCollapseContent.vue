@@ -1,6 +1,9 @@
 <template>
   <div :class="isMobile ? 'main-content-mobile' : 'main-content'">
-    <div class="columns">
+    <print-share-section
+      :item="item"
+    />
+    <div class="columns top-section">
       <div class="column is-6">
         <div
           v-if="item.street_address"
@@ -58,6 +61,8 @@ import ElectionOfficeCard from './ElectionOfficeCard.vue';
 import OfficialMobileBallotReturnCard from './OfficialMobileBallotReturnCard.vue';
 import OfficialBallotReturnDropBox from './OfficialBallotReturnDropBox.vue';
 
+import PrintShareSection from '@phila/pinboard/src/components/PrintShareSection';
+
 export default {
   name: 'ExpandCollapseContent',
   components: {
@@ -65,6 +70,7 @@ export default {
     ElectionOfficeCard,
     OfficialMobileBallotReturnCard,
     OfficialBallotReturnDropBox,
+    PrintShareSection,
   },
   mixins: [ SharedFunctions ],
   props: {

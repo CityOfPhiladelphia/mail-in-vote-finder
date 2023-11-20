@@ -50,6 +50,11 @@ export default {
   'Election office': 'Election offices',
   'Official mobile mail-in ballot return': 'Official mobile mail-in ballot return',
   'Official mail-in ballot drop box': 'Official mail-in ballot dropboxes',
+  categoryType: {
+    'Election office': 'Election offices',
+    'Official mobile mail-in ballot return': 'Official mobile mail-in ballot return',
+    'Official mail-in ballot drop box': 'Official mail-in ballot dropboxes',
+  },
   sections: {
     'Election office': {
       header: 'Election offices',
