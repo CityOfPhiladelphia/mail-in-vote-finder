@@ -28,8 +28,8 @@ export default {
         'width': '15px',
         'height': '15px',
         'font-size': '10px',
-        'background-color': '#9400c6',
-        // 'background-color': '#0F4D90',
+        'background-color': '#a86518',
+        // 'background-color': '#9400c6',
       },
       'Official mail-in ballot drop boxes': {
         'border-color': 'black',
