@@ -5,6 +5,7 @@
 // (we might not need to use axios with new vue async tools)
 // if that is not needed, we can move this info to main.js
 
+
 // turn off console logging in production
 if (process.env.NODE_ENV === 'production') {
   console.log = console.info = console.debug = console.error = function () {};
@@ -44,6 +45,7 @@ import i18n from './i18n/i18n';
 console.log('main.js i18n:', i18n);
 
 pinboard({
+  publicPath: process.env.VUE_APP_PUBLICPATH,
   i18n: i18n.i18n,
   alerts: {
     // modal: {
@@ -85,6 +87,11 @@ pinboard({
   gtag: {
     category: 'rf-voting',
   },
+  allowPrint: true,
+  showBuffers: true,
+  resetDataOnGeocode: true,
+  retractableRefine: false,
+  dropdownRefine: false,
   searchBar: {
     placeholder: 'Search by address',
     searchTypes: [
@@ -110,7 +117,8 @@ pinboard({
     'Election office': {
       title: 'Election offices',
       titleSingular: 'Election office',
-      color: '#0F4D90',
+      color: '#9400c6',
+      // color: '#0F4D90',
     },
     'Official mobile mail-in ballot return': {
       title: 'Official mobile mail-in ballot returns',
@@ -128,11 +136,13 @@ pinboard({
   markerType: 'circle-marker',
   circleMarkers:{
     circleColors: {
-      'Election office': '#0f4d90',
+      // 'Election office': '#0f4d90',
+      'Election office': '#9400c6',
       'Official mobile mail-in ballot return': '#721817',
       'Official mail-in ballot drop box': '#4F6D0A',
     },
-    weight: 0,
+    borderColor: 'white',
+    weight: 1,
     radius: 8,
     mobileRadius: 12,
     size: 16,
