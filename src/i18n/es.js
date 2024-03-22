@@ -59,7 +59,7 @@ export default {
     'Election office': {
       englishName: 'Election office',
       header: 'Oficina Electoral',
-      p1: 'A partir del 4/4/2024, la Junta Electoral de Filadelfia estará abierta a la votación por correo en persona con boleta electoral. Los votantes registrados pueden solicitar, recibir, completar y devolver su boleta electoral por correo en persona en una sola visita.',
+      p1: 'A partir del 10 de Octubre, la Junta Electoral de Filadelfia estará abierta para votar con boletas de voto por correo en persona. En una sola visita, los votantes registrados pueden solicitar, recibir, llenar y devolver su boleta de voto por correo en persona.',
       // callout1: 'Las mascarillas son obligatorias independientemente del estado de vacunación.',
       h2: 'Servicios al votante y plazos ',
       dates: {
@@ -69,15 +69,15 @@ export default {
         // },
         d2:{
           text: 'Fecha limite para solicitar una boleta',
-          date: '16/04/2024 a las 17:00',
+          date: '31 de octubre a las 17:00 horas',
         },
         d3:{
           text: 'Solicite una boleta de reemplazo',
-          date: 'No antes del 4/4/2024',
+          date: 'No antes del 13 de octubre',
         },
         d4:{
           text: 'Entregar su boleta electoral completa',
-          date: '23/04/2024 a las 20:00',
+          date: '7 de noviembre a las 20:00 horas',
         },
       },
     },
