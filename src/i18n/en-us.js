@@ -59,7 +59,7 @@ export default {
     'Election office': {
       header: 'Election offices',
       englishName: 'Election office',
-      p1: 'Beginning October 10 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
+      p1: 'Beginning 4/4/2024 the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
       h2: 'Voter services and deadlines ',
       dates: {
         // d1:{
@@ -68,15 +68,15 @@ export default {
         // },
         d2:{
           text: 'Apply for a mail-in ballot',
-          date: 'October 31st at 5:00 pm',
+          date: '4/16/2024 by 5:00 PM',
         },
         d3:{
           text: 'Request a replacement ballot',
-          date: 'No earlier than October 13th',
+          date: 'No earlier than 4/4/2024',
         },
         d4:{
           text: 'Drop off your completed ballot',
-          date: 'November 7th at 8:00 pm',
+          date: '4/23/2024 by 8:00 pm',
         },
       },
       // callout1: 'Masks are required regardless of vaccination status.',
@@ -95,7 +95,7 @@ export default {
       header: 'Official mail-in ballot dropboxes',
       englishName: 'Official mail-in ballot dropbox',
       p1: '\
-      If a dropbox is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
+      If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
       ',
       h2: '',
       dates: '',
