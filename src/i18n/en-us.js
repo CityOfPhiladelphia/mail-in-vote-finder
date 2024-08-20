@@ -59,7 +59,7 @@ export default {
     'Election office': {
       header: 'Election offices',
       englishName: 'Election office',
-      p1: 'Beginning March 28, 2024, the Philadelphia Board of Elections will be open for in-person mail-in ballot voting. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
+      p1: 'Beginning Aug 20, 2024, the Philadelphia Board of Elections will be open for in-person mail-in ballot voting for the September 17, 2024 Special Election in the 195th and 201st Legislative Districts. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
       h2: 'Voter services and deadlines ',
       dates: {
         // d1:{
@@ -68,15 +68,15 @@ export default {
         // },
         d2:{
           text: 'Apply for a mail-in ballot',
-          date: 'April 16 by 5:00 PM',
+          date: 'September 10 by 5:00 p.m.',
         },
         d3:{
           text: 'Request a replacement ballot',
-          date: 'No earlier than April 4',
+          date: 'No earlier than Aug 27th',
         },
         d4:{
           text: 'Drop off your completed ballot',
-          date: 'April 23 by 8:00 pm',
+          date: 'September 17 by 8:00 p.m.',
         },
       },
       // callout1: 'Masks are required regardless of vaccination status.',
