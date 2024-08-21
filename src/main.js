@@ -136,6 +136,11 @@ pinboard({
       titleSingular: 'Official mail-in ballot drop box',
       color: '#4F6D0A',
     },
+    'Mail-in ballot drop box (not open for special election)': {
+      title: 'Mail-in ballot drop boxes (not open for special election)',
+      titleSingular: 'Mail-in ballot drop box (not open for special election)',
+      color: '#a1a1a1',
+    },
 
   },
   legendControls,
