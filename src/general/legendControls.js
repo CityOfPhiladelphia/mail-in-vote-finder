@@ -40,6 +40,15 @@ export default {
         'font-size': '10px',
         'background-color': '#4F6D0A',
       },
+      'Mail-in ballot drop box (not open for special election)': {
+        'border-color': 'black',
+        'border-style': 'solid',
+        'border-weight': '0px',
+        'width': '15px',
+        'height': '15px',
+        'font-size': '10px',
+        'background-color': '#a1a1a1',
+      },
       'Official mobile mail-in ballot return': {
         'border-color': 'black',
         'border-style': 'solid',
