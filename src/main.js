@@ -33,6 +33,7 @@ import legendControls from './general/legendControls';
 
 // data-sources
 import votingSites from './data-sources/voting-sites';
+// import votingSites from './data-sources/voting-sites-dev';
 
 import expandCollapseContent from './components/ExpandCollapseContent.vue';
 import customGreeting from './components/customGreeting.vue';
@@ -105,6 +106,11 @@ pinboard({
     },
   },
   customComps,
+  // hiddenRefine: {
+  //   Type: function(item) {
+  //     return item.site_type !== 'Official mobile mail-in ballot return';
+  //   },
+  // },
   refine: {
     type: 'categoryField_value',
     value: function(item) {
@@ -130,6 +136,11 @@ pinboard({
       titleSingular: 'Official mail-in ballot drop box',
       color: '#4F6D0A',
     },
+    'Mail-in ballot drop box (not open for special election)': {
+      title: 'Mail-in ballot drop boxes (not open for special election)',
+      titleSingular: 'Mail-in ballot drop box (not open for special election)',
+      color: '#a1a1a1',
+    },
 
   },
   legendControls,
@@ -140,6 +151,7 @@ pinboard({
       'Election office': '#a86518',
       'Official mobile mail-in ballot return': '#721817',
       'Official mail-in ballot drop box': '#4F6D0A',
+      'Mail-in ballot drop box (not open for special election)': '#a1a1a1',
     },
     borderColor: 'white',
     weight: 1,
