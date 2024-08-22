@@ -32,8 +32,8 @@ import pinboard from '@phila/pinboard/src/main.js';
 import legendControls from './general/legendControls';
 
 // data-sources
-// import votingSites from './data-sources/voting-sites';
-import votingSites from './data-sources/voting-sites-dev';
+import votingSites from './data-sources/voting-sites';
+// import votingSites from './data-sources/voting-sites-dev';
 
 import expandCollapseContent from './components/ExpandCollapseContent.vue';
 import customGreeting from './components/customGreeting.vue';
