@@ -106,11 +106,11 @@ pinboard({
     },
   },
   customComps,
-  hiddenRefine: {
-    Type: function(item) {
-      return item.site_type !== 'Official mobile mail-in ballot return';
-    },
-  },
+  // hiddenRefine: {
+  //   Type: function(item) {
+  //     return item.site_type !== 'Official mobile mail-in ballot return';
+  //   },
+  // },
   refine: {
     type: 'categoryField_value',
     value: function(item) {
