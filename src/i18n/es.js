@@ -59,7 +59,7 @@ export default {
     'Election office': {
       englishName: 'Election office',
       header: 'Oficina Electoral',
-      p1: 'A partir del 23 de septiembre de 2024, la Junta Electoral de Filadelfia estará abierta para votar por correo en persona para las elecciones generales del 5 de noviembre de 2024. Los votantes inscritos pueden solicitar, recibir, completar y devolver su boleta electoral por correo en persona en una sola visita.',
+      p1: 'A partir del 23 de septiembre de 2024, la Junta Electoral de Filadelfia estará abierta a los servicios de boletas por correo en persona para las elecciones generales presidenciales del 5 de noviembre de 2024. Los votantes inscritos pueden solicitar, recibir, completar y devolver su boleta electoral por correo en persona en una sola visita.',
       h2: 'Servicios al votante y plazos ',
       dates: {
         // d1:{
