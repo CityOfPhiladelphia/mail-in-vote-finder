@@ -7,9 +7,7 @@
       :key="field"
       class="no-margin"
       v-html="$t(field)"
-    >
-      <!-- {{ field }} -->
-    </p>
+    />
 
     <h3>{{ $t('siteHours') }}</h3>
 
@@ -175,11 +173,11 @@ export default {
             values.push('details.ballotDropoff');
           }
         }
-        if (field === 'site_type') {
-          if (item[field] === 'Election office') {
-            values.push('details.staff');
-          }
-        }
+        // if (field === 'site_type') {
+        //   if (item[field] === 'Election office') {
+        //     values.push('details.staff');
+        //   }
+        // }
         if (field === 'multilingual_support') {
           if (item[field] === 'TRUE') {
             values.push('details.interpretationAvailable');
