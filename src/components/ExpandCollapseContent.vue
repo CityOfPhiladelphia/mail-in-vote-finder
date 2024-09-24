@@ -48,7 +48,7 @@
       :item="item"
     />
     <official-ballot-return-drop-box
-      v-if="section === 'Official mail-in ballot drop box' || section === 'Mail-in ballot drop box (not open for special election)'"
+      v-if="section === 'Official mail-in ballot drop box' || section === 'Mail-in ballot drop box (temporarily closed)'"
       :item="item"
     />
   </div>

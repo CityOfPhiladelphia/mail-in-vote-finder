@@ -54,7 +54,7 @@ export default {
     'Election office': 'Election offices',
     'Official mobile mail-in ballot return': 'Official mobile mail-in ballot return',
     'Official mail-in ballot drop box': 'Official mail-in ballot dropboxes',
-    'Mail-in ballot drop box (not open for special election)': 'Mail-in ballot drop box (not open for special election)',
+    'Mail-in ballot drop box (temporarily closed)': 'Mail-in ballot drop box (temporarily closed)',
   },
   sections: {
     'Election office': {
@@ -103,9 +103,9 @@ export default {
       callout1: 'On Election Day, dropboxes will be locked at precisely 8 p.m.',
       callout2: '',
     },
-    'Mail-in ballot drop box (not open for special election)': {
-      header: 'Mail-in ballot dropboxes (not open for special election)',
-      englishName: 'Mail-in ballot dropbox (not open for special election)',
+    'Mail-in ballot drop box (temporarily closed)': {
+      header: 'Mail-in ballot dropboxes (temporarily closed)',
+      englishName: 'Mail-in ballot dropbox (temporarily closed)',
       p1: '\
       If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
       ',
