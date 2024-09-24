@@ -136,9 +136,9 @@ pinboard({
       titleSingular: 'Official mail-in ballot drop box',
       color: '#4F6D0A',
     },
-    'Mail-in ballot drop box (not open for special election)': {
-      title: 'Mail-in ballot drop boxes (not open for special election)',
-      titleSingular: 'Mail-in ballot drop box (not open for special election)',
+    'Mail-in ballot drop box (temporarily closed)': {
+      title: 'Mail-in ballot drop boxes (temporarily closed)',
+      titleSingular: 'Mail-in ballot drop box (temporarily closed)',
       color: '#a1a1a1',
     },
 
@@ -151,7 +151,7 @@ pinboard({
       'Election office': '#a86518',
       'Official mobile mail-in ballot return': '#721817',
       'Official mail-in ballot drop box': '#4F6D0A',
-      'Mail-in ballot drop box (not open for special election)': '#a1a1a1',
+      'Mail-in ballot drop box (temporarily closed)': '#a1a1a1',
     },
     borderColor: 'white',
     weight: 1,

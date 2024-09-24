@@ -51,6 +51,7 @@ export default {
     'Election office': '选举办公室',
     'Official mobile mail-in ballot return': '正式移動式郵寄选票投遞処',
     'Official mail-in ballot drop box': '官方邮寄选票投票箱',
+    'Mail-in ballot drop box (temporarily closed)': '邮寄投票箱（暂时关闭）',
   },
   sections: {
     'Election office': {

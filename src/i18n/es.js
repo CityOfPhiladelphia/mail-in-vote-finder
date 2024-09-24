@@ -54,6 +54,7 @@ export default {
     'Election office': 'Oficina Electoral',
     'Official mobile mail-in ballot return': 'Sitio oficial para devolver boletas',
     'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
+    'Mail-in ballot drop box (temporarily closed)': 'Buzón de boletas por correo (cerrado temporalmente)',
   },
   sections: {
     'Election office': {
