@@ -172,10 +172,10 @@ pinboard({
   dataSources: {
     votingSites,
   },
-  dataSort: { 
-    field:'site_type',
-    order: 'desc',
-  },
+  // dataSort: { 
+  //   field:'site_type',
+  //   order: 'desc',
+  // },
   router: {
     enabled: false,
   },
