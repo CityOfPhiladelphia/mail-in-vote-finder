@@ -1,25 +1,27 @@
 <script setup>
 
+import { onMounted } from 'vue';
+
 import $config from '../main.js';
 
 import greetingSection from './greetingSection.vue';
 
 const props = defineProps({
-  'message': {
-    type: String,
-    default: function() {
-      return 'defaultMessage';
-    },
+  database: {
+    type: Array,
+  },
+  isMobile: {
+    type: Boolean,
+    default: false,
   },
 });
 
 const sections = ref({});
-// const subsections = ref({});
 
 // computed
 const electionOfficeCount = computed(() => {
   let electionOffices = [];
-  for (let site of database.value) {
+  for (let site of props.database) {
     if (site.site_type === 'Election office') {
       electionOffices.push(site);
     }
@@ -34,52 +36,14 @@ const i18nEnabled = computed(() => {
   return false;
 });
 
-// const calloutOptions = computed(() => {
-//   return {};
-// });
-
-// const calloutSlots = computed(() => {
-//   return {
-//     text: 'test',
-//   };
-// });
-
-const database = computed(() => {
-  return DataStore.sources[DataStore.appType].data.rows || DataStore.sources[DataStore.appType].features || DataStore.sources[DataStore.appType].data;
+onMounted(async () => {
+  sections.value = $config.sections;
 });
-
-// const hasError = computed(() => {
-//   return this.$store.state.geocode.status === 'error';
-// });
-
-// const errorMessage = computed(() => {
-//   const input = this.$store.state.geocode.input;
-//   return `
-//       <p>
-//         We couldn't find
-//         ${input ? '<strong>' + input + '</strong>' : 'that address'}.
-//         Are you sure everything was spelled correctly?
-//       </p>
-//       <p>
-//         Here are some examples of things you can search for:
-//       </p>
-//       <ul>
-//         <li>1234 Market St</li>
-//         <li>1001 Pine Street #201</li>
-//         <li>12th & Market</li>
-//         <li>883309050 (an OPA number with no hyphens or other characters)</li>
-//       </ul>
-//     `;
-// });
-
-// mounted() {
-// this.sections = this.$config.sections;
-// },
 
 // methods
 const getCounts = () => {
   // console.log('customGreeting.vue getCounts is running');
-  const refineData = database.value;
+  const refineData = props.database;
   // const refineData = this.sources[this.$appType].data.rows;
 
   let service = '';
@@ -144,9 +108,15 @@ const getCounts = () => {
 
     <div class="has-text-centered container">
       <button
-        class="button open-list-button"
+        class="button greeting-button"
         @click="$emit('view-list')"
         v-html="$t('app.viewList')"
+      />
+      <button
+        v-if="isMobile"
+        class="button greeting-button"
+        @click="$emit('view-map')"
+        v-html="$t('app.viewMap')"
       />
     </div>
 
@@ -179,120 +149,120 @@ const getCounts = () => {
 
 <style lang="scss" scoped>
 
-  .section-header {
-    background-color: #0f4d90;
-    font-size: 16px;
-    color: white;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    padding: 4px;
-    padding-left: 8px;
-  }
+.greeting-button {
+  background-color: #0f4d90 !important;
+  border-color: #0f4d90 !important;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  margin: 1rem;
+}
 
-  h1 {
-    font-size: 20px;
-  }
+.greeting-button:hover {
+  background-color: #444444 !important;
+}
+.section-header {
+  background-color: #0f4d90;
+  font-size: 16px;
+  color: white;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 4px;
+  padding-left: 8px;
+}
 
-  h2 {
-    font-size: 16px;
-  }
+h1 {
+  font-size: 20px;
+}
 
-  .main-area {
-    padding: 10px;
-  }
+h2 {
+  font-size: 16px;
+}
 
-  .custom-callout {
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px;
-  }
+.main-area {
+  padding: 10px;
+}
 
-  .no-margin {
-    margin: 0px;
-  }
+.custom-callout {
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+}
 
-  .open-list-div {
-    margin: 0 auto;
-  }
+.no-margin {
+  margin: 0px;
+}
 
-  .open-list-button {
-    text-transform: uppercase;
-    background-color: #0f4d90;
-    color: #ffffff;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 17px;
-    padding-bottom: 17px;
-    margin-top: 6px;
-    margin-bottom: 14px;
-    width: 200px;
-  }
+.open-list-div {
+  margin: 0 auto;
+}
 
-  .custom-greeting {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-    margin-right: 1rem;
-    /* padding: 12px; */
-  }
+.custom-greeting {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  /* padding: 12px; */
+}
 
-  .padding-4 {
-    padding: 4px;
-  }
+.padding-4 {
+  padding: 4px;
+}
 
-  .padding-top-8 {
-    padding-top: 8px;
-  }
+.padding-top-8 {
+  padding-top: 8px;
+}
 
-  .exclamation-holder {
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    // margin-top: 6px;
-    // margin-bottom: 14px;
-  }
+.exclamation-holder {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  // margin-top: 6px;
+  // margin-bottom: 14px;
+}
 
-  .fa-icon-class {
-    margin: 0 auto;
-    display: block;
-  }
+.fa-icon-class {
+  margin: 0 auto;
+  display: block;
+}
 
-  .exclamation-details {
-    margin-left: 14px;
-    font-size: 15px;
-  }
+.exclamation-details {
+  margin-left: 14px;
+  font-size: 15px;
+}
 
+.mb-panel-topics-greeting {
+  padding-top: 20px;
+}
+
+.greeting {
+  font-size: 20px;
+  color: #444;
+  padding: 14px;
+}
+
+.greeting-error {
+  border-left-color: #ff0000;
+}
+
+.custom-section {
+  margin-left: 8px;
+  margin-top: 4px;
+}
+
+.custom-ul {
+  margin-left: 4rem;
+  font-size: 14px;
+}
+
+/*medium*/
+@media screen and (min-width: 750px) {
   .mb-panel-topics-greeting {
-    padding-top: 20px;
+    /*make this scroll on medium screens*/
+    /*REVIEW this is a little hacky. the 120px shouldn't be hard-coded.*/
+    height: calc(100vh - 120px);
+    overflow: auto;
   }
+}
 
-  .greeting {
-    font-size: 20px;
-    color: #444;
-    padding: 14px;
-  }
-
-  .greeting-error {
-    border-left-color: #ff0000;
-  }
-
-  .custom-section {
-    margin-left: 8px;
-    margin-top: 4px;
-  }
-
-  .custom-ul {
-    margin-left: 4rem;
-    font-size: 14px;
-  }
-
-  /*medium*/
-  @media screen and (min-width: 750px) {
-    .mb-panel-topics-greeting {
-      /*make this scroll on medium screens*/
-      /*REVIEW this is a little hacky. the 120px shouldn't be hard-coded.*/
-      height: calc(100vh - 120px);
-      overflow: auto;
-    }
-  }
 </style>
