@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "test": "vite --mode=testing",
     "build": "vite build",
+    "build:testing": "vite build --mode=testing",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
