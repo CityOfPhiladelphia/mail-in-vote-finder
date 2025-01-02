@@ -15,17 +15,18 @@ const props = defineProps({
 
 // computed
 const section = computed(() => {
-  return props.item.site_type;
+  return props.item.properties.site_type;
 });
 
 </script>
 
+<!-- <div :class="isMobile ? 'main-content-mobile' : 'main-content'"> -->
 <template>
-  <div :class="isMobile ? 'main-content-mobile' : 'main-content'">
+  <div class='main-content'>
     <div class="columns top-section">
       <div class="column is-6">
         <div
-          v-if="item.street_address"
+          v-if="item.properties.street_address"
           class="columns is-mobile"
         >
           <div class="column is-1">
@@ -33,7 +34,7 @@ const section = computed(() => {
           </div>
 
           <div class="column is-11">
-            {{ item.street_address }}<br>
+            {{ item.properties.street_address }}<br>
             Philadelphia, PA {{ item.zip }}<br>
           </div>
         </div>
@@ -44,14 +45,14 @@ const section = computed(() => {
         class="column is-6"
       >
         <div
-          v-if="item.phone_number"
+          v-if="item.properties.phone_number"
           class="columns is-mobile"
         >
           <div class="column is-1">
             <font-awesome-icon icon="phone" />
           </div>
           <div class="column is-11">
-            {{ item.phone_number }}
+            {{ item.properties.phone_number }}
           </div>
         </div>
       </div>

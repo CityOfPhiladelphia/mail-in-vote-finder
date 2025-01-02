@@ -11,13 +11,13 @@ const props = defineProps({
 
 // computed
 
-const i18nLocale = computed(() => {
-  return this.$i18n.locale;
-});
+// const i18nLocale = computed(() => {
+//   return this.$i18n.locale;
+// });
 
 const hoursTableOrLine = computed(() => {
   let value;
-  if (this.$props.item.open_24_hours === "TRUE") {
+  if (props.item.properties.open_24_hours === "TRUE") {
     value = 'line';
   } else {
     value = 'table';
@@ -57,7 +57,7 @@ const hours = computed(() => {
   for (let [ index, day ] of daysArray.entries()) {
     console.log('day:', day, 'index:', index);
 
-    let fridayWeekendHours = this.item['friday_weekend_hours'];
+    let fridayWeekendHours = props.item.properties['friday_weekend_hours'];
     let isWeekend;
     if (fridayWeekendHours === "TRUE") {
       isWeekend = [ 'Sunday', 'Friday', 'Saturday' ].includes(day);
@@ -66,13 +66,13 @@ const hours = computed(() => {
     }
 
     let hours;
-    if (isWeekend && this.item['weekend_start']) {
-      hours = this.item['weekend_start'] + ' - ' + this.item['weekend_end'];
+    if (isWeekend && props.item.properties['weekend_start']) {
+      hours = props.item.properties['weekend_start'] + ' - ' + props.item.properties['weekend_end'];
     } else if (isWeekend) {
       hours = this.$i18n.messages[this.i18nLocale].closed;
       // hours = "Closed";
     } else if (!isWeekend) {
-      hours = this.item['weekday_start'] + ' - ' + this.item['weekday_end'];
+      hours = props.item.properties['weekday_start'] + ' - ' + props.item.properties['weekday_end'];
     }
     let scheduleOrClosed = hours;
 
@@ -88,34 +88,29 @@ const hours = computed(() => {
 const arrayFields = computed(() => {
   let allFields = [ 'site_type', 'multilingual_support', 'site_accessible' ];
   let finalArray = [];
-  let item = this.item;
+  let item = props.item;
 
   for (let field of allFields) {
     let values = [];
 
     if (field === 'site_type') {
-      if (item[field] === 'Election office') {
+      if (item.properties[field] === 'Election office') {
         values.push('details.ballotRep');
       }
     }
     if (field === 'site_type') {
-      if (item[field] === 'Election office') {
+      if (item.properties[field] === 'Election office') {
         values.push('details.ballotDropoff');
       }
     }
-    // if (field === 'site_type') {
-    //   if (item[field] === 'Election office') {
-    //     values.push('details.staff');
-    //   }
-    // }
     if (field === 'multilingual_support') {
-      if (item[field] === 'TRUE') {
+      if (item.properties[field] === 'TRUE') {
         values.push('details.interpretationAvailable');
       }
     }
 
     if (field === 'site_accessible') {
-      if (item[field] === 'TRUE') {
+      if (item.properties[field] === 'TRUE') {
         values.push('details.wheelchair');
       }
     }
@@ -154,7 +149,7 @@ const arrayFields = computed(() => {
       :columns="hours.columns"
       :rows="hours.rows"
       :sort-options="{ enabled: false }"
-      style-class="vgt-table condensed"
+      style-class="table"
     >
       <template
         slot="table-column"

@@ -15,13 +15,13 @@ const props = defineProps({
 
 // computed
 
-const i18nLocale = computed(() => {
-  return this.$i18n.locale;
-});
+// const i18nLocale = computed(() => {
+//   return this.$i18n.locale;
+// });
 
 const hoursTableOrLine = computed(() => {
   let value;
-  if (this.$props.item.open_24_hours === "TRUE") {
+  if (props.item.properties.open_24_hours === "TRUE") {
     value = "line";
   } else {
     value = "table";
@@ -67,12 +67,13 @@ const hours = computed(() => {
   ];
   let rows = [];
   for (let [ index, day ] of days.entries()) {
-    let closed = this.$i18n.messages[this.i18nLocale].closed;
+    // let closed = this.$i18n.messages[this.i18nLocale].closed;
+    let closed = t('closed');
     console.log('closed:', closed);
-    let scheduleOrClosed = this.item[day+'_hours'] || closed;
+    let scheduleOrClosed = props.item.properties[day+'_hours'] || closed;
     rows.push({
       id: index + 1,
-      days: this.daysKey[day],
+      days: daysKey.value[day],
       schedule: scheduleOrClosed,
     });
   }
@@ -82,27 +83,27 @@ const hours = computed(() => {
 const arrayFields = computed(() => {
   let allFields = [ "site_type", "multilingual_support", "site_accessible" ];
   let finalArray = [];
-  let item = this.item;
+  let item = props.item;
 
   for (let field of allFields) {
     let values = [];
 
     if (field === "site_type") {
-      if (item[field] === "Election office") {
+      if (item.properties[field] === "Election office") {
         values.push("details.inPerson");
         // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
       }
     }
 
     if (field === "site_type") {
-      if (item[field] === "Election office") {
+      if (item.properties[field] === "Election office") {
         values.push("details.ballotDropoff");
         // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
       }
     }
 
     if (field === "site_type") {
-      if (item[field] === "Official mobile mail-in ballot return") {
+      if (item.properties[field] === "Official mobile mail-in ballot return") {
         values.push("details.ballotDropoffMobile");
         values.push("details.ballotDropoffMobileStandAlone");
         // value = 'In-person registration and mail-in voting, Mail-in ballot drop-off.';
@@ -110,14 +111,14 @@ const arrayFields = computed(() => {
     }
 
     if (field === "multilingual_support") {
-      if (item[field] === "TRUE") {
+      if (item.properties[field] === "TRUE") {
         values.push("details.interpretationAvailable");
         // value = 'Telephonic interpretation services available.';
       }
     }
 
     if (field === "site_accessible") {
-      if (item[field] === "TRUE") {
+      if (item.properties[field] === "TRUE") {
         values.push("details.wheelchair");
         // value = 'Wheelchair accessible.';
       }
@@ -156,7 +157,7 @@ const arrayFields = computed(() => {
       :columns="hours.columns"
       :rows="hours.rows"
       :sort-options="{ enabled: false }"
-      style-class="vgt-table condensed"
+      style-class="table"
     >
       <template
         slot="table-column"
@@ -195,12 +196,14 @@ const arrayFields = computed(() => {
       </template>
     </vue-good-table>
 
-    
   </section>
+
 </template>
 
 <style lang="scss">
+
 .uppercase {
   text-transform: capitalize;
 }
+
 </style>

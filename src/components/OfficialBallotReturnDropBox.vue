@@ -16,7 +16,7 @@ const props = defineProps({
 // computed
 const hoursTableOrLine = computed(() => {
   let value;
-  if (this.$props.item.open_24_hours === "TRUE") {
+  if (props.item.open_24_hours === "TRUE") {
     value = 'line';
   } else {
     value = 'table';
@@ -62,12 +62,13 @@ const hours = computed(() => {
   ];
   let rows = [];
   for (let [ index, day ] of days.entries()) {
-    let closed = this.$i18n.messages[this.i18nLocale].closed;
+    // let closed = this.$i18n.messages[this.i18nLocale].closed;
+    let closed = t('closed');
     console.log('closed:', closed);
-    let scheduleOrClosed = this.item[day+'_hours'] || closed;
+    let scheduleOrClosed = props.item[day+'_hours'] || closed;
     rows.push({
       id: index + 1,
-      days: this.daysKey[day],
+      days: daysKey.value[day],
       schedule: scheduleOrClosed,
     });
   }
@@ -77,7 +78,7 @@ const hours = computed(() => {
 const arrayFields = computed(() => {
   let allFields = [ 'site_type', 'multilingual_support', 'site_accessible' ];
   let finalArray = [];
-  let item = this.item;
+  let item = props.item;
 
   for (let field of allFields) {
     let values = [];
@@ -152,7 +153,7 @@ const arrayFields = computed(() => {
       :columns="hours.columns"
       :rows="hours.rows"
       :sort-options="{ enabled: false }"
-      style-class="vgt-table condensed"
+      style-class="table"
     >
       <template
         slot="table-column"
