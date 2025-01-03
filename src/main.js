@@ -94,12 +94,12 @@ let $config = {
     'Official mobile mail-in ballot return': {
       title: 'Official mobile mail-in ballot returns',
       titleSingular: 'Official mobile mail-in ballot return',
-      color: '#4F6D0A',
+      color: '#721817',
     },
     'Official mail-in ballot drop box': {
       title: 'Official mail-in ballot drop boxes',
       titleSingular: 'Official mail-in ballot drop box',
-      color: '#721817',
+      color: '#4F6D0A',
     },
     'Mail-in ballot drop box (temporarily closed)': {
       title: 'Mail-in ballot drop boxes (temporarily closed)',
