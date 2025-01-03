@@ -90,7 +90,16 @@ export default {
     'Official mail-in ballot drop box': {
       header: '官方邮寄选票投票箱',
       englishName: 'Official mail-in ballot drop box',
-      p1: '如果投票箱满了、故障或以任何形式损坏，请致电 (215) 686-3469 或发送电子邮件至 <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+      p1: `如果投票箱满了、故障或以任何形式损坏，请致电 (215) 686-3469 或发送电子邮件至 <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>.`,
+      h2: '',
+      dates: '',
+      callout1: '投票箱将于选举当日晚8点准时关闭。',
+      callout2: '',
+    },
+    'Mail-in ballot drop box (temporarily closed)': {
+      header: '邮寄投票箱（暂时关闭）',
+      englishName: 'Mail-in ballot dropbox (temporarily closed)',
+      p1: `如果投票箱满了、故障或以任何形式损坏，请致电 (215) 686-3469 或发送电子邮件至 <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>.`,
       h2: '',
       dates: '',
       callout1: '投票箱将于选举当日晚8点准时关闭。',
