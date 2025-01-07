@@ -20,9 +20,8 @@ const section = computed(() => {
 
 </script>
 
-<!-- <div :class="isMobile ? 'main-content-mobile' : 'main-content'"> -->
 <template>
-  <div class='main-content'>
+  <div class='main-ec-content'>
     <div class="columns top-section">
       <div class="column is-6">
         <div
