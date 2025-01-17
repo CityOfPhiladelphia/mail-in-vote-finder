@@ -40,7 +40,7 @@ export default {
     ballotDropoff: 'Mail-in ballot drop-off',
     ballotDropoffMobile: 'Mail-in mobile ballot drop-off',
     ballotDropoffMobileStandAlone: '<div class="callout">This is not a fixed, stand-alone dropbox</div>',
-    ballotDropoffLong: 'The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote@phila.gov.',
+    ballotDropoffLong: "The Board of Elections should be notified immediately in the event the receptacle is full, not functioning, or is damaged in any fashion, by calling 215-686-3469 or by emailing vote{'@'}phila.gov.",
     interpretationAvailable: 'Telephonic interpretation services available',
     wheelchair: 'Wheelchair accessible',
     open24Hours: 'Open 24 hours',
@@ -95,9 +95,9 @@ export default {
     'Official mail-in ballot drop box': {
       header: 'Official mail-in ballot dropboxes',
       englishName: 'Official mail-in ballot dropbox',
-      p1: '\
-      If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
-      ',
+      p1: `\
+      If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>. \
+      `,
       h2: '',
       dates: '',
       callout1: 'On Election Day, dropboxes will be locked at precisely 8 p.m.',
@@ -106,9 +106,9 @@ export default {
     'Mail-in ballot drop box (temporarily closed)': {
       header: 'Mail-in ballot dropboxes (temporarily closed)',
       englishName: 'Mail-in ballot dropbox (temporarily closed)',
-      p1: '\
-      If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>. \
-      ',
+      p1: `\
+      If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>. \
+      `,
       h2: '',
       dates: '',
       callout1: 'On Election Day, dropboxes will be locked at precisely 8 p.m.',

@@ -1,3 +1,130 @@
+<script setup>
+
+const props = defineProps({
+  item: {
+    type: Object,
+    default: function(){
+      return {};
+    },
+  },
+});
+
+// computed
+
+// const i18nLocale = computed(() => {
+//   return this.$i18n.locale;
+// });
+
+const hoursTableOrLine = computed(() => {
+  let value;
+  if (props.item.properties.open_24_hours === "TRUE") {
+    value = 'line';
+  } else {
+    value = 'table';
+  }
+  return value;
+});
+
+const daysKey = computed(() => {
+  return {
+    'mon': 'Monday',
+    'tues': 'Tuesday',
+    'wed': 'Wednesday',
+    'thurs': 'Thursday',
+    'fri': 'Friday',
+    'sat': 'Saturday',
+    'sun': 'Sunday',
+  };
+});
+
+const hours = computed(() => {
+  let columns = [
+    {
+      label: 'Days',
+      i18nLabel: 'daysOfOperation',
+      field: 'days',
+      thClass: 'no-header',
+    },
+    {
+      label: 'Schedule',
+      i18nLabel: 'schedule',
+      field: 'schedule',
+      thClass: 'no-header',
+    },
+  ];
+  let daysArray = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+  let rows = [];
+  for (let [ index, day ] of daysArray.entries()) {
+    console.log('day:', day, 'index:', index);
+
+    let fridayWeekendHours = props.item.properties['friday_weekend_hours'];
+    let isWeekend;
+    if (fridayWeekendHours === "TRUE") {
+      isWeekend = [ 'Sunday', 'Friday', 'Saturday' ].includes(day);
+    } else {
+      isWeekend = [ 'Sunday', 'Saturday' ].includes(day);
+    }
+
+    let hours;
+    if (isWeekend && props.item.properties['weekend_start']) {
+      hours = props.item.properties['weekend_start'] + ' - ' + props.item.properties['weekend_end'];
+    } else if (isWeekend) {
+      hours = this.$i18n.messages[this.i18nLocale].closed;
+      // hours = "Closed";
+    } else if (!isWeekend) {
+      hours = props.item.properties['weekday_start'] + ' - ' + props.item.properties['weekday_end'];
+    }
+    let scheduleOrClosed = hours;
+
+    rows.push({
+      id: index + 1,
+      days: day,
+      schedule: scheduleOrClosed,
+    });
+  }
+  return { columns, rows };
+});
+
+const arrayFields = computed(() => {
+  let allFields = [ 'site_type', 'multilingual_support', 'site_accessible' ];
+  let finalArray = [];
+  let item = props.item;
+
+  for (let field of allFields) {
+    let values = [];
+
+    if (field === 'site_type') {
+      if (item.properties[field] === 'Election office') {
+        values.push('details.ballotRep');
+      }
+    }
+    if (field === 'site_type') {
+      if (item.properties[field] === 'Election office') {
+        values.push('details.ballotDropoff');
+      }
+    }
+    if (field === 'multilingual_support') {
+      if (item.properties[field] === 'TRUE') {
+        values.push('details.interpretationAvailable');
+      }
+    }
+
+    if (field === 'site_accessible') {
+      if (item.properties[field] === 'TRUE') {
+        values.push('details.wheelchair');
+      }
+    }
+
+    // console.log('arrayFields, values:', values)
+    for (let value of values) {
+      finalArray.push(value);
+    }
+  }
+  return finalArray;
+});
+
+</script>
+
 <template>
   <section class="services">
     <h3>{{ $t('details.details') }}</h3>
@@ -22,7 +149,7 @@
       :columns="hours.columns"
       :rows="hours.rows"
       :sort-options="{ enabled: false }"
-      style-class="vgt-table condensed"
+      style-class="table"
     >
       <template
         slot="table-column"
@@ -62,145 +189,6 @@
     </vue-good-table>
   </section>
 </template>
-
-<script>
-
-import SharedFunctions from '@phila/pinboard/src/components/mixins/SharedFunctions.vue';
-import { VueGoodTable } from 'vue-good-table';
-import 'vue-good-table/dist/vue-good-table.css';
-
-export default {
-  name: 'ElectionOfficeCard',
-  components: {
-    VueGoodTable,
-  },
-  mixins: [ SharedFunctions ],
-  props: {
-    item: {
-      type: Object,
-      default: function(){
-        return {};
-      },
-    },
-  },
-  computed: {
-    i18nLocale() {
-      return this.$i18n.locale;
-    },
-    hoursTableOrLine() {
-      let value;
-      if (this.$props.item.open_24_hours === "TRUE") {
-        value = 'line';
-      } else {
-        value = 'table';
-      }
-      return value;
-    },
-    daysKey() {
-      return {
-        'mon': 'Monday',
-        'tues': 'Tuesday',
-        'wed': 'Wednesday',
-        'thurs': 'Thursday',
-        'fri': 'Friday',
-        'sat': 'Saturday',
-        'sun': 'Sunday',
-      };
-    },
-    hours() {
-      let columns = [
-        {
-          label: 'Days',
-          i18nLabel: 'daysOfOperation',
-          field: 'days',
-          thClass: 'no-header',
-        },
-        {
-          label: 'Schedule',
-          i18nLabel: 'schedule',
-          field: 'schedule',
-          thClass: 'no-header',
-        },
-      ];
-      let daysArray = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
-      let rows = [];
-      for (let [ index, day ] of daysArray.entries()) {
-        console.log('day:', day, 'index:', index);
-
-        let fridayWeekendHours = this.item['friday_weekend_hours'];
-        let isWeekend;
-        if (fridayWeekendHours === "TRUE") {
-          isWeekend = [ 'Sunday', 'Friday', 'Saturday' ].includes(day);
-        } else {
-          isWeekend = [ 'Sunday', 'Saturday' ].includes(day);
-        }
-
-        let hours;
-        if (isWeekend && this.item['weekend_start']) {
-          hours = this.item['weekend_start'] + ' - ' + this.item['weekend_end'];
-        } else if (isWeekend) {
-          hours = this.$i18n.messages[this.i18nLocale].closed;
-          // hours = "Closed";
-        } else if (!isWeekend) {
-          hours = this.item['weekday_start'] + ' - ' + this.item['weekday_end'];
-        }
-        let scheduleOrClosed = hours;
-
-        rows.push({
-          id: index + 1,
-          days: day,
-          schedule: scheduleOrClosed,
-        });
-      }
-      return { columns, rows };
-    },
-
-    arrayFields() {
-      let allFields = [ 'site_type', 'multilingual_support', 'site_accessible' ];
-      let finalArray = [];
-      let item = this.item;
-
-      for (let field of allFields) {
-        let values = [];
-
-        if (field === 'site_type') {
-          if (item[field] === 'Election office') {
-            values.push('details.ballotRep');
-          }
-        }
-        if (field === 'site_type') {
-          if (item[field] === 'Election office') {
-            values.push('details.ballotDropoff');
-          }
-        }
-        // if (field === 'site_type') {
-        //   if (item[field] === 'Election office') {
-        //     values.push('details.staff');
-        //   }
-        // }
-        if (field === 'multilingual_support') {
-          if (item[field] === 'TRUE') {
-            values.push('details.interpretationAvailable');
-          }
-        }
-
-        if (field === 'site_accessible') {
-          if (item[field] === 'TRUE') {
-            values.push('details.wheelchair');
-          }
-        }
-
-        // console.log('arrayFields, values:', values)
-        for (let value of values) {
-          finalArray.push(value);
-        }
-      }
-      return finalArray;
-    },
-  },
-};
-
-</script>
 
 <style lang="scss">
 
