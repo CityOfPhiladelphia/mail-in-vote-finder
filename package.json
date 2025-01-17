@@ -3,9 +3,11 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode=development",
     "test": "vite --mode=testing",
     "build": "vite build",
+    "build:development": "vite build --mode=development",
+    "build:production": "vite build --mode=production",
     "build:testing": "vite build --mode=testing",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
