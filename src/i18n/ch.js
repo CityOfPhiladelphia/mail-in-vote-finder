@@ -46,12 +46,12 @@ export default {
   },
   'Election office': '选举办公室',
   'Official mobile mail-in ballot return': '正式移動式郵寄选票投遞処',
-  'Official mail-in ballot drop box': '官方邮寄选票投票箱',
+  'Official mail-in ballot dropbox': '官方邮寄选票投票箱',
   categoryType: {
     'Election office': '选举办公室',
     'Official mobile mail-in ballot return': '正式移動式郵寄选票投遞処',
-    'Official mail-in ballot drop box': '官方邮寄选票投票箱',
-    'Mail-in ballot drop box (temporarily closed)': '邮寄投票箱（暂时关闭）',
+    'Official mail-in ballot dropbox': '官方邮寄选票投票箱',
+    'Mail-in ballot dropbox (temporarily closed)': '邮寄投票箱（暂时关闭）',
   },
   sections: {
     'Election office': {
@@ -87,16 +87,16 @@ export default {
       callout1: '這不是一個固定的獨立投遞箱。投遞時間有限。',
       callout2: '',
     },
-    'Official mail-in ballot drop box': {
+    'Official mail-in ballot dropbox': {
       header: '官方邮寄选票投票箱',
-      englishName: 'Official mail-in ballot drop box',
+      englishName: 'Official mail-in ballot dropbox',
       p1: `如果投票箱满了、故障或以任何形式损坏，请致电 (215) 686-3469 或发送电子邮件至 <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>.`,
       h2: '',
       dates: '',
       callout1: '投票箱将于选举当日晚8点准时关闭。',
       callout2: '',
     },
-    'Mail-in ballot drop box (temporarily closed)': {
+    'Mail-in ballot dropbox (temporarily closed)': {
       header: '邮寄投票箱（暂时关闭）',
       englishName: 'Mail-in ballot dropbox (temporarily closed)',
       p1: `如果投票箱满了、故障或以任何形式损坏，请致电 (215) 686-3469 或发送电子邮件至 <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>.`,

@@ -49,12 +49,12 @@ export default {
   },
   'Election office': 'Oficina Electoral',
   'Official mobile mail-in ballot return': 'Sitio oficial para devolver boletas',
-  'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
+  'Official mail-in ballot dropbox': 'Buzón oficial de la votación por correo',
   categoryType: {
     'Election office': 'Oficina Electoral',
     'Official mobile mail-in ballot return': 'Sitio oficial para devolver boletas',
-    'Official mail-in ballot drop box': 'Buzón oficial de la votación por correo',
-    'Mail-in ballot drop box (temporarily closed)': 'Buzón de boletas por correo (cerrado temporalmente)',
+    'Official mail-in ballot dropbox': 'Buzón oficial de la votación por correo',
+    'Mail-in ballot dropbox (temporarily closed)': 'Buzón de boletas por correo (cerrado temporalmente)',
   },
   sections: {
     'Election office': {
@@ -90,16 +90,16 @@ export default {
       callout2: '',
       dates: '',
     },
-    'Official mail-in ballot drop box': {
+    'Official mail-in ballot dropbox': {
       header: 'Buzón oficial de la votación por correo',
-      englishName: 'Official mail-in ballot drop box',
+      englishName: 'Official mail-in ballot dropbox',
       p1: `Si un buzón está lleno, no funciona, o está dañado de alguna manera, llame al (215) 686-3469 o envíe un correo electrónico a <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>.`,
       h2: '',
       callout2: '',
       dates: '',
       callout1: 'El día de las elecciones, los buzones se cerrarán con llave exactamente a las 8 p.m.',
     },
-    'Mail-in ballot drop box (temporarily closed)': {
+    'Mail-in ballot dropbox (temporarily closed)': {
       header: 'Buzón de boletas por correo (cerrado temporalmente)',
       englishName: 'Mail-in ballot dropbox (temporarily closed)',
       p1: `Si un buzón está lleno, no funciona, o está dañado de alguna manera, llame al (215) 686-3469 o envíe un correo electrónico a <a href="mailto:vote{'@'}phila.gov">vote{'@'}phila.gov</a>.`,

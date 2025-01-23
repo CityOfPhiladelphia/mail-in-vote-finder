@@ -14,7 +14,7 @@ export default {
         'font-size': '12px',
         'background-color': '#a86518',
       },
-      'Official mail-in ballot drop boxes': {
+      'Official mail-in ballot dropboxes': {
         'border-color': 'black',
         'border-style': 'solid',
         'border-weight': '0px',
@@ -32,7 +32,7 @@ export default {
         'font-size': '12px',
         'background-color': '#721817',
       },
-      'Mail-in ballot drop box (temporarily closed)': {
+      'Mail-in ballot dropbox (temporarily closed)': {
         'border-color': 'black',
         'border-style': 'solid',
         'border-weight': '0px',

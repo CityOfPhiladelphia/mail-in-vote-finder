@@ -26,11 +26,11 @@ import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons/faMinus'
 library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLinkAlt,farAngleUp, farAngleDown, farTimes, farPlus, farMinus );
 
 // use these if running off unlinked package
-import pinboard from '@phila/pinboard';
-import '../node_modules/@phila/pinboard/dist/style.css';
+// import pinboard from '@phila/pinboard';
+// import '../node_modules/@phila/pinboard/dist/style.css';
 // OR
 // use this if running off linked package
-// import pinboard from '../node_modules/@phila/pinboard/src/main.js';
+import pinboard from '../node_modules/@phila/pinboard/src/main.js';
 
 import legendControl from './general/legendControl';
 
@@ -99,14 +99,14 @@ let $config = {
       titleSingular: 'Official mobile mail-in ballot return',
       color: '#721817',
     },
-    'Official mail-in ballot drop box': {
-      title: 'Official mail-in ballot drop boxes',
-      titleSingular: 'Official mail-in ballot drop box',
+    'Official mail-in ballot dropbox': {
+      title: 'Official mail-in ballot dropboxes',
+      titleSingular: 'Official mail-in ballot dropbox',
       color: '#4F6D0A',
     },
-    'Mail-in ballot drop box (temporarily closed)': {
-      title: 'Mail-in ballot drop boxes (temporarily closed)',
-      titleSingular: 'Mail-in ballot drop box (temporarily closed)',
+    'Mail-in ballot dropbox (temporarily closed)': {
+      title: 'Mail-in ballot dropboxes (temporarily closed)',
+      titleSingular: 'Mail-in ballot dropbox (temporarily closed)',
       color: '#a1a1a1',
     },
 
@@ -128,9 +128,9 @@ let $config = {
         '#a86518',
         'Official mobile mail-in ballot return',
         '#721817',
-        'Official mail-in ballot drop box',
+        'Official mail-in ballot dropbox',
         '#4F6D0A',
-        'Mail-in ballot drop box (temporarily closed)',
+        'Mail-in ballot dropbox (temporarily closed)',
         '#a1a1a1',
         /* other */ '#000000'
       ],

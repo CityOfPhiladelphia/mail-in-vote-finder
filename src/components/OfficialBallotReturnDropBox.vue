@@ -101,7 +101,7 @@ const arrayFields = computed(() => {
       }
     }
     if (field === 'site_type') {
-      if (item[field] === 'Official mail-in ballot drop box') {
+      if (item[field] === 'Official mail-in ballot dropbox') {
         values.push('details.ballotDropoff'); //TODO: check this
       }
     }
