@@ -42,7 +42,7 @@ jobs:
           FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FA_AUTH_TOKEN }}
 
       - name: Build for development
-        run: npm run build:development
+        run: npm run build:production
         
       - name: Deploy to Dev s3, Set index headers
         env:
