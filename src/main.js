@@ -5,10 +5,12 @@
 // (we might not need to use axios with new vue async tools)
 // if that is not needed, we can move this info to main.js
 
-import isMac from './util/is-mac';
-if (isMac()) {
-  import('./assets/mac-style.scss')
+
+// turn off console logging in production
+if (process.env.NODE_ENV === 'production') {
+  console.log = console.info = console.debug = console.error = function () {};
 }
+console.log('main.js process.env.NODE_ENV:', process.env.NODE_ENV, 'process.env.VUE_APP_PUBLICPATH:', process.env.VUE_APP_PUBLICPATH);
 
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -25,14 +27,9 @@ import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons/faMinus'
 
 library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLinkAlt,farAngleUp, farAngleDown, farTimes, farPlus, farMinus );
 
-// use these if running off unlinked package
-import pinboard from '@phila/pinboard';
-import '../node_modules/@phila/pinboard/dist/style.css';
-// OR
-// use this if running off linked package
-// import pinboard from '../node_modules/@phila/pinboard/src/main.js';
-
-import legendControl from './general/legendControl';
+// import pinboard
+import pinboard from '@phila/pinboard/src/main.js';
+import legendControls from './general/legendControls';
 
 // data-sources
 import votingSites from './data-sources/voting-sites';
@@ -40,140 +37,17 @@ import votingSites from './data-sources/voting-sites';
 
 import expandCollapseContent from './components/ExpandCollapseContent.vue';
 import customGreeting from './components/customGreeting.vue';
-const customComps = markRaw({
+const customComps = {
   'expandCollapseContent': expandCollapseContent,
   'customGreeting': customGreeting,
-});
+};
 
 import i18n from './i18n/i18n';
 console.log('main.js i18n:', i18n);
 
-let $config = {
-  publicPath: import.meta.env.VITE_PUBLICPATH,
+pinboard({
+  publicPath: process.env.VUE_APP_PUBLICPATH,
   i18n: i18n.i18n,
-  app: {
-    // title: 'Mail-in Voting Centers',
-    // subtitle: 'Find a vote-by-mail location near you',
-    logoAlt: 'City of Philadelphia',
-    type: 'votingSites',
-  },
-  gtag: {
-    category: 'rf-voting',
-  },
-  printView: false,
-  allowPrint: true,
-  showBuffers: true,
-  resetDataOnGeocode: true,
-  retractableRefine: false,
-  dropdownRefine: false,
-  searchBar: {
-    searchTypes: [
-      'address',
-    ],
-    searchDistance: 3,
-  },
-  fieldsUsed: {
-    section: 'site_type',
-  },
-  locationInfo: {
-    siteNameField: 'site_name',
-    siteName: function(item) { return item.properties.site_name },
-  },
-  customComps,
-  refine: {
-    type: 'categoryField_value',
-    value: function(item) {
-      // console.log(item.site_type);
-      return item.properties.site_type;
-    },
-    showLabels: true,
-  },
-  sections: {
-    'Election office': {
-      title: 'Election offices',
-      titleSingular: 'Election office',
-      color: '#a86518',
-    },
-    'Official mobile mail-in ballot return': {
-      title: 'Official mobile mail-in ballot returns',
-      titleSingular: 'Official mobile mail-in ballot return',
-      color: '#721817',
-    },
-    'Official mail-in ballot dropbox': {
-      title: 'Official mail-in ballot dropboxes',
-      titleSingular: 'Official mail-in ballot dropbox',
-      color: '#4F6D0A',
-    },
-    'Mail-in ballot dropbox (temporarily closed)': {
-      title: 'Mail-in ballot dropboxes (temporarily closed)',
-      titleSingular: 'Mail-in ballot dropbox (temporarily closed)',
-      color: '#a1a1a1',
-    },
-
-  },
-  legendControl,
-  dataSources: {
-    votingSites,
-  },
-  mapLayer: {
-    id: 'resources',
-    source: 'resources',
-    type: 'circle',
-    paint: {
-      'circle-radius': 7,
-      'circle-color': [
-        'match',
-        ['get', 'site_type'],
-        'Election office',
-        '#a86518',
-        'Official mobile mail-in ballot return',
-        '#721817',
-        'Official mail-in ballot dropbox',
-        '#4F6D0A',
-        'Mail-in ballot dropbox (temporarily closed)',
-        '#a1a1a1',
-        /* other */ '#000000'
-      ],
-      'circle-stroke-width': 1,
-      'circle-stroke-color': 'white',
-    },
-  },
-  router: {
-    enabled: false,
-  },
-  projection: '4326',
-  geocoder: {
-    url(input) {
-      const inputEncoded = encodeURIComponent(input);
-      return `//api.phila.gov/finder/v1/search/${inputEncoded}`;
-    },
-    params: {
-      include_units: true,
-    },
-  },
-  footer: [
-    {
-      type: "native",
-      href: "https://www.phila.gov/",
-      attrs: {
-        target: "_blank",
-      },
-      text: "app.cityOfPhiladelphia",
-    },
-    {
-      type: "native",
-      href: "https://www.phila.gov/voting/",
-      text: "app.about",
-    },
-    {
-      type: "native",
-      href: "https://www.phila.gov/feedback/",
-      attrs: {
-        target: "_blank",
-      },
-      text: "app.feedback",
-    },
-  ],
   alerts: {
     // modal: {
     //   enabled: true,
@@ -205,14 +79,262 @@ let $config = {
       // },
     ],
   },
+  app: {
+    // title: 'Mail-in Voting Centers',
+    // subtitle: 'Find a vote-by-mail location near you',
+    logoAlt: 'City of Philadelphia',
+    type: 'votingSites',
+  },
+  gtag: {
+    category: 'rf-voting',
+  },
+  allowPrint: true,
+  showBuffers: true,
+  resetDataOnGeocode: true,
+  retractableRefine: false,
+  dropdownRefine: false,
+  searchBar: {
+    placeholder: 'Search by address',
+    searchTypes: [
+      'address',
+    ],
+    searchDistance: 3,
+  },
+  locationInfo: {
+    siteName: function(item) {
+      return item.site_name;
+    },
+  },
+  customComps,
   // hiddenRefine: {
   //   Type: function(item) {
   //     return item.site_type !== 'Official mobile mail-in ballot return';
   //   },
   // },
-};
+  refine: {
+    type: 'categoryField_value',
+    value: function(item) {
+      // console.log(item.site_type);
+      return item.site_type;
+    },
+    showLabels: true,
+  },
+  sections: {
+    'Election office': {
+      title: 'Election offices',
+      titleSingular: 'Election office',
+      color: '#a86518',
+      // color: '#9400c6',
+    },
+    'Official mobile mail-in ballot return': {
+      title: 'Official mobile mail-in ballot returns',
+      titleSingular: 'Official mobile mail-in ballot return',
+      color: '#721817',
+    },
+    'Official mail-in ballot drop box': {
+      title: 'Official mail-in ballot drop boxes',
+      titleSingular: 'Official mail-in ballot drop box',
+      color: '#4F6D0A',
+    },
+    'Mail-in ballot drop box (temporarily closed)': {
+      title: 'Mail-in ballot drop boxes (temporarily closed)',
+      titleSingular: 'Mail-in ballot drop box (temporarily closed)',
+      color: '#a1a1a1',
+    },
 
-console.log('$config:', $config);
+  },
+  legendControls,
+  markerType: 'circle-marker',
+  circleMarkers:{
+    circleColors: {
+      // 'Election office': '#9400c6',
+      'Election office': '#a86518',
+      'Official mobile mail-in ballot return': '#721817',
+      'Official mail-in ballot drop box': '#4F6D0A',
+      'Mail-in ballot drop box (temporarily closed)': '#a1a1a1',
+    },
+    borderColor: 'white',
+    weight: 1,
+    radius: 8,
+    mobileRadius: 12,
+    size: 16,
+    mobileSize: 20,
+  },
+  cyclomedia: {
+    enabled: false,
+    measurementAllowed: false,
+    popoutAble: true,
+    recordingsUrl: 'https://atlas.cyclomedia.com/Recordings/wfs',
+    username: process.env.VUE_APP_CYCLOMEDIA_USERNAME,
+    password: process.env.VUE_APP_CYCLOMEDIA_PASSWORD,
+    apiKey: process.env.VUE_APP_CYCLOMEDIA_API_KEY,
+  },
+  dataSources: {
+    votingSites,
+  },
+  // dataSort: { 
+  //   field:'site_type',
+  //   order: 'desc',
+  // },
+  router: {
+    enabled: false,
+  },
+  projection: '4326',
+  geocoder: {
+    url(input) {
+      const inputEncoded = encodeURIComponent(input);
+      return `//api.phila.gov/finder/v1/search/${inputEncoded}`;
+    },
+    params: {
+      include_units: true,
+    },
+  },
+  footer: [
+    {
+      type: "native",
+      href: "https://www.phila.gov/",
+      attrs: {
+        target: "_blank",
+      },
+      // text: "City of Philadelphia",
+      text: "cityOfPhiladelphia",
+    },
+    {
+      type: "native",
+      href: "https://www.phila.gov/voting/",
+      text: "about",
+    },
+    {
+      type: "native",
+      href: "https://www.phila.gov/feedback/",
+      attrs: {
+        target: "_blank",
+      },
+      // text: "Feedback",
+      text: "feedback",
+    },
+    {
+      type: "native",
+      href: "https://www.philadelphiavotes.com/",
+      attrs: {
+        target: "_blank",
+      },
+      text: 'cityCommissioners',
+    },
+  ],
+  // infoCircles: {
+  //   'symptomatic': {
+  //     'html': '\
+  //     <div class="full-div">For more information, see <a class="white-font-link" target="_blank" href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html">\
+  //     Symptoms of coronavirus (CDC)</a>.</div>\
+  //     ',
+  //   },
+  // },
+  map: {
+    // type: 'leaflet',
+    type: 'mapbox',
+    // tiles: 'hosted',
+    containerClass: 'map-container',
+    defaultBasemap: 'pwd',
+    center: [ -75.146998, 40.001496 ],
+    minZoom: 8,
+    maxZoom: 25,
+    shouldInitialize: true,
 
-pinboard($config);
-export default $config;
+    zoom: 10,
+    geocodeZoom: 12,
+    imagery: {
+      enabled: false,
+    },
+    basemaps: {
+      pwd: {
+        url: 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap/MapServer',
+        tiledLayers: [
+          'cityBasemapLabels',
+        ],
+        type: 'featuremap',
+        attribution: 'Parcels: Philadelphia Water',
+      },
+    },
+    tiledLayers: {
+      cityBasemapLabels: {
+        url: 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer',
+        zIndex: '3',
+      },
+    },
+  },
+  // mbStyle: 'mapbox://styles/ajrothwell/ck6gz6rmk04681ir1fdmagq5h',
+  mbStyle: {
+    version: 8,
+    sources: {
+      pwd: {
+        tiles: [
+          'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap/MapServer/tile/{z}/{y}/{x}',
+        ],
+        type: 'raster',
+        tileSize: 256,
+      },
+    },
+    layers: [
+      {
+        id: 'pwd',
+        type: 'raster',
+        source: 'pwd',
+      },
+    ],
+  },
+  basemapSources: {
+    pwd: {
+      source: {
+        tiles: [
+          'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap/MapServer/tile/{z}/{y}/{x}',
+          // '//tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer/tile/{z}/{y}/{x}'
+        ],
+        type: 'raster',
+        tileSize: 256,
+      },
+      layer: {
+        id: 'pwd',
+        type: 'raster',
+      },
+    },
+    imagery2019: {
+      source: {
+        tiles: [
+          'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityImagery_2019_3in/MapServer/tile/{z}/{y}/{x}',
+          // '//tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer/tile/{z}/{y}/{x}'
+        ],
+        type: 'raster',
+        tileSize: 256,
+      },
+      layer: {
+        id: 'imagery2019',
+        type: 'raster',
+      },
+    },
+  },
+  basemapLabelSources:{
+    cityBasemapLabels: {
+      source: {
+        tiles: [ 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer/tile/{z}/{y}/{x}' ],
+        type: 'raster',
+        tileSize: 256,
+      },
+      layer: {
+        id: 'cityBasemapLabels',
+        type: 'raster',
+      },
+    },
+    imageryBasemapLabels: {
+      source: {
+        tiles: [ 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityImagery_Labels/MapServer/tile/{z}/{y}/{x}' ],
+        type: 'raster',
+        tileSize: 256,
+      },
+      layer: {
+        id: 'imageryBasemapLabels',
+        type: 'raster',
+      },
+    },
+  },
+});
