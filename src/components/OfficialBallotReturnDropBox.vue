@@ -16,7 +16,7 @@ const props = defineProps({
 // computed
 const hoursTableOrLine = computed(() => {
   let value;
-  if (props.item.open_24_hours === "TRUE") {
+  if (props.item.properties.open_24_hours === "TRUE") {
     value = 'line';
   } else {
     value = 'table';
