@@ -44,7 +44,7 @@ export default {
   },
   'Election office': 'Văn phòng bầu cử',
   'Official mobile mail-in ballot return': 'Thùng bỏ phiếu qua đường bưu điện chính thức',
-  'Official mail-in ballot dropbox': 'Thùng bỏ phiếu qua đường bưu điện chính thức ',
+  'Official mail-in ballot drop box': 'Thùng bỏ phiếu qua đường bưu điện chính thức ',
   sections: {
     'Election office': {
       header: 'Văn phòng bầu cử ',
@@ -82,9 +82,9 @@ export default {
       callout2: '',
 
     },
-    'Official mail-in ballot dropbox': {
+    'Official mail-in ballot drop box': {
       header: 'Thùng bỏ phiếu qua đường bưu điện chính thức',
-      englishName: 'Official mail-in ballot dropbox',
+      englishName: 'Official mail-in ballot drop box',
       callout1: 'Vào Ngày bầu cử, các hòm phiếu sẽ được khóa vào đúng 8 giờ tối.',
       p1: 'Nếu thùng bỏ phiếu đầy, không hoạt động, hoặc bị hư hỏng ở bất kỳ hình thức nào, hãy gọi số (215) 686-3469 hoặc gửi email đến <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
     },
