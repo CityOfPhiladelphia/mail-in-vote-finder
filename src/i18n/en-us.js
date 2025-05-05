@@ -60,7 +60,7 @@ export default {
     'Election office': {
       header: 'Election offices',
       englishName: 'Election office',
-      p1: 'Beginning September 23, 2024, the Philadelphia Board of Elections will be open for in-person mail-in ballot services for the November 5, 2024 Presidential General Election. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
+      p1: 'Beginning May 5, 2025, the Philadelphia Board of Elections will be open for in-person mail-in ballot services for the May 20, 2025 Municipal Primary Election. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.',
       h2: 'Voter services and deadlines ',
       dates: {
         // d1:{
@@ -69,15 +69,15 @@ export default {
         // },
         d2:{
           text: 'Apply for a mail-in ballot',
-          date: 'October 29 by 5:00 p.m.',
+          date: 'May 13 by 5:00 p.m.',
         },
         d3:{
           text: 'Request a replacement ballot',
-          date: 'No earlier than September 30th',
+          date: 'No earlier than May 5',
         },
         d4:{
           text: 'Drop off your completed ballot',
-          date: 'November 5 by 8:00 p.m.',
+          date: 'May 20 by 8:00 p.m.',
         },
       },
       // callout1: 'Masks are required regardless of vaccination status.',

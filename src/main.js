@@ -35,6 +35,7 @@ import '../node_modules/@phila/pinboard/dist/style.css';
 import legendControl from './general/legendControl';
 
 // data-sources
+import nextElection from './data-sources/next-election';
 import votingSites from './data-sources/voting-sites';
 // import votingSites from './data-sources/voting-sites-dev';
 
@@ -113,6 +114,7 @@ let $config = {
   },
   legendControl,
   dataSources: {
+    nextElection,
     votingSites,
   },
   mapLayer: {
