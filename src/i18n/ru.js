@@ -43,7 +43,7 @@ export default {
   },
   'Election office': 'Офис избирательного бюро ',
   'Official mobile mail-in ballot return': 'Официальный пункт возврата бюллетеней',
-  'Official mail-in ballot drop box': 'Официальный ящик для приема бюллетеней для голосования по почте',
+  'Official mail-in ballot dropbox': 'Официальный ящик для приема бюллетеней для голосования по почте',
   sections: {
     'Election office': {
       header: 'Офис избирательного бюро',
@@ -80,11 +80,11 @@ export default {
       callout1: 'Это не стационарная, автономная урна для голосования. Часы работы ограничены.',
       callout2: '',
     },
-    'Official mail-in ballot drop box': {
+    'Official mail-in ballot dropbox': {
       header: 'Официальный ящик для приема бюллетеней для голосования по почте',
-      englishName: 'Official mail-in ballot drop box',
+      englishName: 'Official mail-in ballot dropbox',
       callout1:'В день выборов избирательные урны будут закрыты ровно в 20:00.',
-      p1: 'If a drop box is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
+      p1: 'If a dropbox is full, not functioning, or is damaged in any way, call (215) 686-3469 or email <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
     },
   },
   beforeYouGo: 'Прежде чем вы пойдете',

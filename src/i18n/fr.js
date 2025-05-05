@@ -44,7 +44,7 @@ export default {
   },
   'Election office': 'Bureau de vote ',
   'Official mobile mail-in ballot return': 'Lieu officiel de dépôt de bulletins',
-  'Official mail-in ballot drop box': 'Boîte de dépôt officielle des bulletins de vote par correspondance ',
+  'Official mail-in ballot dropbox': 'Boîte de dépôt officielle des bulletins de vote par correspondance ',
   sections: {
     'Election office': {
       header: 'Bureau de vote ',
@@ -80,9 +80,9 @@ export default {
       callout1: 'Il ne s’agit pas d’une urne fixe et autonome. Les heures d’ouverture sont limitées.',
       callout2: '',
     },
-    'Official mail-in ballot drop box': {
+    'Official mail-in ballot dropbox': {
       header: 'Boîte de dépôt officielle des bulletins de vote par correspondance ',
-      englishName: 'Official mail-in ballot drop box',
+      englishName: 'Official mail-in ballot dropbox',
       callout1: 'Le jour du scrutin, les urnes seront verrouillées à 20 heures précises.',
       p1: 'Si une boîte de dépôt est pleine, si elle ne fonctionne pas ou si elle est endommagée, appelez le (215) 686-3469 ou envoyez un email à <a href="mailto:vote@phila.gov">vote@phila.gov</a>.',
     },
