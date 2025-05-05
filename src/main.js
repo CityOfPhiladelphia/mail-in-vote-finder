@@ -32,6 +32,7 @@ import pinboard from '@phila/pinboard/src/main.js';
 import legendControls from './general/legendControls';
 
 // data-sources
+import nextElection from './data-sources/next-election';
 import votingSites from './data-sources/voting-sites';
 // import votingSites from './data-sources/voting-sites-dev';
 
@@ -48,6 +49,130 @@ console.log('main.js i18n:', i18n);
 pinboard({
   publicPath: process.env.VUE_APP_PUBLICPATH,
   i18n: i18n.i18n,
+  app: {
+    // title: 'Mail-in Voting Centers',
+    // subtitle: 'Find a vote-by-mail location near you',
+    logoAlt: 'City of Philadelphia',
+    type: 'votingSites',
+  },
+  gtag: {
+    category: 'rf-voting',
+  },
+  printView: false,
+  allowPrint: true,
+  showBuffers: true,
+  resetDataOnGeocode: true,
+  retractableRefine: false,
+  dropdownRefine: false,
+  searchBar: {
+    searchTypes: [
+      'address',
+    ],
+    searchDistance: 3,
+  },
+  fieldsUsed: {
+    section: 'site_type',
+  },
+  locationInfo: {
+    siteNameField: 'site_name',
+    siteName: function(item) { return item.properties.site_name },
+  },
+  customComps,
+  refine: {
+    type: 'categoryField_value',
+    value: function(item) {
+      // console.log(item.site_type);
+      return item.properties.site_type;
+    },
+    showLabels: true,
+  },
+  sections: {
+    'Election office': {
+      title: 'Election offices',
+      titleSingular: 'Election office',
+      color: '#a86518',
+    },
+    'Official mobile mail-in ballot return': {
+      title: 'Official mobile mail-in ballot returns',
+      titleSingular: 'Official mobile mail-in ballot return',
+      color: '#721817',
+    },
+    'Official mail-in ballot dropbox': {
+      title: 'Official mail-in ballot dropboxes',
+      titleSingular: 'Official mail-in ballot dropbox',
+      color: '#4F6D0A',
+    },
+    'Mail-in ballot dropbox (temporarily closed)': {
+      title: 'Mail-in ballot dropboxes (temporarily closed)',
+      titleSingular: 'Mail-in ballot dropbox (temporarily closed)',
+      color: '#a1a1a1',
+    },
+
+  },
+  legendControl,
+  dataSources: {
+    nextElection,
+    votingSites,
+  },
+  mapLayer: {
+    id: 'resources',
+    source: 'resources',
+    type: 'circle',
+    paint: {
+      'circle-radius': 7,
+      'circle-color': [
+        'match',
+        ['get', 'site_type'],
+        'Election office',
+        '#a86518',
+        'Official mobile mail-in ballot return',
+        '#721817',
+        'Official mail-in ballot dropbox',
+        '#4F6D0A',
+        'Mail-in ballot dropbox (temporarily closed)',
+        '#a1a1a1',
+        /* other */ '#000000'
+      ],
+      'circle-stroke-width': 1,
+      'circle-stroke-color': 'white',
+    },
+  },
+  router: {
+    enabled: false,
+  },
+  projection: '4326',
+  geocoder: {
+    url(input) {
+      const inputEncoded = encodeURIComponent(input);
+      return `//api.phila.gov/finder/v1/search/${inputEncoded}`;
+    },
+    params: {
+      include_units: true,
+    },
+  },
+  footer: [
+    {
+      type: "native",
+      href: "https://www.phila.gov/",
+      attrs: {
+        target: "_blank",
+      },
+      text: "app.cityOfPhiladelphia",
+    },
+    {
+      type: "native",
+      href: "https://www.phila.gov/voting/",
+      text: "app.about",
+    },
+    {
+      type: "native",
+      href: "https://www.phila.gov/feedback/",
+      attrs: {
+        target: "_blank",
+      },
+      text: "app.feedback",
+    },
+  ],
   alerts: {
     // modal: {
     //   enabled: true,

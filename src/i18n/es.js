@@ -60,7 +60,7 @@ export default {
     'Election office': {
       englishName: 'Election office',
       header: 'Oficina Electoral',
-      p1: 'A partir del 23 de septiembre de 2024, la Junta Electoral de Filadelfia estará abierta a los servicios de boletas por correo en persona para las elecciones generales presidenciales del 5 de noviembre de 2024. Los votantes inscritos pueden solicitar, recibir, completar y devolver su boleta electoral por correo en persona en una sola visita.',
+      p1: 'A partir del 5 de mayo de 2025, la Junta Electoral de Filadelfia estará abierta a los servicios de boletas por correo en persona para las elecciones primarias municipales del 20 de mayo de 2025. Los votantes inscritos pueden solicitar, recibir, completar y devolver su boleta electoral por correo en persona en una sola visita.',
       h2: 'Servicios al votante y plazos ',
       dates: {
         // d1:{
@@ -68,16 +68,16 @@ export default {
         //   date: '19 de octubre',
         // },
         d2:{
-          text: 'Fecha limite para solicitar una boleta',
-          date: '29 de octubre a las 5:00 p.m.',
+          text: 'Fecha límite para solicitar una boleta',
+          date: '13 de mayo a las 5:00 p.m.',
         },
         d3:{
           text: 'Solicite una boleta de reemplazo',
-          date: 'No antes del 30 de septiembre',
+          date: 'No antes del 5 de mayo',
         },
         d4:{
           text: 'Entregar su boleta electoral completa',
-          date: '5 de noviembre a las 8:00 p.m.',
+          date: '20 de mayo a las 8:00 p.m.',
         },
       },
     },
