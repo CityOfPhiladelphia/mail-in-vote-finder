@@ -3,14 +3,14 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "dev": "vite --mode=development",
-    "test": "vite --mode=testing",
-    "build": "vite build",
-    "build:development": "vite build --mode=development",
-    "build:production": "vite build --mode=production",
-    "build:testing": "vite build --mode=testing",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "local": "vue-cli-service serve --mode local",
+    "serve": "vue-cli-service serve",
+    "build:development": "vue-cli-service build --mode development",
+    "build:development2": "vue-cli-service build --mode development2",
+    "build:development3": "vue-cli-service build --mode development3",
+    "build:production": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lintFix": "vue-cli-service lint --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -26,12 +26,35 @@
     "vue-i18n": "^11.0.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.12.0",
-    "@vitejs/plugin-vue": "^5.1.4",
-    "eslint": "^9.12.0",
-    "eslint-plugin-vue": "^9.29.0",
-    "sass": "^1.80.6",
-    "vite": "^5.4.8",
-    "vite-plugin-vue-devtools": "^7.4.6"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.0.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "lint-staged": "^9.5.0",
+    "sass": "^1.48.0",
+    "sass-loader": "^10.2.0",
+    "style-resources-loader": "^1.2.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }
