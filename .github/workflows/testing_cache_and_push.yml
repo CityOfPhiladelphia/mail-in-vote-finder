@@ -1,12 +1,9 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Development caching with npm and push
+name: Testing caching with npm and push
 
 on:
   push:
     branches:
-      - main
+      - testing
 
 jobs:
   build:
@@ -41,15 +38,16 @@ jobs:
         env:
           FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FA_AUTH_TOKEN }}
 
-      - name: Build for development
-        run: npm run build:development
+      - name: Build for testing
+        run: npm run build:testing
         
-      - name: Deploy to Dev s3, Set index headers
+      - name: Deploy to Testing s3, Set index headers
         env:
           AWS_DEFAULT_REGION: 'us-east-1'
-          AWS_S3_BUCKET: phila-resource-finder-v2/dev/ballot-drop-off
+          AWS_S3_BUCKET: phila-resource-finder-v2/testing/ballot-drop-off/
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws s3 sync dist s3://$AWS_S3_BUCKET --region us-east-1 --delete
+          aws s3 cp s3://$AWS_S3_BUCKET s3://$AWS_S3_BUCKET --recursive --exclude "*" --include "*.html" --metadata-directive REPLACE --acl public-read --cache-control max-age=0,no-cache,no-store,must-revalidate,proxy-revalidate,public --expires "0" --content-type "text/html; charset=utf-8"
   
