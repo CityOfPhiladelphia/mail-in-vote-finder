@@ -39,8 +39,8 @@ const props = defineProps({
 
 //   if (t(sections[props.section.titleSingular].callout2)) {
 //     text += '<br>' + t(sections[props.section.titleSingular].callout2);
-//   } else if (this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout1) {
-//     text += '<br>' + this.$i18n.messages['en-US'].sections[this.$props.section.titleSingular].callout2;
+//   } else if (this.$i18n.messages['en'].sections[this.$props.section.titleSingular].callout1) {
+//     text += '<br>' + this.$i18n.messages['en'].sections[this.$props.section.titleSingular].callout2;
 //   }
 //   return text;
 // });

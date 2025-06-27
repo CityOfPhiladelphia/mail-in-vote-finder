@@ -1,5 +1,8 @@
 <script setup>
 
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
+
 const props = defineProps({
   item: {
     type: Object,
@@ -69,7 +72,8 @@ const hours = computed(() => {
     if (isWeekend && props.item.properties['weekend_start']) {
       hours = props.item.properties['weekend_start'] + ' - ' + props.item.properties['weekend_end'];
     } else if (isWeekend) {
-      hours = this.$i18n.messages[this.i18nLocale].closed;
+      // hours = this.$i18n.messages[this.i18nLocale].closed;
+      hours = t('closed');
       // hours = "Closed";
     } else if (!isWeekend) {
       hours = props.item.properties['weekday_start'] + ' - ' + props.item.properties['weekday_end'];
