@@ -57,7 +57,7 @@ export default{
     "Election office": {
       "header": "Election offices",
       "englishName": "Election office",
-      "p1": "Beginning October 28, 2025, the Philadelphia Board of Elections will be open for in-person mail-in ballot services for the November 4, 2025 Municipal Primary Election. Registered voters can apply for, receive, complete, and return their mail-in ballot in person in one visit.",
+      "p1": "The Philadelphia County Board of Elections office at City Hall and all Satellite Election Offices are currently open to assist with in-person voter registration services.<br>Once mail ballots become available, these offices will also offer in-person mail ballot services for the November 4, 2025, General Election. At that time, registered voters will be able to apply for, receive, complete, and return their mail ballot in one visit.",
       "h2": "Voter services and deadlines ",
       "dates": {
         "d2": {
