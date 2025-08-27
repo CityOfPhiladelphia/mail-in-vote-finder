@@ -6,7 +6,7 @@ name: Development caching with npm and push
 on:
   push:
     branches:
-      - fix/fall2025dates
+      - test-translate
 
 jobs:
   build:
