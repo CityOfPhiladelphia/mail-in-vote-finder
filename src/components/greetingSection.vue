@@ -2,9 +2,26 @@
 
 import $config from '../main.js';
 
+// use these if running off unlinked package
+import { useDataStore } from '@phila/pinboard';
+// OR
+// use this if running off linked package
+// import { useDataStore } from '../../node_modules/@phila/pinboard/src/stores/DataStore.js';
+
+const DataStore = useDataStore();
+
 const instance = getCurrentInstance();
+const locale = computed(() => instance.appContext.config.globalProperties.$i18n.locale);
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
+
+const languageKey = {
+  'en': 'english',
+  'es': 'spanish',
+  'ch': 'chinese',
+}
+
+const electionCountdown = DataStore.sources.nextElection.data.election_count_down_settings;
 
 const props = defineProps({
   'header': {
@@ -86,34 +103,27 @@ const props = defineProps({
     </div>
 
     <div>
-      <h3
-        v-if="$t('sections.' + header + '.h2')"
-      >
+      <h3 v-if="$t('sections.' + header + '.h2')">
         {{ $t('sections.' + header + '.h2') }}
       </h3>
       <div class="spacer">
-        <span v-html="$t('sections.' + header + '.p1')" />
+        <span v-if="header != 'Election office'" v-html="$t('sections.' + header + '.p1')" />
+        <span v-else>{{ electionCountdown[languageKey[locale]].ballot_drop_off_finder_note_text }}</span>
       </div>
       <div v-if="$t('sections.' + header + '.dates') != '' ">
         <table class="dates">
           <tbody>
             <tr>
-              <td>
-                {{ $t('sections.' + header + '.dates.d2.text') }}
-              </td>
-              <td> {{ $t('sections.' + header + '.dates.d2.date') }}</td>
+              <td>{{ $t('sections.' + header + '.dates.d2.text') }}</td>
+              <td>{{ electionCountdown[languageKey[locale]].apply_for_mail_in_ballot_date }}</td>
             </tr>
             <tr>
-              <td>
-                {{ $t('sections.' + header + '.dates.d3.text') }}
-              </td>
-              <td> {{ $t('sections.' + header + '.dates.d3.date') }}</td>
+              <td>{{ $t('sections.' + header + '.dates.d3.text') }}</td>
+              <td>{{ electionCountdown[languageKey[locale]].request_replacement_ballot_date }}</td>
             </tr>
             <tr>
-              <td>
-                {{ $t('sections.' + header + '.dates.d4.text') }}
-              </td>
-              <td> {{ $t('sections.' + header + '.dates.d4.date') }}</td>
+              <td>{{ $t('sections.' + header + '.dates.d4.text') }}</td>
+              <td>{{ electionCountdown[languageKey[locale]].drop_off_completed_ballot_date }}</td>
             </tr>
           </tbody>
         </table>
