@@ -57,20 +57,17 @@ export default{
     "Election office": {
       "header": "Oficina Electoral",
       "englishName": "Election office",
-      "p1": "La oficina de la Junta Electoral del Condado de Filadelfia en el Ayuntamiento y todas las oficinas electorales satélite están actualmente abiertas para ayudar con los servicios de registro de votantes en persona. <br>Una vez que las boletas por correo estén disponibles, estas oficinas también ofrecerán servicios de boletas por correo en persona para las elecciones generales del 4 de noviembre de 2025. En ese momento, los votantes registrados podrán solicitar, recibir, completar y devolver su boleta electoral por correo en una sola visita.",
+      // "p1": "La oficina de la Junta Electoral del Condado de Filadelfia en el Ayuntamiento y todas las oficinas electorales satélite están actualmente abiertas para ayudar con los servicios de registro de votantes en persona. <br>Una vez que las boletas por correo estén disponibles, estas oficinas también ofrecerán servicios de boletas por correo en persona para las elecciones generales del 4 de noviembre de 2025. En ese momento, los votantes registrados podrán solicitar, recibir, completar y devolver su boleta electoral por correo en una sola visita.",
       "h2": "Servicios al votante y plazos ",
       "dates": {
         "d2": {
           "text": "Fecha límite para solicitar una boleta",
-          "date": "28 de octubre a las 5:00 p.m."
         },
         "d3": {
           "text": "Solicite una boleta de reemplazo",
-          "date": "TBD"
         },
         "d4": {
           "text": "Entregar su boleta electoral completa",
-          "date": "4 de noviembre a las 8:00 p.m."
         }
       }
     },

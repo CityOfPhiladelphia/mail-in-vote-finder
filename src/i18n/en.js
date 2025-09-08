@@ -57,20 +57,16 @@ export default{
     "Election office": {
       "header": "Election offices",
       "englishName": "Election office",
-      "p1": "The Philadelphia County Board of Elections office at City Hall and all Satellite Election Offices are currently open to assist with in-person voter registration services.<br>Once mail ballots become available, these offices will also offer in-person mail ballot services for the November 4, 2025, General Election. At that time, registered voters will be able to apply for, receive, complete, and return their mail ballot in one visit.",
       "h2": "Voter services and deadlines ",
       "dates": {
         "d2": {
           "text": "Apply for a mail-in ballot",
-          "date": "October 28 by 5:00 p.m."
         },
         "d3": {
           "text": "Request a replacement ballot",
-          "date": "TBD"
         },
         "d4": {
           "text": "Drop off your completed ballot",
-          "date": "November 4, by 8:00 p.m."
         }
       },
       "callout2": ""
