@@ -60,13 +60,13 @@ export default{
       "h2": "Voter services and deadlines ",
       "dates": {
         "d2": {
-          "text": "Apply for a mail-in ballot",
+          "text": "Apply for a mail-in ballot"
         },
         "d3": {
-          "text": "Request a replacement ballot",
+          "text": "Request a replacement ballot"
         },
         "d4": {
-          "text": "Drop off your completed ballot",
+          "text": "Drop off your completed ballot"
         }
       },
       "callout2": ""
