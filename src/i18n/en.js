@@ -1,5 +1,4 @@
 export default{
-  "language": "English",
   "app": {
     "title": "Election Offices and Mail-in Drop-off Locations",
     "subtitle": "Find a location near you.",
