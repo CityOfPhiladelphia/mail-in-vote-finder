@@ -65,7 +65,7 @@ export default{
           "text": "投递您填好的选票的截至日期"
         }
       },
-      "callout2": "",
+      "callout2": ""
     },
     "Official mobile mail-in ballot return": {
       "header": "正式选票寄还地点",

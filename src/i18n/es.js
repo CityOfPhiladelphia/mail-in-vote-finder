@@ -68,7 +68,7 @@ export default{
           "text": "Entregar su boleta electoral completa"
         }
       },
-      "callout2": "",
+      "callout2": ""
     },
     "Official mobile mail-in ballot return": {
       "header": "Sitio oficial para devolver boletas",
