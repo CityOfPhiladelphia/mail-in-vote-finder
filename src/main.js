@@ -22,7 +22,6 @@ import { faAngleUp as farAngleUp } from '@fortawesome/pro-regular-svg-icons/faAn
 import { faTimes as farTimes } from '@fortawesome/pro-regular-svg-icons/faTimes';
 import { faPlus as farPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons/faMinus';
-
 library.add(faExclamationTriangle, faBuilding, faUserMd, faCircle, faExternalLinkAlt,farAngleUp, farAngleDown, farTimes, farPlus, farMinus );
 
 // use these if running off unlinked package
@@ -53,18 +52,16 @@ let $config = {
   publicPath: import.meta.env.VITE_PUBLICPATH,
   i18n: i18n.i18n,
   app: {
-    // title: 'Mail-in Voting Centers',
-    // subtitle: 'Find a vote-by-mail location near you',
     logoAlt: 'City of Philadelphia',
     type: 'votingSites',
   },
   gtag: {
     category: 'rf-voting',
   },
+  anySearch: true,
+  allowZipcodeSearch: false,
   printView: false,
   allowPrint: true,
-  showBuffers: true,
-  resetDataOnGeocode: true,
   retractableRefine: false,
   dropdownRefine: false,
   searchBar: {
@@ -77,8 +74,8 @@ let $config = {
     section: 'site_type',
   },
   locationInfo: {
-    siteNameField: 'site_name',
     siteName: function(item) { return item.properties.site_name },
+    siteNameField: 'site_name',
   },
   customComps,
   refine: {
@@ -110,7 +107,6 @@ let $config = {
       titleSingular: 'Mail-in ballot dropbox (temporarily closed)',
       color: '#a1a1a1',
     },
-
   },
   legendControl,
   dataSources: {
@@ -139,9 +135,6 @@ let $config = {
       'circle-stroke-width': 1,
       'circle-stroke-color': 'white',
     },
-  },
-  router: {
-    enabled: false,
   },
   projection: '4326',
   geocoder: {
