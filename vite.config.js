@@ -10,15 +10,15 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return {
-    // build: {
-    //   rollupOptions: {
-    //     output: {
-    //       entryFileNames: `assets/[name].js`,
-    //       chunkFileNames: `assets/[name].js`,
-    //       assetFileNames: `assets/[name].[ext]`
-    //     }
-    //   }
-    // },
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: `assets/[name].js`,
+          chunkFileNames: `assets/[name].js`,
+          assetFileNames: `assets/[name].[ext]`
+        }
+      }
+    },
     css: {
       preprocessorOptions: {
         scss: {
