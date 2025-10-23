@@ -7,6 +7,7 @@ import { useDataStore } from '@phila/pinboard';
 // OR
 // use this if running off linked package
 // import { useDataStore } from '../../node_modules/@phila/pinboard/src/stores/DataStore.js';
+// import { useDataStore } from '../../../vue3-pinboard/src/stores/DataStore.js';
 
 const DataStore = useDataStore();
 
