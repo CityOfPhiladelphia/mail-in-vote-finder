@@ -1,6 +1,6 @@
 export default{
   "app": {
-    "title": "Election Offices and Mail-in Drop-off Locations",
+    "title": "Election offices and mail-in drop-off locations",
     "subtitle": "Find a location near you.",
     "noResults": "No site was found within your search. Please try again."
   },
