@@ -84,36 +84,36 @@ const arrayFields = computed(() => {
     let values = [];
 
     if (field === 'site_type') {
-      if (item[field] === 'Election office') {
+      if (item.properties[field] === 'Election office') {
         values.push('details.inPerson');
       }
     }
 
     if (field === 'site_type') {
-      if (item[field] === 'Election office') {
+      if (item.properties[field] === 'Election office') {
         values.push('details.ballotDropoff');
       }
     }
 
     if (field === 'site_type') {
-      if (item[field] === 'Official mobile mail-in ballot return') {
+      if (item.properties[field] === 'Official mobile mail-in ballot return') {
         values.push('details.ballotDropoff');
       }
     }
     if (field === 'site_type') {
-      if (item[field] === 'Official mail-in ballot dropbox') {
+      if (item.properties[field] === 'Official mail-in ballot dropbox') {
         values.push('details.ballotDropoff'); //TODO: check this
       }
     }
 
     if (field === 'multilingual_support') {
-      if (item[field] === 'TRUE') {
+      if (item.properties[field] === 'TRUE') {
         values.push('details.interpretationAvailable');
       }
     }
 
     if (field === 'site_accessible') {
-      if (item[field] === 'TRUE') {
+      if (item.properties[field] === 'TRUE') {
         values.push('details.wheelchair');
       }
     }

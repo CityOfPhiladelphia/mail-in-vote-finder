@@ -1,14 +1,6 @@
 <script setup>
 
-import $config from '../main.js';
-
-// use these if running off unlinked package
-import { useDataStore } from '@phila/pinboard';
-// OR
-// use this if running off linked package
-// import { useDataStore } from '../../node_modules/@phila/pinboard/src/stores/DataStore.js';
-// import { useDataStore } from '../../../vue3-pinboard/src/stores/DataStore.js';
-
+import { useDataStore } from '@pinboard';
 const DataStore = useDataStore();
 
 const instance = getCurrentInstance();
@@ -44,53 +36,6 @@ const props = defineProps({
     },
   },
 });
-
-// computed
-// const calloutText = computed(() => {
-//   // console.log('greetingSection.vue calloutText computed, this.$i18n:', this.$i18n, 'this.$i18n.messages[this.$i18n.locale]:', this.$i18n.messages[this.$i18n.locale]);
-//   let text = '';
-//   if (t(sections[props.section.titleSingular].callout1)) {
-//     text += t(sections[props.section.titleSingular].callout1);
-//   } else {
-//     text += t(sections[props.section.titleSingular].callout1);
-//   }
-
-//   if (t(sections[props.section.titleSingular].callout2)) {
-//     text += '<br>' + t(sections[props.section.titleSingular].callout2);
-//   } else if (this.$i18n.messages['en'].sections[this.$props.section.titleSingular].callout1) {
-//     text += '<br>' + this.$i18n.messages['en'].sections[this.$props.section.titleSingular].callout2;
-//   }
-//   return text;
-// });
-
-// const subsectionsData = computed(() => {
-//   return $config.subsections || [];
-// });
-
-// const subsectionCountsFromProps = computed(() => {
-//   let subsections = this.$props.section.subsections || [];
-//   let compiled = 0;
-//   let value = {};
-//   if (Array.isArray(subsections[0])) {
-//     for (let subsubsection of subsections[0]) {
-//       // console.log('subsubsection:', subsubsection, 'this.subsectionsData[subsubsection]:', this.subsectionsData[subsubsection]);
-//       if (this.subsectionsData[subsubsection]) {
-//         compiled += this.subsectionsData[subsubsection];
-//       }
-//     }
-//     value.compiled = compiled;
-//   } else {
-//     value = this.subsectionsData;
-//   }
-//   return value || {};
-// });
-
-// watch(
-//   () => subsectionsFromStore,
-//   (nextSubsections) => {
-//     this.$data.subsectionsData = nextSubsections;
-//   }
-// )
 
 </script>
 
