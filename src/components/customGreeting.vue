@@ -2,7 +2,8 @@
 
 import { onMounted } from 'vue';
 
-import $config from '../main.js';
+import { useConfigStore } from '@pinboard';
+const $config = useConfigStore().config;
 
 import greetingSection from './greetingSection.vue';
 
@@ -44,7 +45,6 @@ onMounted(async () => {
 const getCounts = () => {
   // console.log('customGreeting.vue getCounts is running');
   const refineData = props.database;
-  // const refineData = this.sources[this.$appType].data.rows;
 
   let service = '';
 
@@ -59,17 +59,8 @@ const getCounts = () => {
   });
 
   // TODO: break this into smaller chunks
-  // let serviceArray = service.split(/(,|;)/);
   let serviceArray = service.split(',');
   serviceArray = serviceArray.map(s => s.trim());
-
-  // const uniqArray = [ ...new Set(serviceArray) ];
-  // console.log('serviceArray:', serviceArray, 'uniqArray:', uniqArray);
-  //
-  // // clean up any dangling , or ;
-  // let uniq = uniqArray.filter(a => a.length > 2);
-  //
-  // uniq.filter(Boolean); // remove empties
 
   let countObject = serviceArray.reduce(function (acc, curr) {
     if (typeof acc[curr] == 'undefined') {
