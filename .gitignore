@@ -23,3 +23,5 @@ yarn-error.log*
 *.sw?
 .npmrc
 CLAUDE.md
+# Claude Code
+.claude/
