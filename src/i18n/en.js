@@ -5,6 +5,7 @@ export default{
     "noResults": "No site was found within your search. Please try again."
   },
   "introPage": {
+    "greeting": "All registered Philadelphia voters are entitled to <a target='_blank' href='https://vote.phila.gov/voting/vote-by-mail/vote-by-mail/'>vote by mail</a>. You can apply for a mail-in ballot online or by visiting one of the county's election offices. To return your ballot, you can send the envelope by regular mail or drop it off in person at an election office or use one of the mail-in ballot dropboxes.",
     "exclamation": "This map includes locations that accept mail-in and absentee ballots only. To vote in person, find your polling place at ",
     "introTitle": "About this finder",
     "p1_1": "The Philadelphia City Commissioners have approved ",

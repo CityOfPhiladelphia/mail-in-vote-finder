@@ -5,6 +5,7 @@ export default{
     "noResults": "No site was found within your search. Please try again."
   },
   "introPage": {
+    "greeting": "所有注册的费城选民都有权 <a target='_blank' href='https://vote.phila.gov/voting/vote-by-mail/vote-by-mail/'>邮寄投票</a>。您可以在线申请邮寄选票或访问县选举办公室之一。要返回您的选票，您可以通过普通邮件发送信封，或亲自将其交到选举办公室，或使用其中一个邮寄选票投递箱。",
     "exclamation": "此地图包含的投票点仅受理邮寄选票和缺席选票。如需现场投票，请在 atlas.phila.gov/voting 网站上查找投票点。",
     "introTitle": "关于此搜索工具",
     "p1_1": "除现有的两处县选举委员会办公室外，费城市政专员已批准位于费城市内的",

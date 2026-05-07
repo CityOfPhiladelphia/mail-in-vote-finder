@@ -5,6 +5,7 @@ export default{
     "noResults": "No se encontró un lugar donde se realicen pruebas que coincida con su búsqueda."
   },
   "introPage": {
+    "greeting": "Todos los votantes registrados en Filadelfia tienen derecho a <a target='_blank' href='https://vote.phila.gov/voting/vote-by-mail/vote-by-mail/'>votar por correo</a>. Puede solicitar una boleta de votación por correo en línea o visitando una de las oficinas electorales del condado. Para devolver su boleta, puede enviar el sobre por correo regular o entregarlo en persona en una oficina electoral o utilizar uno de los buzones de boletas por correo.",
     "exclamation": "Este mapa solamente incluye locaciones que aceptan boletas por correo y en ausencia. Para votar en persona, busque su lugar de votación en ",
     "introTitle": "Acerca de este buscador",
     "p1_1": "Los Comisionados de la Ciudad de Filadelfia han aprobado ",

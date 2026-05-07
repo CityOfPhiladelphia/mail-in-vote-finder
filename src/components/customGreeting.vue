@@ -80,21 +80,10 @@ const getCounts = () => {
   <div
     class="custom-greeting content"
   >
-    <div class="exclamation-holder columns is-mobile">
-      <div class="column is-narrow padding-4 padding-top-8">
-        <font-awesome-icon
-          icon="exclamation-triangle"
-          class="fa-2x fa-icon-class"
-        />
-      </div>
-      <div class="column exclamation-details">
-        <div class="column padding-4">
-          {{ $t('introPage.exclamation') }} <a
-            target="_blank"
-            href="https://atlas.phila.gov/voting"
-          >atlas.phila.gov/voting</a>.
-        </div>
-      </div>
+    <div
+      class="normal-text"
+      v-html="$t('introPage.greeting')"
+    >
     </div>
 
     <div class="has-text-centered container">
@@ -109,6 +98,23 @@ const getCounts = () => {
         @click="$emit('view-map')"
         v-html="$t('app.viewMap')"
       />
+    </div>
+
+    <div class="exclamation-holder columns is-mobile">
+      <div class="column is-narrow padding-4 padding-top-8">
+        <font-awesome-icon
+          icon="exclamation-triangle"
+          class="fa-2x fa-icon-class"
+        />
+      </div>
+      <div class="column exclamation-details">
+        <div class="column padding-4 normal-text">
+          {{ $t('introPage.exclamation') }} <a
+            target="_blank"
+            href="https://atlas.phila.gov/voting"
+          >atlas.phila.gov/voting</a>.
+        </div>
+      </div>
     </div>
 
     <!-- sections that rely on data -->
@@ -189,7 +195,7 @@ h2 {
 }
 
 .custom-greeting {
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
   margin-left: 2rem;
   margin-right: 1rem;
@@ -244,6 +250,11 @@ h2 {
 .custom-ul {
   margin-left: 4rem;
   font-size: 14px;
+}
+
+.normal-text {
+  font-size: 14px;
+  margin-bottom: 1rem;
 }
 
 /*medium*/

@@ -44,12 +44,19 @@ const customComps = markRaw({
 import i18n from './i18n/i18n';
 console.log('main.js i18n:', i18n);
 
+import logoSrc from './assets/philadelphia-city-commissioners-logo-edit_6.png';
+
 let $config = {
   publicPath: import.meta.env.VITE_PUBLICPATH,
   i18n: i18n.i18n,
   app: {
     logoAlt: 'City of Philadelphia',
     type: 'votingSites',
+    logoSrc: logoSrc,
+    logoLink: 'none',
+    logoWidth: 300,
+    logoAlt: 'City of Philadelphia',
+    logoPaddingLeft: 10,
   },
   gtag: {
     category: 'rf-voting',
