@@ -57,6 +57,7 @@ let $config = {
     logoWidth: 300,
     logoAlt: 'City of Philadelphia',
     logoPaddingLeft: 10,
+    logoPaddingTop: 4,
   },
   gtag: {
     category: 'rf-voting',
