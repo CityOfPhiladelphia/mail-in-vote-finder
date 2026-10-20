@@ -7,7 +7,8 @@ export default {
   replaceOnSuccess: true,
   options: {
     params: {
-      sql: "select * from voting_sites where temporary_closure = 'FALSE' and site_approved = 'TRUE' order by site_type desc",
+      table: 'voting_sites',
+      where: "temporary_closure = 'FALSE' and site_approved = 'TRUE'",
       client_id: import.meta.env.VITE_DATABRIDGE_CLIENT_ID,
     },
     success: function(data) {
